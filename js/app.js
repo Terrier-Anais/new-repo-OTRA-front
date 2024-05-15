@@ -14,3 +14,23 @@ function showSlides() {
     setTimeout(showSlides, 5000); 
 }
 
+// script for the connection modal
+
+// script for the connection modal
+
+const modalConnection = document.querySelector('.modal_connection');
+const modalConnectionBtn = document.querySelector('#connection');
+const modalCloseBtn = document.querySelector('.modal_connection_close');
+const modalOverlayConnection = document.querySelector('.overlay_modal_trigger');
+
+modalConnectionBtn.addEventListener('click', toggleModal);
+modalCloseBtn.addEventListener('click', toggleModal);
+modalOverlayConnection.addEventListener('click', toggleModal);
+
+function toggleModal() {
+    modalConnection.classList.toggle('active');
+    console.log('toggle modal');
+};
+
+
+

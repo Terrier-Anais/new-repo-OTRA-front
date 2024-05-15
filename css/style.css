@@ -58,14 +58,14 @@ h1 {
   
 }
 
-#connexion {
+#connection {
     border: 2px solid black;
     padding: 0.5rem;
     border-radius: 1.5rem;
     background-color: #7EB3C8;
 }
 
-#inscription {
+#registration {
     border: 2px solid black;
     padding: 0.5rem;
     border-radius: 1.5rem;
@@ -74,13 +74,13 @@ h1 {
 
 }
 
-#connexion:hover{
+#connection:hover{
 
     background-color: #7E8EC8;
     cursor: pointer;
 }
 
-#inscription:hover{
+#registration:hover{
 
     background-color: #7E8EC8;
     cursor: pointer;
@@ -127,11 +127,17 @@ img {
 }
 
 .modal_connection {
+    display: none;
+}
+
+.modal_connection.active {
+    display:block;
     position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
 }
+
 
 .overlay_modal_trigger {
     position: absolute;
