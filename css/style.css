@@ -4,14 +4,15 @@
     font-family: "Sedan SC", serif;
     font-weight: 400;
     font-style: normal;
-    margin: 1rem;
+    padding: 1rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    background-color: #7ec5c8;
-
+    background: url(../pictures/passport\ 1.jpg) center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-header {
+.website_header {
     display: flex;
     justify-content: space-between;
     height: 75px;
@@ -77,4 +78,104 @@ h1 {
     cursor: pointer;
     
 
+}
+
+.trip-page {
+    padding-top:2rem;
+}
+
+.trip-page_header {
+    justify-content: space-between;
+    padding: 0rem 10rem;
+    display: flex;
+    justify-content: space-between;
+    border: black solid 0.2rem;
+    border-radius: 1rem;
+    padding: 1rem
+}
+
+.trip-page_menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+}
+
+#menu_choice {
+    border-radius: 1rem;
+    border: black solid 0.15rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer
+}
+
+h2{
+    font-size: 1.5rem;
+    text-align: center;
+    border: black solid 0.15rem;
+    padding: 0.4rem 8rem;
+    border-radius: 1rem;
+}
+
+.trip-page_classement {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+}
+
+#classement_choice {
+    border-radius: 1rem;
+    border: black solid 0.15rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0rem 1rem;
+    background-color: transparent;
+    cursor: pointer
+}
+
+option {
+    box-shadow: 0rem 0.8rem 1rem 0rem rgba(0,0,0,0.2);
+    background-color: #7EB3C8;
+}
+
+.container {
+    display:flex;
+    flex-wrap:wrap ;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    width: 95%;
+    align-items: center;
+}
+
+.trip_container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 1rem;
+    margin: 1rem 0rem;
+    border: black solid 0.15rem;
+    border-radius: 1rem;
+
+}
+
+.trip_header {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0.5rem;
+    justify-content: space-between;
+}
+
+h3 {font-size: 1.2rem;}
+
+.trip_main-photo {
+    height: 80%;
+    width: 100%;
+}
+
+.fa-plus {
+    font-size: 8rem;
+}
+
+.fa-plus:hover {
+    cursor: pointer;
 }
