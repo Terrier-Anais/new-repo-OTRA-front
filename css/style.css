@@ -4,10 +4,13 @@
     font-family: "Sedan SC", serif;
     font-weight: 400;
     font-style: normal;
-    margin: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
     background-color: #7ec5c8;
+    background: url(../pictures/passport\ 1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -15,6 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     height: 75px;
+    border: #7E8EC8 solid 3px;
     
 }
 
@@ -77,4 +81,44 @@ h1 {
     cursor: pointer;
     
 
+}
+
+.home_container {
+    
+    margin-top: 1rem;
+}
+
+
+.home_slideshow {
+    position: relative;
+    max-width: 70%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Animation fade */
+.fade {
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+@keyframes fade {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+
+.introduction {
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
 }
