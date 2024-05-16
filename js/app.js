@@ -16,7 +16,6 @@ function showSlides() {
 
 // script for the connection modal
 
-// script for the connection modal
 
 const modalConnection = document.querySelector('.modal_connection');
 const modalConnectionBtn = document.querySelector('#connection');
