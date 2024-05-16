@@ -4,45 +4,34 @@
     font-family: "Sedan SC", serif;
     font-weight: 400;
     font-style: normal;
-    padding: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    background-color: #7ec5c8;
     background: url(../pictures/passport\ 1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .website_header {
     display: flex;
     justify-content: space-between;
     height: 50px;
-    border: #7E8EC8 solid 3px;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;  
 }
 
 h1 {
     font-size: 2.5rem;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
 .right {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
+
 .left {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .left img {
@@ -54,172 +43,5 @@ h1 {
 
 .right span{
     margin-left: 1rem;
-    margin-right: 1rem;
-  
-}
-
-#connexion {
-    border: 2px solid black;
-    padding: 0.5rem;
-    border-radius: 1.5rem;
-    background-color: #7EB3C8;
-}
-
-#inscription {
-    border: 2px solid black;
-    padding: 0.5rem;
-    border-radius: 1.5rem;
-    background-color: #7EB3C8;
-    
-
-}
-
-#connexion:hover{
-
-    background-color: #7E8EC8;
-    cursor: pointer;
-}
-
-#inscription:hover{
-
-    background-color: #7E8EC8;
-    cursor: pointer;
-}
-
-.home_container {
-    margin-top: 1rem;
-}
-
-
-.home_slideshow {
-    position: relative;
-    max-width: 60%;
-    margin: auto;
-}
-
-.mySlides {
-    display: none;
-}
-
-img {
-    vertical-align: middle;
-}
-
-/* Animation fade */
-.fade {
-    animation-name: fade;
-    animation-duration: 3s;
-}
-
-@keyframes fade {
-    from { opacity: 0.8; }
-    to { opacity: 1; }
-}
-
-
-.introduction {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
-    text-align: center;
-}
-
-.trip-page {
-    padding-top:2rem;
-}
-
-.trip-page_header {
-    justify-content: space-between;
-    padding: 0rem 10rem;
-    display: flex;
-    justify-content: space-between;
-    border: #7E8EC8 solid 0.2rem;
-    border-radius: 1rem;
-    padding: 1rem
-}
-
-.trip-page_menu {
-    display: flex;
-    flex-direction: column;
-    padding-top: 0.5rem;
-}
-
-#menu_choice {
-    border-radius: 1rem;
-    border: #7E8EC8 solid 0.15rem;
-    text-align: center;
-    font-size: 1rem;
-    background-color: transparent;
-    cursor: pointer
-}
-
-h2{
-    font-size: 1.5rem;
-    text-align: center;
-    border: #7E8EC8 solid 0.15rem;
-    padding: 0.4rem 8rem;
-    border-radius: 1rem;
-}
-
-.trip-page_classement {
-    display: flex;
-    flex-direction: column;
-    padding-top: 0.5rem;
-}
-
-#classement_choice {
-    border-radius: 1rem;
-    border: #7E8EC8 solid 0.15rem;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0rem 1rem;
-    background-color: transparent;
-    cursor: pointer
-}
-
-option {
-    box-shadow: 0rem 0.8rem 1rem 0rem rgba(0,0,0,0.2);
-    background-color: #7EB3C8;
-}
-
-.roadmap_container {
-    display:flex;
-    flex-wrap:wrap ;
-    justify-content: space-between;
-    padding: 2rem 2rem;
-    width: 95%;
-    align-items: center;
-}
-
-.trip_container {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    padding: 1rem;
-    margin: 1rem 0rem;
-    border: #7E8EC8 solid 0.15rem;
-    border-radius: 1rem;
-
-}
-
-.trip_header {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem 0.5rem;
-    justify-content: space-between;
-}
-
-h3 {font-size: 1.2rem;}
-
-.trip_main-photo {
-    height: 80%;
-    width: 100%;
-}
-
-.fa-plus {
-    font-size: 8rem;
-}
-
-.fa-plus:hover {
-    cursor: pointer;
+    margin-right: 1rem; 
 }

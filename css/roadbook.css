@@ -1,0 +1,112 @@
+.trip-page {
+    margin: 1.5rem;
+}
+
+.trip-page_header {
+    justify-content: space-evenly;
+    padding: 1rem 10rem;
+    display: flex;
+    border: #7E8EC8 solid 0.2rem;
+    border-radius: 1rem;
+    margin: 2rem;
+}
+
+.trip-page_menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+}
+
+#menu_choice {
+    border-radius: 1rem;
+    border: #7E8EC8 solid 0.15rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: "Sedan SC", serif;
+}
+
+h2{
+    font-size: 1.5rem;
+    text-align: center;
+    border: #7E8EC8 solid 0.15rem;
+    padding: 0.4rem 8rem;
+    border-radius: 1rem;
+}
+
+.trip-page_classement {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+}
+
+#classement_choice {
+    border-radius: 1rem;
+    border: #7E8EC8 solid 0.15rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0rem 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: "Sedan SC", serif;
+}
+
+option {
+    box-shadow: 0rem 0.8rem 1rem 0rem rgba(0,0,0,0.2);
+    background-color: #ecebea;
+    text-align: center;
+}
+
+.roadbook_container {
+    display:flex;
+    flex-wrap:wrap ;
+    justify-content: space-evenly;
+    padding: 1rem 1rem;
+    align-items: stretch;
+}
+
+.trip_add {
+    margin: 1rem 0rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+}
+
+.fa-plus {
+    font-size: 5rem;  
+}
+
+.fa-plus:hover {
+    cursor: pointer;
+}
+
+.trip_container {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 1rem;
+    margin: 1rem 0rem;
+    border: #7E8EC8 solid 0.15rem;
+    border-radius: 1rem;
+
+}
+
+.trip_header {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0.5rem;
+    justify-content: space-between;
+}
+
+h3 {font-size: 1.2rem;}
+
+.trip_main-photo {
+    height: 80%;
+    width: 100%;
+}
+
+
+
