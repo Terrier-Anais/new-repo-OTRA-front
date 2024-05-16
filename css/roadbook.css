@@ -27,7 +27,7 @@
     font-family: "Sedan SC", serif;
 }
 
-h2{
+.main_title{
     font-size: 1.5rem;
     text-align: center;
     border: #7E8EC8 solid 0.15rem;
@@ -73,6 +73,7 @@ option {
     justify-content: center;
     align-items: center;
     flex: auto;
+    flex-direction: column;
 }
 
 .fa-plus {
@@ -91,7 +92,6 @@ option {
     margin: 1rem 0rem;
     border: #7E8EC8 solid 0.15rem;
     border-radius: 1rem;
-
 }
 
 .trip_header {
@@ -101,11 +101,82 @@ option {
     justify-content: space-between;
 }
 
-h3 {font-size: 1.2rem;}
+h3 {
+    font-size: 1.2rem;
+}
+
+.trip_update:hover {
+    cursor: pointer;
+}
 
 .trip_main-photo {
     height: 80%;
     width: 100%;
+}
+
+.modal_new-trip {
+    display: none  
+}
+
+.modal_new-trip.active {
+    display:block;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.overlay_modal_trigger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+}
+
+.modal_content_new-trip {
+    position: absolute;
+    max-width: 100vw;
+    min-width: 100vh;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal_content_new-trip h2{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.modal_content_new-trip form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.modal_content_new-trip form label{
+    margin-bottom: 0.5rem;
+}
+
+.modal_content_new-trip form input{
+    margin-bottom: 0.5rem;
+}
+
+.modal_new-trip_close {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #ff365e;
+    color: white;
 }
 
 

@@ -11,6 +11,9 @@
 
 </head>
 <body>
+
+<!--Header de la page web-->
+
     <header class="website_header">
         <div class="left">
             <img src="../pictures/Logo redimensionné.jpg" alt="logo de On the road again">
@@ -21,8 +24,11 @@
         </div>
     </header>
 
+<!--Contenu de la page roadbook-->
     <main class="trip-page">
+        <!--Header du contenu-->
         <header class="trip-page_header">
+            <!--Menu déroulant-->
             <div class="trip-page_menu">
                 <select id="menu_choice" onchange="redirection()">
                     <option value="" hidden>Menu</option>
@@ -31,11 +37,11 @@
                     <option value="home.html">Déconnexion</option>
                 </select>
             </div>
-
+            <!--Titre -->
             <div class="trip-page_title">
-                <h2>Carnet de voyage</h2>
+                <h2 class="main_title">Carnet de voyage</h2>
             </div>
-
+            <!--Système de classement-->
             <div class="trip-page_classement">
                 <select id="classement_choice">
                     <option value="" hidden>Classer par</option>
@@ -46,16 +52,17 @@
             </div>   
         </header>
 
-        
-        
+        <!--Bloc contenant les voyages-->
         <section class="roadbook_container">
-            
+            <!--Bouton d'ajout d'un nouveau voyage-->
             <div class=" trip_container">
                 <div class="trip_add">
+                    <h3>Ajouter un voyage</h3>
                     <i class="fa-solid fa-plus"></i>
                 </div>
             </div>
 
+            <!--Card contenant un voyage-->
             <div class=" trip_container">
                 <header class="trip_header">
                 <div class="trip_title">
@@ -88,6 +95,7 @@
                 </div>
             </div>
 
+            <!--Card contenant un voyage-->
             <div class=" trip_container">
                 <header class="trip_header">
                 <div class="trip_title">
@@ -120,6 +128,7 @@
                 </div>
             </div>
 
+            <!--Card contenant un voyage-->
             <div class=" trip_container">
                 <header class="trip_header">
                 <div class="trip_title">
@@ -152,6 +161,7 @@
                 </div>
             </div>
 
+            <!--Card contenant un voyage-->
             <div class=" trip_container">
                 <header class="trip_header">
                 <div class="trip_title">
@@ -184,6 +194,7 @@
                 </div>
             </div>
 
+            <!--Card contenant un voyage-->
             <div class=" trip_container">
                 <header class="trip_header">
                 <div class="trip_title">
@@ -216,6 +227,7 @@
                 </div>
             </div>
 
+            <!--Card contenant un voyage-->
             <div class=" trip_container">
                 <header class="trip_header">
                 <div class="trip_title">
@@ -248,7 +260,28 @@
                 </div>
             </div>
 
-            </section>
+            <!--Création de la modale d'ajout d'un nouveau voyage-->
+            <div class="modal_new-trip">
+                <div class="overlay_modal_trigger"></div>
+                <div class="modal_content_new-trip">
+                    <span class="modal_new-trip_close">X</span>
+                    <h2>Ajouter un voyage</h2>
+                    <form action="" method="post">
+                        <label for="title">Titre du voyage</label>
+                        <input type="text" name="trip_title" id="new-trip_title" required>
+                        <label for="photo">Ajouter une photo</label>
+                        <input type="file" name="trip_photo" id="new-trip_photo">
+                        <label for="comment">Ajouter un commentaire</label>
+                        <input type="text" name="trip_comment" id="new-trip_comment">
+                        <label for="date-start">Date de début du séjour</label>
+                        <input type="date" name="trip_date-start" id="new-trip_date-start">
+                        <label for="date-end">Date de fin du séjour</label>
+                        <input type="date" name="trip_date-end" id="new-trip_date-end">
+                        <input type="submit" value="Ajouter">
+                    </form>
+                </div>
+            </div> 
+        </section>
     </main>
 </body>
 </html>
