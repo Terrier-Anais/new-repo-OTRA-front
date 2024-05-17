@@ -9,6 +9,10 @@
     border: #7E8EC8 solid 0.2rem;
     border-radius: 1rem;
     margin: 2rem;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .trip-page_menu {
@@ -25,6 +29,7 @@
     background-color: transparent;
     cursor: pointer;
     font-family: "Sedan SC", serif;
+    margin-right: 2rem;
 }
 
 .main_title{
@@ -50,6 +55,7 @@
     background-color: transparent;
     cursor: pointer;
     font-family: "Sedan SC", serif;
+    margin-left: 2rem;
 }
 
 option {
@@ -94,9 +100,10 @@ option {
     margin: 1rem 0rem;
     border: #7E8EC8 solid 0.15rem;
     border-radius: 1rem;
+    background-color:rgba(0255,255,255,0.2)
 }
 
-.trip_header {
+.trip-card_header {
     display: flex;
     flex-direction: row;
     padding: 1rem 0.5rem;
