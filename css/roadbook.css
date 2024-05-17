@@ -100,7 +100,7 @@ option {
     margin: 1rem 0rem;
     border: #7E8EC8 solid 0.15rem;
     border-radius: 1rem;
-    background-color:rgba(0255,255,255,0.2)
+    background-color:rgba(0255,255,255,0.5)
 }
 
 .trip-card_header {
