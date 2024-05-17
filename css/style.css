@@ -11,6 +11,7 @@
 }
 
 header {
+    
     display: flex;
     justify-content: space-between;
     height: 50px;     
@@ -76,5 +77,31 @@ h1 {
 
     background-color: #7E8EC8;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header .right {
+        display: none;
+    }
+
+    header .left {
+        width: 100%;
+    }
+
+    .left img {
+        display:flex;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+
+
 }
 
