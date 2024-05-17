@@ -11,7 +11,8 @@
     <!--Ajout d'icone fontawesome-->
     <script src="https://kit.fontawesome.com/8fabed898f.js" crossorigin="anonymous"></script>
     <!--Ajout du JS-->
-    <script defer src="../js/roadbook.js"></script>
+    <script defer src="../js/new-trip.js"></script>
+    <script defer src="../js/update-trip.js"></script>
 </head>
 
 <body>
@@ -71,7 +72,7 @@
                         <h3>Titre du voyage</h3>
                     </div>
                     <div class="trip_update">
-                        <i class="fa-solid fa-pen"></i>
+                        <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
                 <div class="trip_photo">
@@ -104,7 +105,7 @@
                         <h3>Titre du voyage</h3>
                     </div>
                     <div class="trip_update">
-                        <i class="fa-solid fa-pen"></i>
+                        <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
                 <div class="trip_photo">
@@ -137,7 +138,7 @@
                         <h3>Titre du voyage</h3>
                     </div>
                     <div class="trip_update">
-                        <i class="fa-solid fa-pen"></i>
+                        <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
                 <div class="trip_photo">
@@ -170,7 +171,7 @@
                         <h3>Titre du voyage</h3>
                     </div>
                     <div class="trip_update">
-                        <i class="fa-solid fa-pen"></i>
+                        <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
                 <div class="trip_photo">
@@ -203,7 +204,7 @@
                         <h3>Titre du voyage</h3>
                     </div>
                     <div class="trip_update">
-                        <i class="fa-solid fa-pen"></i>
+                        <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
                 <div class="trip_photo">
@@ -236,7 +237,7 @@
                         <h3>Titre du voyage</h3>
                     </div>
                     <div class="trip_update">
-                        <i class="fa-solid fa-pen"></i>
+                        <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
                 <div class="trip_photo">
@@ -305,6 +306,53 @@
                             <input type="radio" name="note" id="note-5" value="5">
                         </div>
                         <input type="submit" value="Ajouter">
+                    </form>
+                </div>
+            </div> 
+
+             <!--Création de la modale de modification d'un voyage-->
+             <div class="modal_update-trip">
+                <div class="overlay_modal_trigger"></div>
+                <div class="modal_content_update-trip">
+                    <span class="modal_update-trip_close">X</span>
+                    <h2>Modifier mon voyage</h2>
+                    
+                    <form action="" method="post">
+                        
+                        <label for="title">Titre</label>
+                        <input type="text" name="trip_title" id="update-trip_title" required>
+                        
+                        <label for="photo">Photo</label>
+                        <input type="file" name="trip_photo" id="update-trip_photo">
+                        
+                        <label for="comment">Commentaire</label>
+                        <input type="text" name="trip_comment" id="update-trip_comment">
+                        
+                        <label for="date-start">Date de début du séjour</label>
+                        <input type="date" name="trip_date-start" id="update-trip_date-start">
+                        
+                        <label for="date-end">Date de fin du séjour</label>
+                        <input type="date" name="trip_date-end" id="update-trip_date-end">
+                        
+                        <label for="note">Note</label>
+
+                         <div class="update-trip_note">
+                            <label for="note-1"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="note" id="note-1" value="1">
+                            
+                            <label for="note-2"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="note" id="note-2" value="2">
+                            
+                            <label for="note-3"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="note" id="note-3" value="3">
+                            
+                            <label for="note-4"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="note" id="note-4" value="4">
+                            
+                            <label for="note-5"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="note" id="note-5" value="5">
+                        </div>
+                        <input type="submit" value="Modifier">
                     </form>
                 </div>
             </div> 

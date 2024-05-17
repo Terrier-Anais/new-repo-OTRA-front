@@ -6,11 +6,11 @@ const modalNewTripBtn = document.querySelector('#add-new-trip');
 const modalNewTripCloseBtn = document.querySelector('.modal_new-trip_close');
 const modalOverlayConnection = document.querySelector('.overlay_modal_trigger');
 
-modalNewTripBtn.addEventListener('click', toggleModal);
-modalNewTripCloseBtn.addEventListener('click', toggleModal);
-modalOverlayConnection.addEventListener('click', toggleModal);
+modalNewTripBtn.addEventListener('click', toggleNewTripModal);
+modalNewTripCloseBtn.addEventListener('click', toggleNewTripModal);
+modalOverlayConnection.addEventListener('click', toggleNewTripModal);
 
-function toggleModal() {
+function toggleNewTripModal() {
     modalNewTrip.classList.toggle('active');
     console.log('toggle modal');
 };
