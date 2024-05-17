@@ -1,13 +1,14 @@
 .login-form {
   width: 400px;
   height: 400px;
-  margin: 50px auto;
+  margin: 50px;
   font-size: 20px;
   font-weight: bold;
-  border: 3px solid #7e8ec8;
+  border: 1.5px solid #7e8ec8;
   border-radius: 1rem;
   text-align: center;
   padding-top: 30px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 h2 {
@@ -19,6 +20,12 @@ h2 {
 .form-group {
   margin: 40px;
   font-weight: bold;
+}
+
+a {
+  text-decoration: underline;
+  color: black;
+  padding-bottom: 10px;
 }
 
 input {
@@ -36,6 +43,36 @@ button {
   margin: 10px;
   background-color: #7eb3c8;
   color: black;
-  border: none;
   border-radius: 1rem;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #7e8ec8;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding-top: 5rem;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-container {
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-right: 3px solid #7e8ec8;
 }
