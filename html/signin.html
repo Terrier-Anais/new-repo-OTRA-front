@@ -10,7 +10,7 @@
     <script defer src="../js/app.js"></script>
 </head>
 <header>
-    <div class="left"><img src="../img/Logo redimensionné.jpg" alt="logo de On the road again">
+    <div class="left"><img src="../pictures/Logo redimensionné.jpg" alt="logo de On the road again">
         <H1>On the road again</H1>
     </div>
     <div class="right">
@@ -22,23 +22,23 @@
     <div class="container_signin_box">
         <div class="signin_box">
             <div class="signin_picture">
-                <img src="../img/pexels-vanessa-garcia-6324232.jpg" alt="une photo d'un couple qui se prend en selfie">
+                <img src="../pictures/pexels-vanessa-garcia-6324232.jpg" alt="une photo d'un couple qui se prend en selfie">
         </div>
         <div class="signin_form">
             <h2>Inscription</h2>
-            <form action="../php/signin.php" method="post">
+            <form action="/signup" method="post">
                 <label for="email">Adresse mail</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" placeholder="Votre adresse mail" id="email" required>
                 <label for="surname">Nom</label>
-                <input type="text" name="surname" id="surname" required>
+                <input type="text" name="surname" placeholder="Votre nom" id="surname" required>
                 <label for="name">Prénom</label>
-                <input type="text" name="name" id="name" required>
+                <input type="text" name="name" placeholder="Votre prénom" id="name" required>
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" name="username" id="username" required>
+                <input type="text" name="username" placeholder="Votre nom d'utilisateur" id="username" required>
                 <label for="password">Mot de passe</label>
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" placeholder="Choisissez votre mot de passe" id="password" required>
                 <label for="confirmation">Confirmation du mot de passe</label>
-                <input type="confirmation" name="confirmation" id="confirmation" required>
+                <input type="confirmation" name="confirmation" placeholder="Ressaisissez votre mot de passe" id="confirmation" required>
                 <input type="submit" value="S'inscrire">
             </form>
         </div>    

@@ -1,31 +1,3 @@
-#connection {
-    border: 2px solid black;
-    padding: 0.5rem;
-    border-radius: 1.5rem;
-    background-color: #7EB3C8;
-}
-
-#registration {
-    border: 2px solid black;
-    padding: 0.5rem;
-    border-radius: 1.5rem;
-    background-color: #7EB3C8;
-    
-
-}
-
-#connection:hover{
-
-    background-color: #7E8EC8;
-    cursor: pointer;
-}
-
-#registration:hover{
-
-    background-color: #7E8EC8;
-    cursor: pointer;
-}
-
 .home_container {
     
     margin-top: 1rem;
@@ -34,7 +6,7 @@
 
 .home_slideshow {
     position: relative;
-    max-width: 60%;
+    max-width: 50%;
     margin: auto;
 }
 
