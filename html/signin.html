@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On the road again</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/signin.css">
+    <script defer src="../js/app.js"></script>
+</head>
+<header>
+    <div class="left"><img src="../img/Logo redimensionné.jpg" alt="logo de On the road again">
+        <H1>On the road again</H1>
+    </div>
+    <div class="right">
+        <span id="connection">Se connecter</span>
+        <span id="registration">S'inscrire</span>
+    </div>    
+</header>
+<body>
+    <div class="container_signin_box">
+        <div class="signin_box">
+            <div class="signin_picture">
+                <img src="../img/pexels-vanessa-garcia-6324232.jpg" alt="une photo d'un couple qui se prend en selfie">
+        </div>
+        <div class="signin_form">
+            <h2>Inscription</h2>
+            <form action="../php/signin.php" method="post">
+                <label for="email">Adresse mail</label>
+                <input type="email" name="email" id="email" required>
+                <label for="surname">Nom</label>
+                <input type="text" name="surname" id="surname" required>
+                <label for="name">Prénom</label>
+                <input type="text" name="name" id="name" required>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" name="username" id="username" required>
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" required>
+                <label for="confirmation">Confirmation du mot de passe</label>
+                <input type="confirmation" name="confirmation" id="confirmation" required>
+                <input type="submit" value="S'inscrire">
+            </form>
+        </div>    
+    </div>
+    
+</body>
+</html>

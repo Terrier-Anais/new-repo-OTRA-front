@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap');
+
+
+.container_signin_box {
+    display: flex;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem; 
+    padding-top: 4rem;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.signin_box {
+    display: flex;
+    width: 100%;
+    flex: row;
+
+}
+
+.signin_picture{    
+    flex: 1;
+}
+
+.signin_picture img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.signin_form {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;      
+    background-color: rgba(255, 255, 255, 0.6);
+    
+}
+
+.signin_form h2 {
+    text-align: center;
+}
+
+.signin_form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin_form label, 
+.signin_form input {
+    margin-bottom: 15px;
+}
+
+.signin_form input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #7EB3C8;
+    border: 2px solid black;
+    border-radius: 1.5rem;
+    color: white;
+    cursor: pointer;
+    color: black;
+    font-family: "Sedan SC", serif;
+
+}
+
+.signin_form input[type="submit"]:hover {
+    transition-duration: 1s;
+    background-color: #7E8EC8;
+}
+
+@media (max-width: 768px) {
+    .signin_picture {
+        display: none; 
+    }
+
+    .container_signin_box {
+        max-width: 90%; 
+        padding: 1rem;
+        padding-left: 4rem;
+        padding-right: 4rem; 
+        padding-top: 3rem;
+        margin: 0 auto;
+    }
+
+    .signin_form {
+        max-width: 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header .right {
+        display: none;
+    }
+
+    header .left {
+        width: 100%;
+    }
+
+    .left img {
+        display:flex;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+
+
+}
