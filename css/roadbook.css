@@ -92,7 +92,7 @@ option {
     cursor: pointer;
 }
 
-.trip_container {
+.trip-card_content {
     display: flex;
     flex-direction: column;
     width: 20%;
@@ -114,7 +114,7 @@ h3 {
     font-size: 1.2rem;
 }
 
-.trip_update:hover {
+.trip-card_update:hover {
     cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ h3 {
     font-size: 1.2rem;
 }
 
-.trip_main-photo {
+.trip_photo {
     height: 80%;
     width: 100%;
 }

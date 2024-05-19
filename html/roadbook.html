@@ -58,7 +58,7 @@
         <!--Bloc contenant les voyages-->
         <section class="roadbook_container">
             <!--Bouton d'ajout d'un nouveau voyage-->
-            <div class="trip_container">
+            <div class="trip-card_content">
                 <div class="trip_add">
                     <h3>Ajouter un voyage</h3>
                     <button id="add-new-trip" type="button">+</button>
@@ -66,35 +66,35 @@
             </div>
             
             <!--Card contenant un voyage-->
-            <div class="trip_container">
+            <div class="trip-card_content">
                 <header class="trip-card_header">
-                    <div class="trip_title">
-                        <h3>Titre du voyage</h3>
+                    <div class="trip-card_title">
+                        <h3 class="trip_title">Titre du voyage</h3>
                     </div>
-                    <div class="trip_update">
+                    <div class="trip-card_update">
                         <button id="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
                     </div>
                 </header>
-                <div class="trip_photo">
-                    <img class="trip_main-photo" src="../pictures/winding-road-1556177_1280.jpg" alt="Photo du voyage">
+                <div class="trip-card_photo">
+                    <img class="trip_photo" src="../pictures/winding-road-1556177_1280.jpg" alt="Photo du voyage">
                 </div>  
-                <div class="Commentaire">
-                    <p>Commentaire</p>
+                <div class="trip-card_comment">
+                    <p class="trip_comment">Commentaire</p>
                 </div>
-                <div class="Drapeau">
+                <div class="trip-card_flag">
                     <p>Drapeau</p>
                 </div>
-                <div class="Date-de-début">
-                    <p>Date de début</p>
+                <div class="trip-card_start-date">
+                    <p class="trip_date-start">Date de début</p>
                 </div>
-                <div class="Date-de-fin">
-                    <p>Date de fin</p>
+                <div class="trip-card_start-date">
+                    <p class="trip_date-end">Date de fin</p>
                 </div>
-                <div class="Durée">
+                <div class="trip-card_duration">
                     <p>Durée</p>
                 </div>
-                <div class="Note">
-                    <p>Note</p>
+                <div class="trip-card_note">
+                    <p class="trip_note">Note</p>
                 </div>
             </div>
             
@@ -106,7 +106,7 @@
                     <span class="modal_new-trip_close">X</span>
                     <h2>Ajouter un voyage</h2>
                     
-                    <form action="" method="post">
+                    <form id="new-trip_form" method="post">
                         
                         <label for="title">Titre du voyage</label>
                         <input type="text" name="trip_title" id="new-trip_title" required>
@@ -124,8 +124,8 @@
                         <input type="date" name="trip_date-end" id="new-trip_date-end">
                         
                         <label for="note">Note</label>
-
-                         <div class="new-trip_note">
+                        
+                        <div id="new-trip_note">
                             <label for="note-1"><i class="fa-solid fa-star"></i></label>
                             <input type="radio" name="note" id="note-1" value="1">
                             
@@ -141,13 +141,13 @@
                             <label for="note-5"><i class="fa-solid fa-star"></i></label>
                             <input type="radio" name="note" id="note-5" value="5">
                         </div>
-                        <input type="submit" value="Ajouter">
+                        <input type="submit" value="Ajouter" id="add-trip_button">
                     </form>
                 </div>
             </div> 
-
-             <!--Création de la modale de modification d'un voyage-->
-             <div class="modal_update-trip">
+            
+            <!--Création de la modale de modification d'un voyage-->
+            <div class="modal_update-trip">
                 <div class="overlay_modal_trigger"></div>
                 <div class="modal_content_update-trip">
                     <span class="modal_update-trip_close">X</span>
@@ -171,8 +171,8 @@
                         <input type="date" name="trip_date-end" id="update-trip_date-end">
                         
                         <label for="note">Note</label>
-
-                         <div class="update-trip_note">
+                        
+                        <div class="update-trip_note">
                             <label for="note-1"><i class="fa-solid fa-star"></i></label>
                             <input type="radio" name="note" id="note-1" value="1">
                             
@@ -195,5 +195,5 @@
         </section>
         
         
-</body>
-</html>
+    </body>
+    </html>
