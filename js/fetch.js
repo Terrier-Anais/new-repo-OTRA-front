@@ -1,4 +1,6 @@
-document.getElementById('signupForm').addEventListener('submit', function(event) {
+const form = document.getElementById('signinForm');
+
+form.addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
     // Récupère les valeurs des champs du formulaire
@@ -8,6 +10,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const confirmation = document.getElementById('confirmation').value;
+    console.log(email, lastname, firstname, username, password, confirmation);
 
     // Crée un objet de données pour la requête
     const formData = {
@@ -18,6 +21,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         password: password,
         confirmation: confirmation
     };
+    console.log(formData);
 
     
     axios.post('http://localhost:3000/api/signup', formData)
