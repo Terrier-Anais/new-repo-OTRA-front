@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/signin.css">
-    <script defer src="../js/app.js"></script>
+    <script defer src="../js/fetch.js"></script>
 </head>
 <header>
     <div class="left"><img src="../pictures/Logo redimensionné.jpg" alt="logo de On the road again">
@@ -26,15 +26,15 @@
         </div>
         <div class="signin_form">
             <h2>Inscription</h2>
-            <form action="/signup" method="post">
+            <form id="signupForm" action="http://localhost:3000/api/signup" method="post">
                 <label for="email">Adresse mail</label>
                 <input type="email" name="email" placeholder="Votre adresse mail" id="email" required>
                 <label for="surname">Nom</label>
-                <input type="text" name="surname" placeholder="Votre nom" id="surname" required>
+                <input type="text" name="lastname" placeholder="Votre nom" id="surname" required>
                 <label for="name">Prénom</label>
-                <input type="text" name="name" placeholder="Votre prénom" id="name" required>
+                <input type="text" name="firstname" placeholder="Votre prénom" id="name" required>
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" name="username" placeholder="Votre nom d'utilisateur" id="username" required>
+                <input type="text" name="pseudo" placeholder="Votre nom d'utilisateur" id="username" required>
                 <label for="password">Mot de passe</label>
                 <input type="password" name="password" placeholder="Choisissez votre mot de passe" id="password" required>
                 <label for="confirmation">Confirmation du mot de passe</label>

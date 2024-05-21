@@ -102,3 +102,29 @@ img {
     background-color: #ff365e;
     color: white;
 }
+
+@media (max-width: 768px) {
+    header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header .right {
+        display: none;
+    }
+
+    header .left {
+        width: 100%;
+    }
+
+    .left img {
+        display:flex;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+
+
+}
