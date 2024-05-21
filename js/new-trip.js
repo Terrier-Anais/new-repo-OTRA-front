@@ -78,8 +78,6 @@ newTripForm.addEventListener("submit", (event) => {
   const newCard = createCard(newTripTitle, newTripPhoto, newTripComment, newTripDateStart, newTripDateEnd, newTripNote);
   const roadbookSection = document.querySelector('.roadbook_container');
   roadbookSection.appendChild(newCard)
-  const modalNewTripSubmitBtn = document.querySelector('#add-trip_button');
-  modalNewTripSubmitBtn.addEventListener('click', toggleNewTripModal);
 })
 
 
