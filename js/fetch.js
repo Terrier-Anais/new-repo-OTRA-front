@@ -1,3 +1,5 @@
+
+
 const form = document.getElementById('signinForm');
 
 form.addEventListener('submit', function(event) {
@@ -9,17 +11,17 @@ form.addEventListener('submit', function(event) {
     const firstname = document.getElementById('name').value;
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    const confirmation = document.getElementById('confirmation').value;
-    console.log(email, lastname, firstname, username, password, confirmation);
+    // const confirmation = document.getElementById('confirmation').value;
+    console.log(email, lastname, firstname, username, password);
 
     // Crée un objet de données pour la requête
     const formData = {
         email: email,
         lastname: lastname,
         firstname: firstname,
-        username: username,
+        pseudo: username,
         password: password,
-        confirmation: confirmation
+        // confirmation: confirmation
     };
     console.log(formData);
 
@@ -28,9 +30,26 @@ form.addEventListener('submit', function(event) {
         .then(function(response) {
             console.log('Succès:', response.data);
             alert('Inscription réussie !');
+            
         })
         .catch(function(error) {
             console.error('Erreur:', error);
             alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+            
         });
 });
+
+// http://localhost:3000/api/me/trips
+
+// test recup trips sa fonction
+
+
+
+// axios.get('http://localhost:3000/api/me/trips')
+//     .then(function(response) {
+//         console.log('Succès:', response.data);      
+//     })
+//     .catch(function(error) {
+//         console.error('Erreur:', error);
+//     });
+
