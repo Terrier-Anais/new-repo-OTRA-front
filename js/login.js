@@ -22,6 +22,7 @@ form.addEventListener('submit', function(event) {
         .then(function(response) {
             console.log('Succès:', response.data);
             alert('Inscription réussie !');
+            window.location.href = "roadbook.html";
             
         })
         .catch(function(error) {
