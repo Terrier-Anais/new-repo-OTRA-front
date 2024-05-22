@@ -22,7 +22,7 @@ form.addEventListener('submit', function(event) {
         .then(function(response) {
             console.log('Succès:', response.data);
             alert('Inscription réussie !');
-            window.location.href = "roadbook.html";
+            // window.location.href = "roadbook.html";
             
         })
         .catch(function(error) {
@@ -31,3 +31,11 @@ form.addEventListener('submit', function(event) {
             
         });
 });
+
+axios.get('http://localhost:3000/api/cookie/')
+    .then(function(response) {
+        console.log('Succès:', response.data);        
+    })
+    .catch(function(error) {
+        console.error('Erreur:', error);
+    });

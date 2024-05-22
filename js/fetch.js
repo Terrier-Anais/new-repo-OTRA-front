@@ -39,6 +39,8 @@ form.addEventListener('submit', function(event) {
         });
 });
 
+
+
 // http://localhost:3000/api/me/trips
 
 // test recup trips sa fonction
