@@ -103,13 +103,17 @@ newTripForm.addEventListener("submit", newTripForm.reset);
 
 // script for the update trip modal
 const modalUpdateTrip = document.querySelector('.modal_update-trip');
-const modalUpdateTripBtn = document.querySelector('.update-trip_button');
 const modalUpdateTripCloseBtn = document.querySelector('.modal_update-trip_close');
-modalUpdateTripBtn.addEventListener('click', toggleUpdateTripModal);
 modalUpdateTripCloseBtn.addEventListener('click', toggleUpdateTripModal);
 modalOverlayConnection.addEventListener('click', toggleUpdateTripModal);
+
 function toggleUpdateTripModal() {
-    modalUpdateTrip.classList.toggle('active');
-    console.log('toggle modal');
+  modalUpdateTrip.classList.toggle('active');
 }
 
+// Ajout de l'écouteur d'événements pour le bouton update-trip_button
+document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+  if (event.target.closest('.update-trip_button')) {
+    toggleUpdateTripModal();
+  }
+});
