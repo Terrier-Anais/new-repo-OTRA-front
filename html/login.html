@@ -4,44 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>On the road again</title>
+
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/login.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="../js/login.js"></script>
+
   </head>
   <header>
-    <div class="left">
+    <div class="left"> <!--left est la classe qui permet de positionner les éléments à gauche-->
       <img
+
         src="../pictures/logo-OTRA-2.jpg"
+
         alt="logo de On the road again"
       />
       <h1>On the road again</h1>
     </div>
-    <div class="right">
+    <div class="right"> <!--right est la classe qui permet de positionner les éléments à droite-->
       <span id="connection">Se connecter</span>
       <span id="registration">S'inscrire</span>
     </div>
   </header>
-  <div class="main-container">
-    <div class="image-container">
+  <div class="main-container"> <!--main-container est la classe qui permet de positionner les éléments au centre-->
+    <div class="image-container"> <!--image-container est la classe qui permet de positionner les éléments à gauche-->
       <img src="../pictures/pexels-josh-willink-11499-701016.jpg" alt="Femme se promenant dans la forêt avec un enfant en porte bébé dorsal">
     </div>
 
   <body>
-    <div class="login-form">
+    <div class="login-form"> <!--login-form est la classe qui permet de positionner les éléments à droite-->
       <h2>connexion</h2>
+
       <form id="loginForm" action="http://localhost:3000/api/login" method="POST">
         <div class="form-group">
           <label for="username">Email:</label>
           <input type="text" id="email" name="email" placeholder="Votre email" required />
+
         </div>
         <div class="form-group">
           <label for="password">Mot de passe:</label>
-          <input type="password" id="password" name="password" placeholder="Votre mot de passe" required />
-          <a href="#Mot de passe oublié ?">Mot de passe oublié</a>
+          <input type="password" id="password" name="password" placeholder="Votre mot de passe" required />   <!--type="password" est le type de champ de saisie, id="password" est l'identifiant du champ de saisie, name="password" est le nom du champ de saisie, placeholder="Votre mot de passe" est le texte qui s'affiche dans le champ de saisie, required est un attribut qui indique que le champ de saisie est obligatoire-->
+          <a href="#Mot de passe oublié ">Mot de passe oublié ?</a> <!--href="#Mot de passe oublié ?" est l'adresse à laquelle l'utilisateur sera redirigé lorsqu'il cliquera sur le lien-->
         </div>
-        <button type="submit">Se connecter</button>
+        <button type="submit">Se connecter</button> <!--type="submit" est le type de bouton qui permet d'envoyer les données du formulaire-->
       </form>
     </div>
   </body>

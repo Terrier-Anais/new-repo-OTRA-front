@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background-color: #7ec5c8;
+}
+
+img {
+  width: 800px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
