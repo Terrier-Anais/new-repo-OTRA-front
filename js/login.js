@@ -1,3 +1,4 @@
+import axiosInstance from "./axios";
 
 const form = document.getElementById('loginForm');
 
@@ -18,10 +19,10 @@ form.addEventListener('submit', function(event) {
     };
     console.log(formData);
 
-axios.post('http://localhost:3000/api/login', formData)
+axiosInstance.post('http://localhost:3000/api/login', formData)
   .then(function(response) {
     console.log('Succès:', response.data);
-    localStorage.setItem('token', response.data.token);
+    // localStorage.setItem('token', response.data.token);
     alert('Inscription réussie !');
     window.location.href = "roadbook.html";
   })
@@ -31,21 +32,21 @@ axios.post('http://localhost:3000/api/login', formData)
   });
 
 
-const getToken = () => {
-  return localStorage.getItem('token');
-};
+// const getToken = () => {
+//   return localStorage.getItem('token');
+// };
 
-axios.get('http://localhost:3000/api/me/trips', {
-  headers: {
-    Authorization: `Bearer ${getToken()}`
-  }
-})
-.then(function(response) {
-  console.log('Succès:', response.data);        
-})
-.catch(function(error) {
-  console.error('Erreur:', error);
-});
+// axiosInstance.get('http://localhost:3000/api/me/trips', {
+//   headers: {
+//     Authorization: `Bearer ${getToken()}`
+//   }
+// })
+// .then(function(response) {
+//   console.log('Succès:', response.data);        
+// })
+// .catch(function(error) {
+//   console.error('Erreur:', error);
+// });
 
 
 

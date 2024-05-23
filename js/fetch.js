@@ -40,7 +40,13 @@ form.addEventListener('submit', function(event) {
         });
 });
 
-
+// axiosInstance.get('/endpoint')
+//   .then(response => {
+//     console.log(response.data);
+//   })
+//   .catch(error => {
+//     console.error('There was an error!', error);
+//   });
 
 // http://localhost:3000/api/me/trips
 
