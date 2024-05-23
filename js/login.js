@@ -18,28 +18,49 @@ form.addEventListener('submit', function(event) {
     };
     console.log(formData);
 
-    
-    axios.post('http://localhost:3000/api/login', formData)
-        .then(function(response) {
-            console.log('Succès:', response.data);
-            alert('Inscription réussie !');
-            window.location.href = "roadbook.html";
-            
-        })
-        .catch(function(error) {
-            console.error('Erreur:', error);
-            alert('Erreur lors de l\'inscription. Veuillez réessayer.');
-            
-        });
+axios.post('http://localhost:3000/api/login', formData)
+  .then(function(response) {
+    console.log('Succès:', response.data);
+    localStorage.setItem('token', response.data.token);
+    alert('Inscription réussie !');
+    window.location.href = "roadbook.html";
+  })
+  .catch(function(error) {
+    console.error('Erreur:', error);
+    alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+  });
+
+
+const getToken = () => {
+  return localStorage.getItem('token');
+};
+
+axios.get('http://localhost:3000/api/me/trips', {
+  headers: {
+    Authorization: `Bearer ${getToken()}`
+  }
+})
+.then(function(response) {
+  console.log('Succès:', response.data);        
+})
+.catch(function(error) {
+  console.error('Erreur:', error);
 });
 
-axios.get('http://localhost:3000/api/cookie/')
-    .then(function(response) {
-        console.log('Succès:', response.data);        
-    })
-    .catch(function(error) {
-        console.error('Erreur:', error);
-    });
+
+
+
+
+
+
+
+// axios.get('http://localhost:3000/api/cookie/')
+//     .then(function(response) {
+//         console.log('Succès:', response.data);        
+//     })
+//     .catch(function(error) {
+//         console.error('Erreur:', error);
+//     });
 
 // script span connection
 
