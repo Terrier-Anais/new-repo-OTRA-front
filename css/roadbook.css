@@ -92,7 +92,7 @@ option {
     cursor: pointer;
 }
 
-.trip_container {
+.trip-card_content {
     display: flex;
     flex-direction: column;
     width: 20%;
@@ -114,16 +114,16 @@ h3 {
     font-size: 1.2rem;
 }
 
-.trip_update:hover {
+.trip-card_update:hover {
     cursor: pointer;
 }
 
-#update-trip_button {
+.update-trip_button {
     background-color: transparent;
     border: none
 }
 
-#update-trip_button:hover {
+.update-trip_button:hover {
     cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ h3 {
     font-size: 1.2rem;
 }
 
-.trip_main-photo {
+.trip_photo {
     height: 80%;
     width: 100%;
 }
@@ -140,14 +140,14 @@ h3 {
     display:   none
 }
 
-.new-trip_note {
+#new-trip_note {
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 0.5rem;
 }
 
-.new-trip_note input {
+#new-trip_note input {
     display: none
 }
 
@@ -228,14 +228,14 @@ h3 {
     display: none
 }
 
-.update-trip_note {
+#update-trip_note {
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 0.5rem;
 }
 
-.update-trip_note input {
+#update-trip_note input {
     display: none
 }
 
@@ -311,6 +311,3 @@ h3 {
     background-color: #ff365e;
     color: white;
 }
-
-
-
