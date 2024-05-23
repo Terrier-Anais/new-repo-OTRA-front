@@ -1,58 +1,38 @@
-// script pour la modale d'ajout d'un voyage
+// script pour la modale d'ajout d'un voyage :
 
-const modalNewTrip = document.querySelector('.modal_new-trip');
-const modalNewTripBtn = document.querySelector('#add-new-trip');
-const modalNewTripCloseBtn = document.querySelector('.modal_new-trip_close');
-const modalOverlayConnection = document.querySelector('.overlay_modal_trigger');
+const modalNewTrip = document.querySelector('.modal_new-trip'); // Sélectionner la modale d'ajout de voyage
+const modalNewTripBtn = document.querySelector('#add-new-trip'); // Sélectionner le bouton d'ajout de voyage
+const modalNewTripCloseBtn = document.querySelector('.modal_new-trip_close');// Sélectionner le bouton de fermeture de la modale
+const modalOverlayConnection = document.querySelector('.overlay_modal_trigger');// Sélectionner l'overlay de la modale
 
-modalNewTripBtn.addEventListener('click', toggleNewTripModal);
-modalNewTripCloseBtn.addEventListener('click', toggleNewTripModal);
-modalOverlayConnection.addEventListener('click', toggleNewTripModal);
+modalNewTripBtn.addEventListener('click', toggleNewTripModal);// Ajouter un écouteur d'événements pour le bouton d'ajout de voyage
+modalNewTripCloseBtn.addEventListener('click', toggleNewTripModal);// Ajouter un écouteur d'événements pour le bouton de fermeture de la modale
+modalOverlayConnection.addEventListener('click', toggleNewTripModal);// Ajouter un écouteur d'événements pour l'overlay de la modale
 
+// Fonction pour afficher ou masquer la modale d'ajout de voyage
 function toggleNewTripModal() {
   modalNewTrip.classList.toggle('active');
 };
 
 // Fonction pour créer une nouvelle carte de voyage
-function createCard(title, photo, comment, dateStart, dateEnd, duration,note) {
-  // Création d'un nouvel élément de carte
-  const card = document.createElement('div');
-  card.classList.add('trip-card_content');
+function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
+  // Sélectionner le template de carte de voyage
+    const template = document.querySelector('#trip-card-template'); 
   
-  // Construction du contenu de la carte en utilisant les données du formulaire
-  card.innerHTML = `
-  <header class="trip-card_header">
-  <div class="trip-card_title">
-  <h3 class="trip_title">${title}</h3>
-  </div>
-  <div class="trip-card_update">
-  <button class="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
-  </div>
-  </header>
-  <div class="trip-card_photo" id="preview">
-  <img class="trip_photo" src="${photo}" alt="Photo du voyage">
-  </div>  
-  <div class="trip-card_comment">
-  <p class="trip_comment">Commentaire :${comment}</p>
-  </div>
-  <div class="trip-card_flag">
-  <p>Drapeau</p>
-  </div>
-  <div class="trip-card_start-date">
-  <p class="trip_date-start">Date de début: ${dateStart}</p>
-  </div>
-  <div class="trip-card_end-date">
-  <p class="trip_date-end">Date de fin: ${dateEnd}</p>
-  </div>
-  <div id="trip_duration" class="trip-card_duration">
-  <p>Durée du voyage :${duration} jour(s)</p>
-  </div>
-  <div class="trip-card_note">
-  <p class="trip_note">${note}</p>
-  </div>    
-  `;
-  return card;
-}
+    // Cloner le contenu du template dans un nouvel élément
+    const card = document.importNode(template.content, true);
+  
+    // Remplacer les valeurs des éléments du template avec les données fournies
+    card.querySelector('.trip_title').textContent = title;
+    card.querySelector('.trip_photo').src = photo;
+    card.querySelector('.trip_comment').textContent = `Commentaire : ${comment}`;
+    card.querySelector('.trip_date-start').textContent = `Date de début: ${dateStart}`;
+    card.querySelector('.trip_date-end').textContent = `Date de fin: ${dateEnd}`;
+    card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${duration} jour(s)`;
+    card.querySelector('.trip_note').textContent = note;
+  
+    return card;
+  }  
 
 // Fonction pour gérer la soumission du formulaire d'ajout de voyage
 function handleFormSubmission(event) {
@@ -65,10 +45,17 @@ function handleFormSubmission(event) {
   const newTripDateEnd = document.getElementById('new-trip_date-end').value;
   const newTripNote = document.getElementById('new-trip_note').value;
 
+  console.log("New Trip Title:", newTripTitle);
+  console.log("New Trip Comment:", newTripComment);
+  console.log("New Trip Date Start:", newTripDateStart);
+  console.log("New Trip Date End:", newTripDateEnd);
+  console.log("New Trip Note:", newTripNote);
+
   //Calcul de la durée en fonction des dates renseignées :
-  const startDate = new Date(newTripDateStart);
-  const endDate = new Date(newTripDateEnd);
-  const newTripDuration = (Math.ceil((Math.abs(endDate) - (startDate))) / (1000 * 60 * 60 * 24));
+  const startDate = new Date(newTripDateStart); // Convertir la date de début en objet Date
+  const endDate = new Date(newTripDateEnd); // Convertir la date de fin en objet Date
+  const newTripDuration = (Math.ceil((Math.abs(endDate) - (startDate))) / (1000 * 60 * 60 * 24));// Calculer la durée du voyage en jours
+
   console.log(newTripDuration);   
 
   // Sélectionner l'élément input de type file pour l'image
@@ -77,7 +64,7 @@ function handleFormSubmission(event) {
   // Vérifier s'il y a un fichier sélectionné
   if (newTripPhotoInput.files) {
     // Créer un objet FileReader
-    const reader = new FileReader();
+    const reader = new FileReader(); 
     // Écouter lorsque la lecture du fichier est terminée
     reader.onload = function(event) {
       // Récupérer l'URL de données (data URL) de l'image
@@ -90,7 +77,6 @@ function handleFormSubmission(event) {
       console.log(newCard)
     };
     // Lire le contenu du fichier en tant qu'URL de données (data URL)
-    
     reader.readAsDataURL(newTripPhotoInput.files[0]);
 }}
 
@@ -122,7 +108,7 @@ document.querySelector('.roadbook_container').addEventListener('click', function
   }
 });
 
-// Fonction pour modifier le contenu du innerHTML d'une carte de voyage
+// Fonction pour modifier le contenu du template d'une carte de voyage
 function updateCardContent(card, title, photo, comment, dateStart, dateEnd, duration, note) {
   // Modifier le contenu de la carte en utilisant les nouvelles données
   card.querySelector('.trip_title').textContent = title;
