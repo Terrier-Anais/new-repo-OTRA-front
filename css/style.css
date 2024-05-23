@@ -10,7 +10,7 @@
   min-height: 100%;
 }
 
-header {
+.website_header {
     display: flex;
     justify-content: space-between;
     height: 50px;
