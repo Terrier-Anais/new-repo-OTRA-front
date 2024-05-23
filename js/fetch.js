@@ -1,29 +1,36 @@
 
-const form = document.getElementById('loginForm');
+
+
+const form = document.getElementById('signinForm');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
     // Récupère les valeurs des champs du formulaire
     const email = document.getElementById('email').value;
+    const lastname = document.getElementById('surname').value;
+    const firstname = document.getElementById('name').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     // const confirmation = document.getElementById('confirmation').value;
-    console.log(email, password);
+    console.log(email, lastname, firstname, username, password);
 
     // Crée un objet de données pour la requête
     const formData = {
         email: email,
+        lastname: lastname,
+        firstname: firstname,
+        pseudo: username,
         password: password,
-        
+        // confirmation: confirmation
     };
     console.log(formData);
 
     
-    axios.post('http://localhost:3000/api/login', formData)
+    axios.post('http://localhost:3000/api/signup', formData)
         .then(function(response) {
             console.log('Succès:', response.data);
             alert('Inscription réussie !');
-            window.location.href = "roadbook.html";
             
         })
         .catch(function(error) {
@@ -33,13 +40,21 @@ form.addEventListener('submit', function(event) {
         });
 });
 
-axios.get('http://localhost:3000/api/cookie/')
-    .then(function(response) {
-        console.log('Succès:', response.data);        
-    })
-    .catch(function(error) {
-        console.error('Erreur:', error);
-    });
+
+
+// http://localhost:3000/api/me/trips
+
+// test recup trips sa fonction
+
+
+
+// axios.get('http://localhost:3000/api/me/trips')
+//     .then(function(response) {
+//         console.log('Succès:', response.data);      
+//     })
+//     .catch(function(error) {
+//         console.error('Erreur:', error);
+//     });
 
 // script span connection
 
