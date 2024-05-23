@@ -140,7 +140,7 @@ h3 {
     display:   none
 }
 
-.new-trip_note {
+#new-trip_note {
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -228,14 +228,14 @@ h3 {
     display: none
 }
 
-.update-trip_note {
+#update-trip_note {
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 0.5rem;
 }
 
-.update-trip_note input {
+#update-trip_note input {
     display: none
 }
 

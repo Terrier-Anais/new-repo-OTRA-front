@@ -87,6 +87,7 @@ function handleFormSubmission(event) {
       // Ajouter la nouvelle carte à la section de Roadbook
       const roadbookSection = document.querySelector('.roadbook_container');
       roadbookSection.appendChild(newCard);
+      console.log(newCard)
     };
     // Lire le contenu du fichier en tant qu'URL de données (data URL)
     
