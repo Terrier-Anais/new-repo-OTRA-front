@@ -1,0 +1,5 @@
+.trip-page_menu {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}

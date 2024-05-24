@@ -1,163 +1,194 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>On The Road Again</title>  
-    <!--Ajout des CSS--> 
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/roadbook.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On The Road Again</title>
+    <!--Ajout des CSS-->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/roadbook.css" />
     <!--Ajout d'icone fontawesome-->
-    <script src="https://kit.fontawesome.com/8fabed898f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/8fabed898f.js"
+      crossorigin="anonymous"
+    ></script>
     <!--Ajout du JS-->
     <script defer src="../js/new-trip.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--Header de la page web-->
     <header class="website_header">
-        <div class="left">
-            <img src="../pictures/logo-OTRA-2.jpg" alt="logo de On the road again">
-            <H1>On the road again</H1>
-        </div>
-        <div class="right">
-            <span id="pseudo">Bienvenue "pseudo"</span>  
-        </div>
+      <div class="left">
+        <img
+          src="../pictures/logo-OTRA-2.jpg"
+          alt="logo de On the road again"
+        />
+        <h1>On the road again</h1>
+      </div>
+      <div class="right">
+        <span id="pseudo">Bienvenue "pseudo"</span>
+      </div>
     </header>
-    
+
     <!--Contenu de la page roadbook-->
     <main class="trip-page">
-        <!--Header du contenu-->
-        <header class="trip-page_header">
-            <!--Menu déroulant-->
-            <div class="trip-page_menu">
-                <select id="menu_choice" onchange="window.location.href=this.value;">
-                    <option value="" hidden>Menu</option>
-                    <option value="roadbook.html">Carnet de voyage</option>
-                    <option value="stats.html">Statistiques</option>
-                    <option value="home.html">Déconnexion</option>
-                </select>
-            </div>
-            <!--Titre -->
-            <div class="trip-page_title">
-                <h2 class="main_title">Carnet de voyage</h2>
-            </div>
-            <!--Système de classement-->
-            <div class="trip-page_classement">
-                <select id="classement_choice">
-                    <option value="" hidden>Classer par</option>
-                    <option>Date</option>
-                    <option>Note</option>
-                    <option>Durée</option>
-                </select>
-            </div>   
-        </header>
-        
-        <!--Bloc contenant les voyages-->
-        <section class="roadbook_container">
-            <!--Bouton d'ajout d'un nouveau voyage-->
-            <div class="trip-card_content">
-                <div class="trip_add">
-                    <h3>Ajouter un voyage</h3>
-                    <button id="add-new-trip" type="button">+</button>
-                </div>
-            </div>
-            
-            <!--Création de la modale d'ajout d'un nouveau voyage-->
-            <div class="modal_new-trip">
-                <div class="overlay_modal_trigger"></div>
-                <div class="modal_content_new-trip">
-                    <span class="modal_new-trip_close">X</span>
-                    <h2>Ajouter un voyage</h2>
-                    
-                    <form id="new-trip_form" method="post">
-                        
-                        <label for="title">Titre du voyage</label>
-                        <input type="text" name="trip_title" id="new-trip_title" required>
-                        
-                        <label for="photo">Ajouter une photo</label>
-                        <input type="file" name="trip_photo" id="new-trip_photo" required>
-                        
-                        <label for="comment">Ajouter un commentaire</label>
-                        <input type="text" name="trip_comment" id="new-trip_comment">
-                        
-                        <label for="date-start">Date de début du séjour</label>
-                        <input type="date" name="trip_date-start" id="new-trip_date-start">
-                        
-                        <label for="date-end">Date de fin du séjour</label>
-                        <input type="date" name="trip_date-end" id="new-trip_date-end">
-                        
-                        <label for="note">Note</label>
-                        
-                        <div id="new-trip_note">
-                            <label for="note-1"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-1" value="1">
-                            
-                            <label for="note-2"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-2" value="2">
-                            
-                            <label for="note-3"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-3" value="3">
-                            
-                            <label for="note-4"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-4" value="4">
-                            
-                            <label for="note-5"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-5" value="5">
-                        </div>
-                        <input type="submit" value="Ajouter" id="add-trip_button">
-                    </form>
-                </div>
-            </div> 
-            
-            <!--Création de la modale de modification d'un voyage-->
-            <div class="modal_update-trip">
-                <div class="overlay_modal_trigger"></div>
-                <div class="modal_content_update-trip">
-                    <span class="modal_update-trip_close">X</span>
-                    <h2>Modifier mon voyage</h2>
-                    
-                    <form id="update-trip_form" method="post">
-                        
-                        <label for="title">Titre</label>
-                        <input type="text" name="trip_title" id="update-trip_title" required>
-                        
-                        <label for="photo">Photo</label>
-                        <input type="file" name="trip_photo" id="update-trip_photo">
-                        
-                        <label for="comment">Commentaire</label>
-                        <input type="text" name="trip_comment" id="update-trip_comment">
-                        
-                        <label for="date-start">Date de début du séjour</label>
-                        <input type="date" name="trip_date-start" id="update-trip_date-start">
-                        
-                        <label for="date-end">Date de fin du séjour</label>
-                        <input type="date" name="trip_date-end" id="update-trip_date-end">
-                        
-                        <label for="note">Note</label>
-                        
-                        <div id="update-trip_note">
-                            <label for="note-1"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-1" value="1">
-                            
-                            <label for="note-2"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-2" value="2">
-                            
-                            <label for="note-3"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-3" value="3">
-                            
-                            <label for="note-4"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-4" value="4">
-                            
-                            <label for="note-5"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-5" value="5">
-                        </div>
-                        <input type="submit" value="Modifier">
-                    </form>
-                </div>
-            </div> 
-        </section>
+      <!--Header du contenu-->
+      <header class="trip-page_header">
+        <!--Menu déroulant-->
+        <div class="trip-page_menu">
+          <select id="menu_choice" onchange="window.location.href=this.value;">
+            <option value="" hidden>Menu</option>
+            <option value="roadbook.html">Carnet de voyage</option>
+            <option value="stats.html">Statistiques</option>
+            <option value="home.html">Déconnexion</option>
+          </select>
+        </div>
+        <!--Titre -->
+        <div class="trip-page_title">
+          <h2 class="main_title">Carnet de voyage</h2>
+        </div>
+        <!--Système de classement-->
+        <div class="trip-page_classement">
+          <select id="classement_choice">
+            <option value="" hidden>Classer par</option>
+            <option>Date</option>
+            <option>Note</option>
+            <option>Durée</option>
+          </select>
+        </div>
+      </header>
+
+      <!--Bloc contenant les voyages-->
+      <section class="roadbook_container">
+        <!--Bouton d'ajout d'un nouveau voyage-->
+        <div class="trip-card_content">
+          <div class="trip_add">
+            <h3>Ajouter un voyage</h3>
+            <button id="add-new-trip" type="button">+</button>
+          </div>
+        </div>
+
+        <!--Création de la modale d'ajout d'un nouveau voyage-->
+        <div class="modal_new-trip">
+          <div class="overlay_modal_trigger"></div>
+          <div class="modal_content_new-trip">
+            <span class="modal_new-trip_close">X</span>
+            <h2>Ajouter un voyage</h2>
+
+            <form id="new-trip_form" method="post">
+              <label for="title">Titre du voyage</label>
+              <input
+                type="text"
+                name="trip_title"
+                id="new-trip_title"
+                required
+              />
+
+              <label for="photo">Ajouter une photo</label>
+              <input
+                type="file"
+                name="trip_photo"
+                id="new-trip_photo"
+                required
+              />
+
+              <label for="comment">Ajouter un commentaire</label>
+              <input type="text" name="trip_comment" id="new-trip_comment" />
+
+              <label for="date-start">Date de début du séjour</label>
+              <input
+                type="date"
+                name="trip_date-start"
+                id="new-trip_date-start"
+              />
+
+              <label for="date-end">Date de fin du séjour</label>
+              <input type="date" name="trip_date-end" id="new-trip_date-end" />
+
+              <label for="note">Note</label>
+
+              <div id="new-trip_note">
+                <label for="note-1"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-1" value="1" />
+
+                <label for="note-2"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-2" value="2" />
+
+                <label for="note-3"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-3" value="3" />
+
+                <label for="note-4"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-4" value="4" />
+
+                <label for="note-5"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-5" value="5" />
+              </div>
+              <input type="submit" value="Ajouter" id="add-trip_button" />
+            </form>
+          </div>
+        </div>
+
+        <!--Création de la modale de modification d'un voyage-->
+        <div class="modal_update-trip">
+          <div class="overlay_modal_trigger"></div>
+          <div class="modal_content_update-trip">
+            <span class="modal_update-trip_close">X</span>
+            <h2>Modifier mon voyage</h2>
+
+            <form id="update-trip_form" method="post">
+              <label for="title">Titre</label>
+              <input
+                type="text"
+                name="trip_title"
+                id="update-trip_title"
+                required
+              />
+
+              <label for="photo">Photo</label>
+              <input type="file" name="trip_photo" id="update-trip_photo" />
+
+              <label for="comment">Commentaire</label>
+              <input type="text" name="trip_comment" id="update-trip_comment" />
+
+              <label for="date-start">Date de début du séjour</label>
+              <input
+                type="date"
+                name="trip_date-start"
+                id="update-trip_date-start"
+              />
+
+              <label for="date-end">Date de fin du séjour</label>
+              <input
+                type="date"
+                name="trip_date-end"
+                id="update-trip_date-end"
+              />
+
+              <label for="note">Note</label>
+
+              <div id="update-trip_note">
+                <label for="note-1"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-1" value="1" />
+
+                <label for="note-2"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-2" value="2" />
+
+                <label for="note-3"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-3" value="3" />
+
+                <label for="note-4"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-4" value="4" />
+
+                <label for="note-5"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" name="note" id="note-5" value="5" />
+              </div>
+              <input type="submit" value="Modifier" />
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
-            </body>
-            </html>
+  </body>
+</html>
