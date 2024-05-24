@@ -31,21 +31,4 @@ form.addEventListener('submit', async function(event) {
         alert('Inscription réussie !');
         window.location.href = "roadbook.html";
     });
-
-    ;    
-    /*axiosInstance.post('${baseURL}/login', formData)
-        .then(function(response) {
-            console.log('Succès:', response.data);
-            localStorage.setItem('token', response.data.token);
-            console.log('token', response.data.token);
-            alert('Inscription réussie !');
-            window.location.href = "roadbook.html";
-        })
-        .catch(function(error) {
-            console.error('Erreur:', error);
-            alert('Erreur lors de l\'inscription. Veuillez réessayer.');
-        });*/
-});
-
-
-
+  });
