@@ -1,8 +1,7 @@
-import axiosInstance from "./axios";
 
 const form = document.getElementById('loginForm');
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', async function(event) {
     event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
     // Récupère les valeurs des champs du formulaire
@@ -15,72 +14,71 @@ form.addEventListener('submit', function(event) {
     const formData = {
         email: email,
         password: password,
-        
     };
     console.log(formData);
 
-axiosInstance.post('http://localhost:3000/api/login', formData)
+    const response = await fetch('http://localhost:3000/api/login', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(function(response){
+        localStorage.setItem('token', response.token);
+        console.log('token', response.token);
+        alert('Inscription réussie !');
+        window.location.href = "roadbook.html";
+    });
+
+    ;    
+    /*axiosInstance.post('${baseURL}/login', formData)
+        .then(function(response) {
+            console.log('Succès:', response.data);
+            localStorage.setItem('token', response.data.token);
+            console.log('token', response.data.token);
+            alert('Inscription réussie !');
+            window.location.href = "roadbook.html";
+        })
+        .catch(function(error) {
+            console.error('Erreur:', error);
+            alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+        });*/
+});
+
+const getToken = () => {
+  return localStorage.getItem('token');
+};
+
+const setToken = (token) => {
+  localStorage.setItem('token', token);
+};
+
+const deleteToken = () => {
+  localStorage.removeItem('token');
+};
+
+console.log(getToken()); // Vous pouvez utiliser getToken() pour récupérer le token actuellement stocké
+
+
+async function apiGetTrips() {
+  fetch('http://localhost:3000/api/me/trips', {
+    headers: {
+      Authorization: `Bearer ${getToken()}`
+    }
+  })
   .then(function(response) {
-    console.log('Succès:', response.data);
-    // localStorage.setItem('token', response.data.token);
-    alert('Inscription réussie !');
-    window.location.href = "roadbook.html";
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(function(data) {
+    console.log('Success:', data);        
   })
   .catch(function(error) {
-    console.error('Erreur:', error);
-    alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+    console.error('Error:', error);
   });
-
-
-// const getToken = () => {
-//   return localStorage.getItem('token');
-// };
-
-// axiosInstance.get('http://localhost:3000/api/me/trips', {
-//   headers: {
-//     Authorization: `Bearer ${getToken()}`
-//   }
-// })
-// .then(function(response) {
-//   console.log('Succès:', response.data);        
-// })
-// .catch(function(error) {
-//   console.error('Erreur:', error);
-// });
-
-
-
-
-
-
-
-
-// axios.get('http://localhost:3000/api/cookie/')
-//     .then(function(response) {
-//         console.log('Succès:', response.data);        
-//     })
-//     .catch(function(error) {
-//         console.error('Erreur:', error);
-//     });
-
-// script span connection
-
-// const connect = document.getElementById('connection');
-// connect.addEventListener('click', () => {
-//     window.location.href = 'login.html';
-// });
-
-// //script span registration
-
-// const register = document.getElementById('registration');
-// register.addEventListener('click', () => {
-//     window.location.href = 'signin.html';
-// });
-
-// //script back homepage on logo title
-
-// const titleLogo = document.querySelector('.left');
-// titleLogo.addEventListener('click', () => {
-//     window.location.href = 'home.html';
-// });
-
+}
+apiGetTrips();
