@@ -33,6 +33,15 @@
     
 }
 
+.signin_form p {
+    font-size: 0.75rem;
+    font-style: normal;
+    text-transform: lowercase;
+    font-family: 'Courier New', Courier, monospace;
+    opacity: 0.5;
+    padding-bottom: 0.2rem;
+}
+
 .signin_form h2 {
     text-align: center;
 }
@@ -44,7 +53,7 @@
 
 .signin_form label, 
 .signin_form input {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .signin_form input[type="submit"] {
