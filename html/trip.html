@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On the road again</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/trip.css" />
+    <script
+      src="https://kit.fontawesome.com/8fabed898f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer src="../js/apiTrip.js"></script>
+  </head>
+  <body>
+    <header class="website_header">
+      <div class="left">
+        <img
+          src="../pictures/logo-OTRA-2.jpg"
+          alt="logo de On the road again"
+        />
+        <h1>On the road again</h1>
+      </div>
+      <div class="right">
+        <span id="pseudo">Bienvenue "pseudo"</span>
+      </div>
+    </header>
+    <main class="trip-details">
+      <header class="trip-page_header">
+        <!--Menu déroulant-->
+        <div class="trip-page_menu">
+          <select id="menu_choice" onchange="window.location.href=this.value;">
+            <option value="" hidden>Menu</option>
+            <option value="roadbook.html">Carnet de voyage</option>
+            <option value="stats.html">Statistiques</option>
+            <option value="home.html">Déconnexion</option>
+          </select>
+        </div>
+        <!--Titre -->
+        <div class="trip-page_title">
+          <h2 class="main_title">Mon voyage</h2>
+        </div>
+        <!--Système de classement-->
+        <div class="trip-page_classement">
+          <select id="classement_choice">
+            <option value="" hidden>Classer par</option>
+            <option>Date</option>
+            <option>Note</option>
+            <option>Durée</option>
+          </select>
+        </div>
+      </header>
+      <section class="visit-container">
+        <div class="visit-details">
+          <div class="city">
+            <div class="city-details">
+              <header class="city-details-header">
+                <div class="city-name">
+                  <h3>Paris</h3>
+                </div>
+              </header>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
