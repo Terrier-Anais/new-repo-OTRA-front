@@ -1,3 +1,4 @@
+/* This file contains the styling for the login page */
 .login-form {
   width: 400px;
   height: 400px;
@@ -10,31 +11,31 @@
   padding-top: 30px;
   background: rgba(255, 255, 255, 0.6);
 }
-
+/* This file contains the styling for the login page */
 h2 {
   font-size: 30px;
   font-weight: bold;
   margin: 20px;
 }
-
+/* This file contains the styling for the login page */
 .form-group {
   margin: 40px;
   font-weight: bold;
 }
-
+/* This file contains the styling for the login page */
 a {
   text-decoration: underline;
   color: black;
   padding-bottom: 10px;
 }
-
+/* This file contains the styling for the login page */
 input {
   width: 300px;
   height: 25px;
   font-size: 20px;
   margin: 10px;
 }
-
+/* This file contains the styling for the login page */
 button {
   width: 150px;
   height: 40px;
@@ -47,11 +48,11 @@ button {
   border: 3px solid black;
   cursor: pointer;
 }
-
+/* This file contains the styling for the login page */
 .form-group input[type="submit"]:hover {
   background-color: #7e8ec8;
 }
-
+/* This file contains the styling for the login page */
 .main-container {
   display: flex;
   justify-content: center;
@@ -62,7 +63,7 @@ button {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+/* This file contains the styling for the login page */
 .form-container {
   display: flex;
   max-width: 100%;
@@ -70,7 +71,7 @@ button {
   align-items: center;
   padding-left: 3rem;
 }
-
+/* This file contains the styling for the login page */
 .image-container img {
   max-width: 100%;
   height: auto;

@@ -4,17 +4,16 @@
   font-family: "Sedan SC", serif;
   font-weight: 400;
   font-style: normal;
-  background: url(../pictures/passport\ 1.jpg);
+  background-image: url("../pictures/passport\ 1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
   min-height: 100%;
 }
 
-header {
+.website_header {
     display: flex;
     justify-content: space-between;
     height: 50px;
-    border: #7E8EC8 solid 3px;
     padding: 1rem;
     padding-left: 4rem;
     padding-right: 4rem;
