@@ -11,7 +11,8 @@
     <!--Ajout d'icone fontawesome-->
     <script src="https://kit.fontawesome.com/8fabed898f.js" crossorigin="anonymous"></script>
     <!--Ajout du JS-->
-    <script defer src="../js/new-trip.js"></script>
+    <script defer type="module" src="../js/new-trip.js"></script>
+    <script defer type="module" src="../js/update-trip.js"></script>
 </head>
 
 <body>
@@ -157,40 +158,44 @@
                     </form>
                 </div>
             </div> 
+            
+            <!--Template d'une card de voyage-->
             <template id="trip-card-template">
                 <div class="trip-card_content">
-                  <header class="trip-card_header">
-                    <div class="trip-card_title">
-                      <h3 class="trip_title"></h3>
-                    </div>
-                    <div class="trip-card_update">
-                      <button class="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
-                    </div>
-                  </header>
-                  <div class="trip-card_photo" id="preview">
-                    <img class="trip_photo" src="" alt="Photo du voyage">
-                  </div>  
-                  <div class="trip-card_comment">
-                    <p class="trip_comment"></p>
-                  </div>
-                  <div class="trip-card_flag">
-                    <p>Drapeau</p>
-                  </div>
-                  <div class="trip-card_start-date">
-                    <p class="trip_date-start"></p>
-                  </div>
-                  <div class="trip-card_end-date">
-                    <p class="trip_date-end"></p>
-                  </div>
-                  <div id="trip_duration" class="trip-card_duration">
-                    <p></p>
-                  </div>
-                  <div class="trip-card_note">
-                    <p class="trip_note"></p>
-                  </div>    
+                    <div class="trip-details">
+                        <header class="trip-card_header">
+                            <div class="trip-card_title">
+                                <h3 class="trip_title"></h3>
+                            </div>
+                            <div class="trip-card_update">
+                                <button class="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
+                            </div>
+                        </header>
+                        <div class="trip-card_photo" id="preview">
+                            <img class="trip_photo" src="" alt="Photo du voyage">
+                        </div>  
+                        <div class="trip-card_comment">
+                            <p class="trip_comment"></p>
+                        </div>
+                        <div class="trip-card_flag">
+                            <p>Drapeau</p>
+                        </div>
+                        <div class="trip-card_start-date">
+                            <p class="trip_date-start"></p>
+                        </div>
+                        <div class="trip-card_end-date">
+                            <p class="trip_date-end"></p>
+                        </div>
+                        <div id="trip_duration" class="trip-card_duration">
+                            <p></p>
+                        </div>
+                        <div class="trip-card_note">
+                            <p class="trip_note"></p>
+                        </div>  
+                    </div>  
                 </div>
-              </template>
-              
+            </template>
+            
         </section>
     </main>
 </body>

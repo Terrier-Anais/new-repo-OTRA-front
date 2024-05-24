@@ -6,7 +6,7 @@
     justify-content: space-evenly;
     padding: 1rem 10rem;
     display: flex;
-    border: #7E8EC8 solid 0.2rem;
+    border: #8b9ca6 solid 0.2rem;
     border-radius: 1rem;
     margin: 2rem;
     width: 70%;
@@ -23,7 +23,7 @@
 
 #menu_choice {
     border-radius: 1rem;
-    border: #7E8EC8 solid 0.15rem;
+    border: #8b9ca6 solid 0.1rem;
     text-align: center;
     font-size: 1rem;
     background-color: transparent;
@@ -35,7 +35,7 @@
 .main_title{
     font-size: 2rem;
     text-align: center;
-    border: #7E8EC8 solid 0.15rem;
+    border: #8b9ca6 solid 0.1rem;
     padding: 0.4rem 8rem;
     border-radius: 1rem;
 }
@@ -48,7 +48,7 @@
 
 #classement_choice {
     border-radius: 1rem;
-    border: #7E8EC8 solid 0.15rem;
+    border: #8b9ca6 solid 0.1rem;
     text-align: center;
     font-size: 1rem;
     padding: 0rem 1rem;
@@ -98,7 +98,7 @@ option {
     width: 20%;
     padding: 1rem;
     margin: 1rem 0rem;
-    border: #7E8EC8 solid 0.15rem;
+    border: #8b9ca6 solid 0.2rem;
     border-radius: 1rem;
     background-color:rgba(0255,255,255,0.5)
 }
