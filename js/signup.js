@@ -10,7 +10,7 @@ form.addEventListener('submit', async function(event) {
     const firstname = document.getElementById('name').value;
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    // const confirmation = document.getElementById('confirmation').value;
+    const confirmation = document.getElementById('confirmation').value;
     console.log(email, lastname, firstname, username, password);
 
     // Crée un objet de données pour la requête
@@ -20,7 +20,7 @@ form.addEventListener('submit', async function(event) {
         firstname: firstname,
         pseudo: username,
         password: password,
-        // confirmation: confirmation
+        confirmation: confirmation
     };
     console.log(formData);
 
