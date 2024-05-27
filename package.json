@@ -1,8 +1,4 @@
 {
-  "dependencies": {
-    "axios": "^1.7.1",
-    "js-cookie": "^3.0.5"
-  },
   "type": "module",
   "name": "projet-on-the-road-again-front",
   "description": "",
@@ -14,5 +10,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+
+  "dependencies": {
+    "axios": "^1.7.1",
+    "js-cookie": "^3.0.5"
+  }
 }
