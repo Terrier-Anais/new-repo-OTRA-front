@@ -7,7 +7,7 @@ form.addEventListener('submit', async function(event) {
     // Récupère les valeurs des champs du formulaire
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    // const confirmation = document.getElementById('confirmation').value;
+  
     console.log(email, password);
 
     // Crée un objet de données pour la requête
@@ -28,7 +28,7 @@ form.addEventListener('submit', async function(event) {
     .then(function(response){
         localStorage.setItem('token', response.token);
         console.log('token', response.token);
-        alert('Inscription réussie !');
+        alert('Connexion réussie !');
         window.location.href = "roadbook.html";
     });
   });
