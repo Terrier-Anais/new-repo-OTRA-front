@@ -75,47 +75,109 @@
 }
 
 @media (max-width: 768px) {
+
+    .website_header {
+
+        width: 100%;
+        position: fixed;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+
     .signin_picture {
         display: none; 
     }
 
     .container_signin_box {
+        display: flex;
         max-width: 90%; 
         padding: 1rem;
         padding-left: 4rem;
         padding-right: 4rem; 
-        padding-top: 3rem;
+        padding-top: 5rem;
         margin: 0 auto;
     }
 
     .signin_form {
-        max-width: 100%; 
+        
+        max-width: 100%;
     }
-}
 
-@media (max-width: 768px) {
     header {
         padding-left: 1rem;
         padding-right: 1rem;
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        
     }
 
     header .right {
-        display: none;
+        width: 100%;
+        display: flex;
     }
 
     header .left {
         width: 100%;
     }
 
-    .left img {
+    
+    .left img{
+        max-width: 25%;
         display:flex;
     }
     h1 {
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-bottom: 1rem;
+        white-space: nowrap;
     }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #connection {
+
+        
+        border: 2px solid black;
+        padding: 0.5rem;
+        border-radius: 1.5rem;
+        background-color: #7EB3C8;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+      
+      #registration {
+        border: 2px solid black;
+        padding: 0.5rem;
+        border-radius: 1.5rem;
+        background-color: #7EB3C8;
+        
+      
+      }
+
+}
+
+@media (max-width: 500px) {
+
+
+
 
 
 }

@@ -10,7 +10,7 @@
   min-height: 100%;
 }
 
-.website_header {
+/* .website_header {
     display: flex;
     justify-content: space-between;
     height: 50px;
@@ -18,7 +18,7 @@
     padding-left: 4rem;
     padding-right: 4rem;
     
-}
+} */
 
 #connection {
   border: 2px solid black;
