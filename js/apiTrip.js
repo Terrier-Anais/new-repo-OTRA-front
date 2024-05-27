@@ -34,7 +34,6 @@ async function apiGetOneTrip() {
         console.error('Error:', error);
     });
 }
-apiGetOneTrip();
 
 const template = document.querySelector('#trip-card-template'); 
   

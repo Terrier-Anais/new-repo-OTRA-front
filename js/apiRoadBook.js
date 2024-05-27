@@ -1,4 +1,4 @@
-const getToken = () => {
+export const getToken = () => {
     return localStorage.getItem('token');
   };
   
@@ -9,7 +9,7 @@ const setToken = (token) => {
   const deleteToken = () => {
     localStorage.removeItem('token');
   };
-  
+
   console.log(getToken()); // Vous pouvez utiliser getToken() pour récupérer le token actuellement stocké
 
 

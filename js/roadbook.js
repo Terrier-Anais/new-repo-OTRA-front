@@ -15,7 +15,7 @@ function toggleNewTripModal() {
 };
 
 // Fonction pour créer une nouvelle carte de voyage
-function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
+export function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
   // Sélectionner le template de carte de voyage
     const template = document.querySelector('#trip-card-template'); 
   
