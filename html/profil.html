@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On the road again</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profil.css">
+    <script defer src="../js/profil.js"></script>
+</head>
+<body>
+<header class="website_header">
+    <!-- <div class="left"><img src="../pictures/logo-OTRA-2.jpg" alt="logo de On the road again"> -->
+        <H1>On the road again</H1>
+    </div> 
+</header>
+<main>
+<div class="profil">
+    <h2>Mon profil</h2>
+    <form id="profilForm" action="" method="POST">
+        <label for="surname">Nom</label>
+        <input type="text" name="lastname" placeholder="Votre nom" id="surname" required>
+
+        <label for="name">Prénom</label>
+        <input type="text" name="firstname" placeholder="Votre prénom" id="name" required>
+
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" name="pseudo" placeholder="Votre nom d'utilisateur" id="username" required>
+
+
+        <label for="email">Adresse mail</label>
+        <input type="email" name="email" placeholder="Votre adresse mail" id="email" required>
+
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" placeholder="Votre mot de passe" id="password" required>
+
+        <label for="confirmation">Confirmation du nouveau mot de passe</label>
+        <input type="password" name="confirmation" placeholder="Votre nouveau mot de passe" id="confirmation" required>
+        <input type="submit" value="Modifier mon profil">
+        <input type="submit" value="Supprimer mon profil">
+    </form>
+</div>    
+</div>
+</main>
+</body>
+</html>

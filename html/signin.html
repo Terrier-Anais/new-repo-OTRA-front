@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/signin.css">
 
-     <script defer src="../js/signup.js"></script>
+    <script defer src="../js/signup.js"></script>
     
 </head>
 <header class="website_header">
@@ -40,9 +40,10 @@
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text" name="pseudo" placeholder="Votre nom d'utilisateur" id="username" required>
                 <label for="password">Mot de passe</label>
+                <p>min: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
                 <input type="password" name="password" placeholder="Choisissez votre mot de passe" id="password" required>
-                <!-- <label for="confirmation">Confirmation du mot de passe</label> -->
-                <!-- <input type="confirmation" name="confirmation" placeholder="Ressaisissez votre mot de passe" id="confirmation" required> -->
+                <label for="confirmation">Confirmation du mot de passe</label>
+                <input type="password" name="confirmation" placeholder="Ressaisissez votre mot de passe" id="confirmation" required>
                 <input type="submit" value="S'inscrire">
             </form>
         </div>    

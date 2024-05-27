@@ -15,7 +15,7 @@ function toggleNewTripModal() {
 };
 
 // Fonction pour créer une nouvelle carte de voyage
-export function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
+function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
   // Sélectionner le template de carte de voyage
     const template = document.querySelector('#trip-card-template'); 
   
@@ -35,7 +35,7 @@ export function createCard(title, photo, comment, dateStart, dateEnd, duration, 
   }  
 
 // Fonction pour gérer la soumission du formulaire d'ajout de voyage
-export function handleFormSubmission(event) {
+function handleFormSubmission(event) {
   event.preventDefault(); // Empêcher la soumission par défaut du formulaire
 
   // Récupérer les données du formulaire
@@ -86,19 +86,18 @@ const newTripForm = document.querySelector("#new-trip_form");
 // Écouter la soumission du formulaire
 newTripForm.addEventListener("submit", handleFormSubmission);
 newTripForm.addEventListener("submit", toggleNewTripModal);
-<<<<<<< HEAD
 newTripForm.addEventListener("submit", newTripForm.reset);
 
-
-// script for the update trip modal
+// script pour la modale de modification d'un voyage :
 const modalUpdateTrip = document.querySelector('.modal_update-trip');
 const modalUpdateTripCloseBtn = document.querySelector('.modal_update-trip_close');
+
 modalUpdateTripCloseBtn.addEventListener('click', toggleUpdateTripModal);
 modalOverlayConnection.addEventListener('click', toggleUpdateTripModal);
 function toggleUpdateTripModal() {
   modalUpdateTrip.classList.toggle('active');
 }
-let currentTripCard = null;
+
 
 // Ajout de l'écouteur d'événements pour le bouton update-trip_button
 document.querySelector('.roadbook_container').addEventListener('click', function(event) {
@@ -109,9 +108,12 @@ document.querySelector('.roadbook_container').addEventListener('click', function
   }
 });
 
-// Fonction pour modifier le contenu du innerHTML d'une carte de voyage
+let currentTripCard = null;
+
+// Fonction pour modifier le contenu du template d'une carte de voyage
 function updateCardContent(card, title, photo, comment, dateStart, dateEnd, duration, note) {
   // Modifier le contenu de la carte en utilisant les nouvelles données
+  createCard.card = card;
   card.querySelector('.trip_title').textContent = title;
   card.querySelector('.trip_photo').src = photo;
   card.querySelector('.trip_comment').textContent = `Commentaire : ${comment}`;
@@ -119,6 +121,7 @@ function updateCardContent(card, title, photo, comment, dateStart, dateEnd, dura
   card.querySelector('.trip_date-end').textContent = `Date de fin: ${dateEnd}`;
   card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${duration} jour(s)`;
   card.querySelector('.trip_note').textContent = note;
+
 }
 
 // Fonction pour gérer la soumission du formulaire de modification d'un voyage :
@@ -167,6 +170,3 @@ const updateTripForm = document.querySelector("#update-trip_form");
 updateTripForm.addEventListener("submit", handleUpdateFormSubmission);
 updateTripForm.addEventListener("submit", toggleUpdateTripModal);
 updateTripForm.addEventListener("submit", updateTripForm.reset);
-=======
-newTripForm.addEventListener("submit", newTripForm.reset);
->>>>>>> dcf47cb01540eb5b2ec4f61a7e7aaf82affd7940
