@@ -3,3 +3,150 @@
   flex-direction: column;
   padding-top: 0.5rem;
 }
+
+.trip-page_header {
+  justify-content: space-evenly;
+  padding: 1rem 10rem;
+  display: flex;
+  border: #7e8ec8 solid 0.2rem;
+  border-radius: 1rem;
+  margin: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+#menu_choice {
+  border-radius: 1rem;
+  border: #7e8ec8 solid 0.15rem;
+  text-align: center;
+  font-size: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Sedan SC", serif;
+  margin-right: 2rem;
+}
+.main_title {
+  font-size: 2rem;
+  text-align: center;
+  border: #7e8ec8 solid 0.15rem;
+  padding: 0.4rem 8rem;
+  border-radius: 1rem;
+}
+.trip-page_classement {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+option {
+  box-shadow: 0rem 0.8rem 1rem 0rem rgba(0, 0, 0, 0.2);
+  background-color: #ecebea;
+  text-align: center;
+}
+
+#classement_choice {
+  border-radius: 1rem;
+  border: #7e8ec8 solid 0.15rem;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0rem 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Sedan SC", serif;
+  margin-left: 2rem;
+}
+
+.visit-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.visit-details {
+  display: inline-flex;
+  flex-direction: row;
+  width: 60vw;
+  border: #7e8ec8 solid 0.2rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  border: #7e8ec8 solid 0.2rem;
+  border-radius: 1rem;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+}
+.city-details-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  border: none;
+  padding: 1rem;
+}
+
+.visit-photo {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  display: flex;
+}
+
+.photo-container {
+  position: relative;
+}
+
+.photo {
+  display: none;
+  height: 60%;
+  width: 60%;
+  margin: 1rem;
+}
+
+.photo:nth-child(-n + 2) {
+  display: block;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  width: auto;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.visit-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  left: 80rem;
+}
+.carte {
+  justify-content: right;
+  text-align: right;
+}
