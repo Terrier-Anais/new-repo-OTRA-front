@@ -11,12 +11,14 @@
 }
 
 .website_header {
-    display: flex;
-    justify-content: space-between;
-    height: 50px;
-    padding: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+
+  
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
     
 }
 
