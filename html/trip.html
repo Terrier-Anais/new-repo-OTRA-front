@@ -52,17 +52,68 @@
           </select>
         </div>
       </header>
+
       <section class="visit-container">
         <div class="visit-details">
           <div class="city">
             <div class="city-details">
               <header class="city-details-header">
                 <div class="city-name">
-                  <h3>Paris</h3>
+                  <h3>Ville</h3>
+                </div>
+                <div class="edit-visit">
+                  <button class="edit-visit_button" type="button">
+                    <i class="fa-solid fa-pencil"></i>
+                  </button>
                 </div>
               </header>
+              <div class="visit-start-date">
+                <p class="start-date">Date de debut:</p>
+              </div>
+              <div class="visit-end-date">
+                <p class="end-date">Date de fin</p>
+              </div>
+              <div class="visit-note">
+                <p class="note">Note</p>
+              </div>
+              <div class="visit-description">
+                <p class="description">Description</p>
+              </div>
             </div>
           </div>
+          <div class="visit-photo">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <img
+              class="photo"
+              id="photo1"
+              src="../pictures/pexels-josh-willink-11499-701016.jpg"
+              alt="photo de Paris"
+            />
+            <img
+              class="photo"
+              id="photo2"
+              src="../pictures/pexels-david-bartus-43782-1166209.jpg"
+              alt=""
+            />
+            <img
+              class="photo"
+              id="photo3"
+              src="../pictures/pexels-jplenio-1133505.jpg"
+              alt=""
+            />
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+        </div>
+        <div class="visit-map">
+          <p class="carte">CARTE</p>
+          <!--<iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.573013292073!2d2.352221315674781!3d48.85661407928769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1629783660004!5m2!1sfr!2sfr"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>-->
         </div>
       </section>
     </main>
