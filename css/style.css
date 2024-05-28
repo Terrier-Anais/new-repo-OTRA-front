@@ -10,11 +10,7 @@
   min-height: 100%;
 }
 
-<<<<<<< HEAD
- .website_header {
-=======
 .website_header {
->>>>>>> 71ab0819ebd070f42be37223446e48450b341947
     display: flex;
     justify-content: space-between;
     height: 50px;

@@ -15,7 +15,7 @@ function toggleNewTripModal() {
 };
 
 // Fonction pour créer une nouvelle carte de voyage
-function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
+function createCard(title, photo, description, dateStart, dateEnd, duration, note) {
   // Sélectionner le template de carte de voyage
     const template = document.querySelector('#trip-card-template'); 
   
@@ -25,7 +25,7 @@ function createCard(title, photo, comment, dateStart, dateEnd, duration, note) {
     // Remplacer les valeurs des éléments du template avec les données fournies
     card.querySelector('.trip_title').textContent = title;
     card.querySelector('.trip_photo').src = photo;
-    card.querySelector('.trip_comment').textContent = `Commentaire : ${comment}`;
+    card.querySelector('.trip_description').textContent = `Description : ${description}`;
     card.querySelector('.trip_date-start').textContent = `Date de début: ${dateStart}`;
     card.querySelector('.trip_date-end').textContent = `Date de fin: ${dateEnd}`;
     card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${duration} jour(s)`;
@@ -40,13 +40,13 @@ function handleFormSubmission(event) {
 
   // Récupérer les données du formulaire
   const newTripTitle = document.getElementById('new-trip_title').value;
-  const newTripComment = document.getElementById('new-trip_comment').value;
+  const newTripDescription = document.getElementById('new-trip_description').value;
   const newTripDateStart = document.getElementById('new-trip_date-start').value;
   const newTripDateEnd = document.getElementById('new-trip_date-end').value;
   const newTripNote = document.getElementById('new-trip_note').value;
 
   // console.log("New Trip Title:", newTripTitle);
-  // console.log("New Trip Comment:", newTripComment);
+  // console.log("New Trip Description:", newTripDescription);
   // console.log("New Trip Date Start:", newTripDateStart);
   // console.log("New Trip Date End:", newTripDateEnd);
   // console.log("New Trip Note:", newTripNote);
@@ -70,7 +70,7 @@ function handleFormSubmission(event) {
       // Récupérer l'URL de données (data URL) de l'image
       const imageUrl = event.target.result;
       // Créer une nouvelle carte de voyage avec les données du formulaire et l'URL de l'image
-      const newCard = createCard(newTripTitle, imageUrl, newTripComment, newTripDateStart, newTripDateEnd, newTripDuration, newTripNote);
+      const newCard = createCard(newTripTitle, imageUrl, newTripDescription, newTripDateStart, newTripDateEnd, newTripDuration, newTripNote);
       // Ajouter la nouvelle carte à la section de Roadbook
       const roadbookSection = document.querySelector('.roadbook_container');
       roadbookSection.appendChild(newCard);
@@ -111,12 +111,12 @@ document.querySelector('.roadbook_container').addEventListener('click', function
 let currentTripCard = null;
 
 // Fonction pour modifier le contenu du template d'une carte de voyage
-function updateCardContent(card, title, photo, comment, dateStart, dateEnd, duration, note) {
+function updateCardContent(card, title, photo, description, dateStart, dateEnd, duration, note) {
   // Modifier le contenu de la carte en utilisant les nouvelles données
   createCard.card = card;
   card.querySelector('.trip_title').textContent = title;
   card.querySelector('.trip_photo').src = photo;
-  card.querySelector('.trip_comment').textContent = `Commentaire : ${comment}`;
+  card.querySelector('.trip_description').textContent = `Description : ${description}`;
   card.querySelector('.trip_date-start').textContent = `Date de début: ${dateStart}`;
   card.querySelector('.trip_date-end').textContent = `Date de fin: ${dateEnd}`;
   card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${duration} jour(s)`;
@@ -130,7 +130,7 @@ function handleUpdateFormSubmission(event) {
 
   // Récupérer les données du formulaire
   const updatedTripTitle = document.getElementById('update-trip_title').value;
-  const updatedTripComment = document.getElementById('update-trip_comment').value;
+  const updatedTripDescription = document.getElementById('update-trip_description').value;
   const updatedTripDateStart = document.getElementById('update-trip_date-start').value;
   const updatedTripDateEnd = document.getElementById('update-trip_date-end').value;
   const updatedTripNote = document.getElementById('update-trip_note').value;
@@ -153,14 +153,14 @@ function handleUpdateFormSubmission(event) {
       // Récupérer l'URL de données (data URL) de l'image
       const updatedImageUrl = event.target.result;
       // Modifier le contenu de la carte de voyage avec les nouvelles données
-      updateCardContent(currentTripCard, updatedTripTitle, updatedImageUrl, updatedTripComment, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
+      updateCardContent(currentTripCard, updatedTripTitle, updatedImageUrl, updatedTripDescription, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
     };
     // Lire le contenu du fichier en tant qu'URL de données (data URL)
     reader.readAsDataURL(updatedTripPhotoInput.files[0]);
   }else {
     // Si pas de nouvelle image, utiliser l'image existante
     const existingImageUrl = currentTripCard.querySelector('.trip_photo').src;
-    updateCardContent(currentTripCard, updatedTripTitle, existingImageUrl, updatedTripComment, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
+    updateCardContent(currentTripCard, updatedTripTitle, existingImageUrl, updatedTripDescription, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
   }
 }
 
@@ -170,3 +170,14 @@ const updateTripForm = document.querySelector("#update-trip_form");
 updateTripForm.addEventListener("submit", handleUpdateFormSubmission);
 updateTripForm.addEventListener("submit", toggleUpdateTripModal);
 updateTripForm.addEventListener("submit", updateTripForm.reset);
+
+// script pour la suppression d'un voyage :
+document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+  const button = event.target.closest('.delete-trip_button');
+  if (button) {
+    const tripCard = button.closest('.trip-card_content');
+    const deleteTrip = confirm('Voulez-vous vraiment supprimer ce voyage ?');
+    if (deleteTrip === true) {
+    tripCard.remove();}
+  }
+});
