@@ -1,15 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const userId = getUserIdFromToken();
+document.addEventListener('DOMContentLoaded', function() {
   getToken();
-  fetchAndDisplayTrips();
-  listenToSubmitOnAddTripForm();
+  listenToSubmitOnAddTripForm();  
   });
 
 
 const getToken = () => {
     return localStorage.getItem('token');
-    return token;
-  };
+     };
+    
   
 async function getTrips() {
     try {
@@ -33,8 +31,8 @@ async function getTrips() {
     try {
       const trips = await getTrips();
       console.log(trips);
-  
-      if (!trips) {
+      
+        if (!trips) {
         return;
       }
   
@@ -45,7 +43,7 @@ async function getTrips() {
       console.error('Failed to fetch and display trips:', error);
     }
   }
-
+  fetchAndDisplayTrips();
   
   function addTripToTripsContainer(trip) {
     const TripTemplate = document.querySelector('#trip-card-template');
@@ -53,7 +51,7 @@ async function getTrips() {
       const tripClone = document.importNode(TripTemplate.content, true);
       tripClone.querySelector('.trip_title').textContent = trip.title;
       tripClone.querySelector('.trip_photo').src = trip.photo;
-      tripClone.querySelector('.trip_comment').textContent = `Commentaire : ${trip.comment}`;
+      tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
       tripClone.querySelector('.trip_date-start').textContent = `Date de début: ${trip.dateStart}`;
       tripClone.querySelector('.trip_date-end').textContent = `Date de fin: ${trip.dateEnd}`;
         tripClone.querySelector('.trip_note').textContent = trip.note;
@@ -68,10 +66,16 @@ async function getTrips() {
   function getUserIdFromToken() {
     const token = localStorage.getItem('token');
     if (!token) return null;
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    console.log(payload)
-    return payload.id;
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log(payload);
+        return payload.id;
+    } catch (e) {
+        console.error('Failed to decode token', e);
+        return null;
+    }
 }
+
 
 async function createTrip(tripData) {
  const userId = getUserIdFromToken();
@@ -79,7 +83,7 @@ async function createTrip(tripData) {
       console.error('User ID not found');
       return null;}
     tripData.userId = userId;
-console.log(tripData);
+
       const response = await fetch('http://localhost:3000/api/me/trips', {
         method: 'POST',
         headers: {
@@ -112,7 +116,7 @@ if (!createdTrip) {
     addTripForm.reset();
 
   }});}
-
+  listenToSubmitOnAddTripForm()
 
 
   // async function updateTrip(tripId, updatedTripData) {
