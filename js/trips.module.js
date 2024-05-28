@@ -96,8 +96,9 @@ async function createTrip(tripData) {
       .then(function(response){
         localStorage.setItem('token', response.token);
         console.log('token', response.token);
-           
-    });
+          });
+    //        // Passer l'ID de la liste à la modale
+    // editListModal.dataset.listId = list.id;
   }
 
   async function listenToSubmitOnAddTripForm() {
@@ -119,44 +120,45 @@ if (!createdTrip) {
   listenToSubmitOnAddTripForm()
 
 
-  // async function updateTrip(tripId, updatedTripData) {
-  //   try {
-  //     const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-  //       method: 'PATCH',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Bearer ${getToken()}`
-  //       },
-  //       body: JSON.stringify(updatedTripData)
-  //     });
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-  //     const trip = await response.json();
-  //     console.log('Success:', trip);
-  //     return trip;
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
+  async function updateTrip(tripId, updatedTripData) {
+    const tripId = 
+    try {
+      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${getToken()}`
+        },
+        body: JSON.stringify(updatedTripData)
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const trip = await response.json();
+      console.log('Success:', trip);
+      return trip;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
-  // async function deleteTrip(tripId) {
-  //   try {
-  //     const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-  //       method: 'DELETE',
-  //       headers: {
-  //         Authorization: `Bearer ${getToken()}`
-  //       }
-  //     });
+  async function deleteTrip(tripId) {
+    try {
+      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      });
   
-  //     if (response.status === 204) {
-  //       console.log('Success: Trip deleted');
-  //       // Mettez à jour l'interface utilisateur ici, par exemple, en retirant l'élément de la liste des voyages
-  //     } else {
-  //       const errorData = await response.json();
-  //       throw new Error(`Error: ${response.status} - ${errorData.message}`);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
+      if (response.status === 204) {
+        console.log('Success: Trip deleted');
+        // Mettez à jour l'interface utilisateur ici, par exemple, en retirant l'élément de la liste des voyages
+      } else {
+        const errorData = await response.json();
+        throw new Error(`Error: ${response.status} - ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
