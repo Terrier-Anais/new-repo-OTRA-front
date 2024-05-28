@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const userId = getUserIdFromToken();
+  getToken();
+  fetchAndDisplayTrips();
+  listenToSubmitOnAddTripForm();
+  });
+
+
 const getToken = () => {
     return localStorage.getItem('token');
     return token;
@@ -37,7 +45,7 @@ async function getTrips() {
       console.error('Failed to fetch and display trips:', error);
     }
   }
-  fetchAndDisplayTrips();
+
   
   function addTripToTripsContainer(trip) {
     const TripTemplate = document.querySelector('#trip-card-template');
@@ -48,7 +56,7 @@ async function getTrips() {
       tripClone.querySelector('.trip_comment').textContent = `Commentaire : ${trip.comment}`;
       tripClone.querySelector('.trip_date-start').textContent = `Date de début: ${trip.dateStart}`;
       tripClone.querySelector('.trip_date-end').textContent = `Date de fin: ${trip.dateEnd}`;
-      tripClone.querySelector('.trip_note').textContent = trip.note;
+        tripClone.querySelector('.trip_note').textContent = trip.note;
       // Ajoutez la carte au conteneur de voyages ici si nécessaire
       const roadbookSection = document.querySelector('.roadbook_container');
       roadbookSection.appendChild(tripClone);
@@ -57,17 +65,21 @@ async function getTrips() {
     }
   }
   
-  async function createTrip(tripData) {
+  function getUserIdFromToken() {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    console.log(payload)
+    return payload.id;
+}
 
-    function getUserIdFromToken() {
-      const token = localStorage.getItem('token');
-      if (!token) return null;
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      console.log('payload', payload);
-      return payload.id;
-
-      
-  }
+async function createTrip(tripData) {
+ const userId = getUserIdFromToken();
+    if (!userId) {
+      console.error('User ID not found');
+      return null;}
+    tripData.userId = userId;
+console.log(tripData);
       const response = await fetch('http://localhost:3000/api/me/trips', {
         method: 'POST',
         headers: {
@@ -80,14 +92,11 @@ async function getTrips() {
       .then(function(response){
         localStorage.setItem('token', response.token);
         console.log('token', response.token);
-        alert('Connexion réussie !');
-        window.location.href = "roadbook.html";
+           
     });
-
-
   }
 
-  function listenToSubmitOnAddTripForm() {
+  async function listenToSubmitOnAddTripForm() {
     const addTripForm = document.querySelector('#new-trip_form');
     addTripForm.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -103,47 +112,47 @@ if (!createdTrip) {
     addTripForm.reset();
 
   }});}
-  listenToSubmitOnAddTripForm()
 
 
-  async function updateTrip(tripId, updatedTripData) {
-    try {
-      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(updatedTripData)
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const trip = await response.json();
-      console.log('Success:', trip);
-      return trip;
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
 
-  async function deleteTrip(tripId) {
-    try {
-      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${getToken()}`
-        }
-      });
+  // async function updateTrip(tripId, updatedTripData) {
+  //   try {
+  //     const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+  //       method: 'PATCH',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${getToken()}`
+  //       },
+  //       body: JSON.stringify(updatedTripData)
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+  //     const trip = await response.json();
+  //     console.log('Success:', trip);
+  //     return trip;
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
+
+  // async function deleteTrip(tripId) {
+  //   try {
+  //     const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         Authorization: `Bearer ${getToken()}`
+  //       }
+  //     });
   
-      if (response.status === 204) {
-        console.log('Success: Trip deleted');
-        // Mettez à jour l'interface utilisateur ici, par exemple, en retirant l'élément de la liste des voyages
-      } else {
-        const errorData = await response.json();
-        throw new Error(`Error: ${response.status} - ${errorData.message}`);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+  //     if (response.status === 204) {
+  //       console.log('Success: Trip deleted');
+  //       // Mettez à jour l'interface utilisateur ici, par exemple, en retirant l'élément de la liste des voyages
+  //     } else {
+  //       const errorData = await response.json();
+  //       throw new Error(`Error: ${response.status} - ${errorData.message}`);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
