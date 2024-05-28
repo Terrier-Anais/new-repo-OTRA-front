@@ -1,5 +1,6 @@
 const getToken = () => {
     return localStorage.getItem('token');
+    return token;
   };
   
 async function getTrips() {
@@ -47,8 +48,7 @@ async function getTrips() {
       tripClone.querySelector('.trip_comment').textContent = `Commentaire : ${trip.comment}`;
       tripClone.querySelector('.trip_date-start').textContent = `Date de début: ${trip.dateStart}`;
       tripClone.querySelector('.trip_date-end').textContent = `Date de fin: ${trip.dateEnd}`;
-    //   card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${trip.duration} jour(s)`;
-    tripClone.querySelector('.trip_note').textContent = trip.note;
+      tripClone.querySelector('.trip_note').textContent = trip.note;
       // Ajoutez la carte au conteneur de voyages ici si nécessaire
       const roadbookSection = document.querySelector('.roadbook_container');
       roadbookSection.appendChild(tripClone);
@@ -58,7 +58,16 @@ async function getTrips() {
   }
   
   async function createTrip(tripData) {
-    try {
+
+    function getUserIdFromToken() {
+      const token = localStorage.getItem('token');
+      if (!token) return null;
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      console.log('payload', payload);
+      return payload.id;
+
+      
+  }
       const response = await fetch('http://localhost:3000/api/me/trips', {
         method: 'POST',
         headers: {
@@ -66,17 +75,16 @@ async function getTrips() {
           Authorization: `Bearer ${getToken()}`
         },
         body: JSON.stringify(tripData)
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const createdTrip = await response.json();
-      console.log('Success:', createdTrip);
-      return createdTrip;
-    } catch (error) {
-      console.error('Error:', error);
-      return null;
-    }
+      })
+      .then(response => response.json())
+      .then(function(response){
+        localStorage.setItem('token', response.token);
+        console.log('token', response.token);
+        alert('Connexion réussie !');
+        window.location.href = "roadbook.html";
+    });
+
+
   }
 
   function listenToSubmitOnAddTripForm() {
