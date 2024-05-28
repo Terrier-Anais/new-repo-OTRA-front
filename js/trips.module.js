@@ -1,8 +1,76 @@
 const getToken = () => {
     return localStorage.getItem('token');
-    return token;
-  };
-  
+      };
+
+function getUserIdFromToken() {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log(payload);
+        return payload.id;
+    } catch (e) {
+        console.error('Failed to decode token', e);
+        return null;
+    }
+}
+
+async function fetchAndDisplayTrips() {
+  try {
+    const trips = await getTrips();
+    console.log(trips);
+
+    if (!trips) {
+      return;
+    }
+
+    trips.forEach(trip => {
+      addTripToTripsContainer(trip);
+    });
+  } catch (error) {
+    console.error('Failed to fetch and display trips:', error);
+  }
+}
+
+function listenToSubmitOnAddTripForm() {
+  const addTripForm = document.querySelector('#new-trip_form');
+  addTripForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const tripData = Object.fromEntries(new FormData(addTripForm));
+    console.log(tripData);
+
+    const createdTrip = await createTrip(tripData);
+if (!createdTrip) {
+  return;
+}else{
+  addTripToTripsContainer(createdTrip);
+  addTripForm.reset();
+
+}});}
+listenToSubmitOnAddTripForm()
+
+function listenToSubmitOnUpdateTripForm(tripId) {
+  const updateTripForm = document.querySelector('#update-trip_form');
+  updateTripForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const tripData = Object.fromEntries(new FormData(updateTripForm));
+    console.log(tripData);
+
+    // Appelle la fonction de mise à jour du voyage avec l'ID du voyage et les données du voyage
+    const updatedTrip = await updateTrip(tripId, tripData);
+    if (!updatedTrip) {
+      return;
+    } else {
+      addTripToTripsContainer(updatedTrip);
+      updateTripForm.reset();
+    }
+  });
+}
+
+listenToSubmitOnUpdateTripForm()
+
 async function getTrips() {
     try {
       const response = await fetch('http://localhost:3000/api/me/trips', {
@@ -20,26 +88,8 @@ async function getTrips() {
       console.error('Error:', error);
     }
   }
-  
-  async function fetchAndDisplayTrips() {
-    try {
-      const trips = await getTrips();
-      console.log(trips);
-  
-      if (!trips) {
-        return;
-      }
-  
-      trips.forEach(trip => {
-        addTripToTripsContainer(trip);
-      });
-    } catch (error) {
-      console.error('Failed to fetch and display trips:', error);
-    }
-  }
- 
-  
-  function addTripToTripsContainer(trip) {
+
+function addTripToTripsContainer(trip) {
     const TripTemplate = document.querySelector('#trip-card-template');
     if (TripTemplate) {
       const tripClone = document.importNode(TripTemplate.content, true);
@@ -48,8 +98,12 @@ async function getTrips() {
       tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
       tripClone.querySelector('.trip_dateStart').textContent = `Date de début: ${trip.dateStart}`;
       tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
-        tripClone.querySelector('.trip_note').textContent = trip.note;
-      // Ajoutez la carte au conteneur de voyages ici si nécessaire
+      tripClone.querySelector('.trip_note').textContent = trip.note;
+  
+      const tripCardContent = tripClone.querySelector('.trip-card_content');
+      tripCardContent.dataset.tripId = trip.id;
+      console.log('tripId:', trip.id);
+ 
       const roadbookSection = document.querySelector('.roadbook_container');
       roadbookSection.appendChild(tripClone);
     } else {
@@ -57,19 +111,6 @@ async function getTrips() {
     }
   }
  
-  function getUserIdFromToken() {
-    const token = localStorage.getItem('token');
-    if (!token) return null;
-    try {
-        const payload = JSON.parse(atob(token.split('.')[1]));
-        console.log(payload);
-        return payload.id;
-    } catch (e) {
-        console.error('Failed to decode token', e);
-        return null;
-    }
-}
-
 async function createTrip(tripData) {
   const user_id = getUserIdFromToken();
      if (!user_id) {
@@ -90,69 +131,64 @@ async function createTrip(tripData) {
              localStorage.setItem('token', response.token);
          console.log('token', response.token);
            });
-     //        // Passer l'ID de la liste à la modale
-     // editListModal.dataset.listId = list.id;
-   }
-
-  function listenToSubmitOnAddTripForm() {
-    const addTripForm = document.querySelector('#new-trip_form');
-    addTripForm.addEventListener('submit', async function(event) {
-      event.preventDefault();
-  
-      const tripData = Object.fromEntries(new FormData(addTripForm));
-      console.log(tripData);
-  
-      const createdTrip = await createTrip(tripData);
-if (!createdTrip) {
-    return;
-}else{
-    addTripToTripsContainer(createdTrip);
-    addTripForm.reset();
-
-  }});}
-  listenToSubmitOnAddTripForm()
-
-
-  async function updateTrip(tripId, updatedTripData) {
-    try {
-      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(updatedTripData)
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const trip = await response.json();
-      console.log('Success:', trip);
-      return trip;
-    } catch (error) {
-      console.error('Error:', error);
     }
-  };
-
-  async function deleteTrip(tripId) {
-    try {
-      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${getToken()}`
+    
+    
+    document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+      const button = event.target.closest('.delete-trip_button');
+      if (button) {
+        const tripCard = button.closest('.trip-card_content');
+        const tripId = tripCard.dataset.tripId; // Récupère l'ID du voyage
+        console.log('tripId:', tripId);
+    
+        // Appelle la fonction d'écoute sur le formulaire de mise à jour avec l'ID du voyage
+        listenToSubmitOnUpdateTripForm(tripId);
+      }
+    });
+    
+    async function updateTrip(tripId, updatedTripData) {
+      try {
+        const response = await fetch(`http://localhost:3000/api/me/trips`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`
+          },
+          body: JSON.stringify(updatedTripData)
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      });
-  
-      if (response.status === 204) {
-        console.log('Success: Trip deleted');
-        // Mettez à jour l'interface utilisateur ici, par exemple, en retirant l'élément de la liste des voyages
-      } else {
-        const errorData = await response.json();
-        throw new Error(`Error: ${response.status} - ${errorData.message}`);
+        const trip = await response.json();
+        console.log('Success:', trip);
+        return trip;
+      } catch (error) {
+        console.error('Error:', error);
       }
-    } catch (error) {
-      console.error('Error:', error);
     }
-  };
 
-  fetchAndDisplayTrips();
+
+
+// async function deleteTrip(tripId) {
+//       try {
+//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+//           method: 'DELETE',
+//           headers: {
+//             Authorization: `Bearer ${getToken()}`
+//           }
+//         });
+
+//         if (response.status === 204) {
+//           console.log('Success: Trip deleted');
+//         } else {
+//           const errorData = await response.json();
+//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
+//         }
+//       } catch (error) {
+//         console.error('Error:', error);
+//       }
+//     }
+//   }
+// });
+
+fetchAndDisplayTrips();
