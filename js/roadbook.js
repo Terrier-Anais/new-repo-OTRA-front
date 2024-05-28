@@ -54,8 +54,8 @@ function handleFormSubmission(event) {
   //Calcul de la durée en fonction des dates renseignées :
   const startDate = new Date(newTripDateStart); // Convertir la date de début en objet Date
   const endDate = new Date(newTripDateEnd); // Convertir la date de fin en objet Date
-  const newTripDuration = (Math.ceil((Math.abs(endDate) - (startDate))) / (1000 * 60 * 60 * 24));// Calculer la durée du voyage en jours
-
+  const newTripDuration = (Math.ceil((Math.abs(endDate) - (startDate))) / (1000 * 60 * 60 * 24)) + 1;// Calculer la durée du voyage en jours
+  
   console.log(newTripDuration);   
 
   // Sélectionner l'élément input de type file pour l'image

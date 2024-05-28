@@ -25,7 +25,9 @@
         <h1>On the road again</h1>
       </div>
       <div class="right">
-        <span id="pseudo">Bienvenue "pseudo"</span>
+        <span id="pseudo"
+          >Bienvenue (pseudo)<i id="user" class="fa-solid fa-user"></i
+        ></span>
       </div>
     </header>
     <main class="trip-details">
@@ -54,13 +56,22 @@
         </div>
       </header>
 
+      <div class="return-anchor">
+        <a class="return" href="roadbook.html"
+          ><i class="fa-solid fa-reply"></i> Retour au carnet de voyages</a
+        >
+      </div>
+
       <section class="visit-container">
         <div class="visit-details">
           <div class="city">
             <div class="city-details">
-              <div class="edit-visit">
+              <div class="visit-button">
                 <button class="edit-visit_button" type="button">
                   <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="delete-visit_button" type="button">
+                  <i class="fa-solid fa-trash"></i>
                 </button>
               </div>
               <header class="city-details-header">

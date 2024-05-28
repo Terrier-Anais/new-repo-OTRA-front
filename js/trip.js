@@ -36,3 +36,8 @@ function showSlides(n) {
         slides[currentIndex].style.display = "block";
     }
 }
+
+const userProfile = document.getElementById('user');
+userProfile.addEventListener('click', function() {
+    window.location.href = 'profil.html';
+});

@@ -55,6 +55,18 @@ option {
   margin-left: 2rem;
 }
 
+.return-anchor {
+  display: flex;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.return {
+  font-size: 0.8rem;
+  color: black;
+  text-decoration: none;
+}
+
 .visit-container {
   display: flex;
   flex-direction: row;
@@ -89,9 +101,10 @@ option {
   padding: 1rem;
 }
 
-.edit-visit {
+.visit-button {
   position: relative;
-  left: 100%;
+  left: 70%;
+  padding: 0;
 }
 
 .edit-visit_button {
@@ -104,7 +117,20 @@ option {
 }
 
 .fa-pen {
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+.delete-visit_button {
+  border: none;
+  background: transparent;
+}
+
+.delete-visit_button:hover {
+  cursor: pointer;
+}
+
+.fa-trash {
+  font-size: 1rem;
 }
 
 .location-visit_button {
@@ -185,4 +211,12 @@ h3 {
   text-align: center;
   font-size: 1.5rem;
   font-family: "Popins";
+}
+.fa-user {
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+.fa-star {
+  font-size: 1.5rem;
 }
