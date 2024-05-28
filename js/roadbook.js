@@ -170,3 +170,14 @@ const updateTripForm = document.querySelector("#update-trip_form");
 updateTripForm.addEventListener("submit", handleUpdateFormSubmission);
 updateTripForm.addEventListener("submit", toggleUpdateTripModal);
 updateTripForm.addEventListener("submit", updateTripForm.reset);
+
+// script pour la suppression d'un voyage :
+document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+  const button = event.target.closest('.delete-trip_button');
+  if (button) {
+    const tripCard = button.closest('.trip-card_content');
+    const deleteTrip = confirm('Voulez-vous vraiment supprimer ce voyage ?');
+    if (deleteTrip === true) {
+    tripCard.remove();}
+  }
+});
