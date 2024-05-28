@@ -70,7 +70,7 @@ function handleFormSubmission(event) {
       // Récupérer l'URL de données (data URL) de l'image
       const imageUrl = event.target.result;
       // Créer une nouvelle carte de voyage avec les données du formulaire et l'URL de l'image
-      const newCard = createCard(newTripTitle, imageUrl, newTripDescription, newTripDateStart, newTripDateEnd, newTripDuration, newTripNote);
+      const newCard = createCard(newTripTitle,newTripDescription, newTripDateStart, newTripDateEnd, newTripDuration, newTripNote);
       // Ajouter la nouvelle carte à la section de Roadbook
       const roadbookSection = document.querySelector('.roadbook_container');
       roadbookSection.appendChild(newCard);

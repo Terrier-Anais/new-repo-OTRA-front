@@ -1,13 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-  getToken();
-  listenToSubmitOnAddTripForm();  
-  });
-
-
 const getToken = () => {
     return localStorage.getItem('token');
-     };
-    
+    return token;
+  };
   
 async function getTrips() {
     try {
@@ -31,8 +25,8 @@ async function getTrips() {
     try {
       const trips = await getTrips();
       console.log(trips);
-      
-        if (!trips) {
+  
+      if (!trips) {
         return;
       }
   
@@ -43,7 +37,7 @@ async function getTrips() {
       console.error('Failed to fetch and display trips:', error);
     }
   }
-  fetchAndDisplayTrips();
+ 
   
   function addTripToTripsContainer(trip) {
     const TripTemplate = document.querySelector('#trip-card-template');
@@ -52,8 +46,8 @@ async function getTrips() {
       tripClone.querySelector('.trip_title').textContent = trip.title;
       tripClone.querySelector('.trip_photo').src = trip.photo;
       tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
-      tripClone.querySelector('.trip_date-start').textContent = `Date de début: ${trip.dateStart}`;
-      tripClone.querySelector('.trip_date-end').textContent = `Date de fin: ${trip.dateEnd}`;
+      tripClone.querySelector('.trip_dateStart').textContent = `Date de début: ${trip.dateStart}`;
+      tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
         tripClone.querySelector('.trip_note').textContent = trip.note;
       // Ajoutez la carte au conteneur de voyages ici si nécessaire
       const roadbookSection = document.querySelector('.roadbook_container');
@@ -62,7 +56,7 @@ async function getTrips() {
       console.error('Trip template not found');
     }
   }
-  
+ 
   function getUserIdFromToken() {
     const token = localStorage.getItem('token');
     if (!token) return null;
@@ -76,32 +70,31 @@ async function getTrips() {
     }
 }
 
-
 async function createTrip(tripData) {
- const userId = getUserIdFromToken();
-    if (!userId) {
-      console.error('User ID not found');
-      return null;}
-    tripData.userId = userId;
+  const user_id = getUserIdFromToken();
+     if (!user_id) {
+       console.error('User ID not found');
+       return null;}
+     tripData.user_id = user_id;
+ 
+       const response = await fetch('http://localhost:3000/api/me/trips', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+           Authorization: `Bearer ${getToken()}`
+         },
+         body: JSON.stringify(tripData)
+       })
+       .then(response => response.json())
+       .then(function(response){
+             localStorage.setItem('token', response.token);
+         console.log('token', response.token);
+           });
+     //        // Passer l'ID de la liste à la modale
+     // editListModal.dataset.listId = list.id;
+   }
 
-      const response = await fetch('http://localhost:3000/api/me/trips', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(tripData)
-      })
-      .then(response => response.json())
-      .then(function(response){
-        localStorage.setItem('token', response.token);
-        console.log('token', response.token);
-          });
-    //        // Passer l'ID de la liste à la modale
-    // editListModal.dataset.listId = list.id;
-  }
-
-  async function listenToSubmitOnAddTripForm() {
+  function listenToSubmitOnAddTripForm() {
     const addTripForm = document.querySelector('#new-trip_form');
     addTripForm.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -121,7 +114,6 @@ if (!createdTrip) {
 
 
   async function updateTrip(tripId, updatedTripData) {
-    const tripId = 
     try {
       const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
         method: 'PATCH',
@@ -162,3 +154,5 @@ if (!createdTrip) {
       console.error('Error:', error);
     }
   };
+
+  fetchAndDisplayTrips();
