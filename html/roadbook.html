@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>On The Road Again</title>
@@ -10,36 +10,36 @@
     <link rel="stylesheet" href="../css/roadbook.css" />
     <!--Ajout d'icone fontawesome-->
     <script
-      src="https://kit.fontawesome.com/8fabed898f.js"
-      crossorigin="anonymous"
+    src="https://kit.fontawesome.com/8fabed898f.js"
+    crossorigin="anonymous"
     ></script>
     <!--Ajout du JS-->
-
+    
     <script defer src ="../js/trips.module.js"></script>
     <script defer src="../js/roadbook.js"></script>
     
-
+    
 </head>
 
 
-  <body>
+<body>
     <!--Header de la page web-->
     <header class="website_header">
-      <div class="left">
-        <img
-          src="../pictures/logo-OTRA-2.jpg"
-          alt="logo de On the road again"
-        />
-        <h1>On the road again</h1>
-      </div>
-      <div class="right">
-        <span id="pseudo">Bienvenue "pseudo"</span>
-      </div>
+        <div class="left">
+            <img
+            src="../pictures/logo-OTRA-2.jpg"
+            alt="logo de On the road again"
+            />
+            <h1>On the road again</h1>
+        </div>
+        <div class="right">
+            <span id="pseudo">Bienvenue "pseudo"</span>
+        </div>
     </header>
-
+    
     <!--Contenu de la page roadbook-->
     <main class="trip-page">
-
+        
         <!--Header du contenu-->
         <header class="trip-page_header">
             <!--Menu déroulant-->
@@ -94,11 +94,11 @@
                         <label for="description">Ajouter une description</label>
                         <input type="text" name="trip_description" id="new-trip_description">
                         
-                        <label for="date-start">Date de début du séjour</label>
-                        <input type="date" name="trip_date-start" id="new-trip_date-start">
+                        <label for="dateStart">Date de début du séjour</label>
+                        <input type="date" name="trip_dateStart" id="new-trip_dateStart">
                         
-                        <label for="date-end">Date de fin du séjour</label>
-                        <input type="date" name="trip_date-end" id="new-trip_date-end">
+                        <label for="dateEnd">Date de fin du séjour</label>
+                        <input type="date" name="trip_dateEnd" id="new-trip_dateEnd">
                         
                         <label for="note">Note</label>
                         
@@ -141,11 +141,11 @@
                         <label for="description">Description</label>
                         <input type="text" name="trip_description" id="update-trip_description">
                         
-                        <label for="date-start">Date de début du séjour</label>
-                        <input type="date" name="trip_date-start" id="update-trip_date-start">
+                        <label for="dateStart">Date de début du séjour</label>
+                        <input type="date" name="trip_dateStart" id="update-trip_dateStart">
                         
-                        <label for="date-end">Date de fin du séjour</label>
-                        <input type="date" name="trip_date-end" id="update-trip_date-end">
+                        <label for="dateEnd">Date de fin du séjour</label>
+                        <input type="date" name="trip_dateEnd" id="update-trip_dateEnd">
                         
                         <label for="note">Note</label>
                         
@@ -192,11 +192,11 @@
                         <div class="trip-card_flag">
                             <p>Drapeau</p>
                         </div>
-                        <div class="trip-card_start-date">
-                            <p class="trip_date-start"></p>
+                        <div class="trip-card_dateStart">
+                            <p class="trip_dateStart"></p>
                         </div>
-                        <div class="trip-card_end-date">
-                            <p class="trip_date-end"></p>
+                        <div class="trip-card_dateEnd">
+                            <p class="trip_dateEnd"></p>
                         </div>
                         <div id="trip_duration" class="trip-card_duration">
                             <p></p>
@@ -209,12 +209,13 @@
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 Détails du voyage
                             </a>
-                    </div>  
-                </div>
-            </template>
-            
-        </section>
-    </main>
-</body>
-</html>
-
+                        </div>  
+                    </div>
+                </template>
+                
+            </section>
+        </main>
+    </body>
+    </html>
+    
+    

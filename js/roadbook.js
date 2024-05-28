@@ -26,8 +26,8 @@ function createCard(title, photo, description, dateStart, dateEnd, duration, not
     card.querySelector('.trip_title').textContent = title;
     card.querySelector('.trip_photo').src = photo;
     card.querySelector('.trip_description').textContent = `Description : ${description}`;
-    card.querySelector('.trip_date-start').textContent = `Date de début: ${dateStart}`;
-    card.querySelector('.trip_date-end').textContent = `Date de fin: ${dateEnd}`;
+    card.querySelector('.trip_dateStart').textContent = `Date de début: ${dateStart}`;
+    card.querySelector('.trip_dateEnd').textContent = `Date de fin: ${dateEnd}`;
     card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${duration} jour(s)`;
     card.querySelector('.trip_note').textContent = note;
   
@@ -41,8 +41,8 @@ function handleFormSubmission(event) {
   // Récupérer les données du formulaire
   const newTripTitle = document.getElementById('new-trip_title').value;
   const newTripDescription = document.getElementById('new-trip_description').value;
-  const newTripDateStart = document.getElementById('new-trip_date-start').value;
-  const newTripDateEnd = document.getElementById('new-trip_date-end').value;
+  const newTripDateStart = document.getElementById('new-trip_dateStart').value;
+  const newTripDateEnd = document.getElementById('new-trip_dateEnd').value;
   const newTripNote = document.getElementById('new-trip_note').value;
 
   // console.log("New Trip Title:", newTripTitle);
@@ -52,9 +52,9 @@ function handleFormSubmission(event) {
   // console.log("New Trip Note:", newTripNote);
 
   //Calcul de la durée en fonction des dates renseignées :
-  const startDate = new Date(newTripDateStart); // Convertir la date de début en objet Date
-  const endDate = new Date(newTripDateEnd); // Convertir la date de fin en objet Date
-  const newTripDuration = (Math.ceil((Math.abs(endDate) - (startDate))) / (1000 * 60 * 60 * 24));// Calculer la durée du voyage en jours
+  const dateStart = new Date(newTripDateStart); // Convertir la date de début en objet Date
+  const dateEnd = new Date(newTripDateEnd); // Convertir la date de fin en objet Date
+  const newTripDuration = (Math.ceil((Math.abs(dateEnd) - (dateStart))) / (1000 * 60 * 60 * 24)) + 1;// Calculer la durée du voyage en jours
 
   // console.log(newTripDuration);   
 
@@ -117,8 +117,8 @@ function updateCardContent(card, title, photo, description, dateStart, dateEnd, 
   card.querySelector('.trip_title').textContent = title;
   card.querySelector('.trip_photo').src = photo;
   card.querySelector('.trip_description').textContent = `Description : ${description}`;
-  card.querySelector('.trip_date-start').textContent = `Date de début: ${dateStart}`;
-  card.querySelector('.trip_date-end').textContent = `Date de fin: ${dateEnd}`;
+  card.querySelector('.trip_dateStart').textContent = `Date de début: ${dateStart}`;
+  card.querySelector('.trip_dateEnd').textContent = `Date de fin: ${dateEnd}`;
   card.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${duration} jour(s)`;
   card.querySelector('.trip_note').textContent = note;
 
@@ -131,14 +131,14 @@ function handleUpdateFormSubmission(event) {
   // Récupérer les données du formulaire
   const updatedTripTitle = document.getElementById('update-trip_title').value;
   const updatedTripDescription = document.getElementById('update-trip_description').value;
-  const updatedTripDateStart = document.getElementById('update-trip_date-start').value;
-  const updatedTripDateEnd = document.getElementById('update-trip_date-end').value;
+  const updatedTripDateStart = document.getElementById('update-trip_dateStart').value;
+  const updatedTripDateEnd = document.getElementById('update-trip_dateEnd').value;
   const updatedTripNote = document.getElementById('update-trip_note').value;
 
   //Calcul de la durée en fonction des dates renseignées :
-  const updatedStartDate = new Date(updatedTripDateStart);
-  const updatedEndDate = new Date(updatedTripDateEnd);
-  const updatedTripDuration = (Math.ceil((Math.abs(updatedEndDate) - (updatedStartDate))) / (1000 * 60 * 60 * 24));
+  const updatedDateStart = new Date(updatedTripDateStart);
+  const updatedDateEnd = new Date(updatedTripDateEnd);
+  const updatedTripDuration = (Math.ceil((Math.abs(updatedDateEnd) - (updatedDateStart))) / (1000 * 60 * 60 * 24)) + 1;
   console.log(updatedTripDuration);   
 
   // Sélectionner l'élément input de type file pour l'image
