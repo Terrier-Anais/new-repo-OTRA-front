@@ -61,7 +61,9 @@ main {
 .profil input[type="text"],
 .profil input[type="email"],
 .profil input[type="password"],
-.profil input[type="submit"] {
+.profil input[type="submit"],
+.profil input[type="button"]
+ {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
@@ -71,7 +73,7 @@ main {
     font-size: 1em;
 }
 
-.profil input[type="submit"] {
+.profil input[type="submit"],[type="button"]  {
     background-color: #7EB3C8;
     color: #fff;
     cursor: pointer;
@@ -79,7 +81,7 @@ main {
     border: none;
 }
 
-.profil input[type="submit"]:hover {
+.profil input[type="submit"][type="button"] :hover {
     background-color: #7E8EC8;
     cursor: pointer;
 }

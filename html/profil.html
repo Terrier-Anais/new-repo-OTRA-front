@@ -7,41 +7,38 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/profil.css">
-    <script defer src="../js/profil.js"></script>
+    <script type="module" src="../js/profil.js"></script>
 </head>
 <body>
 <header class="website_header">
-    <!-- <div class="left"><img src="../pictures/logo-OTRA-2.jpg" alt="logo de On the road again"> -->
-        <H1>On the road again</H1>
-    </div> 
+    <h1>On the road again</h1>
 </header>
 <main>
-<div class="profil">
-    <h2>Mon profil</h2>
-    <form id="profilForm" action="" method="POST">
-        <label for="surname">Nom</label>
-        <input type="text" name="lastname" placeholder="Votre nom" id="surname" required>
+    <div class="profil">
+        <h2>Mon profil</h2>
+        <form id="profilForm" action="" method="POST">
+            <label for="lastname">Nom</label>
+            <input type="text" name="lastname" placeholder="Votre nom" id="lastname" >
 
-        <label for="name">Prénom</label>
-        <input type="text" name="firstname" placeholder="Votre prénom" id="name" required>
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname" placeholder="Votre prénom" id="firstname">
 
-        <label for="username">Nom d'utilisateur</label>
-        <input type="text" name="pseudo" placeholder="Votre nom d'utilisateur" id="username" required>
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="pseudo" placeholder="Votre nom d'utilisateur" id="username">
 
+            <label for="email">Adresse mail</label>
+            <input type="email" name="email" placeholder="Votre adresse mail" id="email">
 
-        <label for="email">Adresse mail</label>
-        <input type="email" name="email" placeholder="Votre adresse mail" id="email" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" placeholder="Votre mot de passe" id="password">
 
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" placeholder="Votre mot de passe" id="password" required>
+            <label for="confirmation">Confirmation du nouveau mot de passe</label>
+            <input type="password" name="confirmation" placeholder="Votre nouveau mot de passe" id="confirmation">
 
-        <label for="confirmation">Confirmation du nouveau mot de passe</label>
-        <input type="password" name="confirmation" placeholder="Votre nouveau mot de passe" id="confirmation" required>
-        <input type="submit" value="Modifier mon profil">
-        <input type="submit" value="Supprimer mon profil">
-    </form>
-</div>    
-</div>
+            <input type="submit" value="Modifier mon profil" id="updateProfileButton">
+            <input type="button" value="Supprimer mon profil" id="deleteProfileButton">
+        </form>
+    </div>
 </main>
 </body>
 </html>

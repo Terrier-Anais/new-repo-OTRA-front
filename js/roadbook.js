@@ -45,18 +45,18 @@ function handleFormSubmission(event) {
   const newTripDateEnd = document.getElementById('new-trip_date-end').value;
   const newTripNote = document.getElementById('new-trip_note').value;
 
-  console.log("New Trip Title:", newTripTitle);
-  console.log("New Trip Comment:", newTripComment);
-  console.log("New Trip Date Start:", newTripDateStart);
-  console.log("New Trip Date End:", newTripDateEnd);
-  console.log("New Trip Note:", newTripNote);
+  // console.log("New Trip Title:", newTripTitle);
+  // console.log("New Trip Comment:", newTripComment);
+  // console.log("New Trip Date Start:", newTripDateStart);
+  // console.log("New Trip Date End:", newTripDateEnd);
+  // console.log("New Trip Note:", newTripNote);
 
   //Calcul de la durée en fonction des dates renseignées :
   const startDate = new Date(newTripDateStart); // Convertir la date de début en objet Date
   const endDate = new Date(newTripDateEnd); // Convertir la date de fin en objet Date
   const newTripDuration = (Math.ceil((Math.abs(endDate) - (startDate))) / (1000 * 60 * 60 * 24));// Calculer la durée du voyage en jours
 
-  console.log(newTripDuration);   
+  // console.log(newTripDuration);   
 
   // Sélectionner l'élément input de type file pour l'image
   const newTripPhotoInput = document.getElementById('new-trip_photo');
