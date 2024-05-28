@@ -8,7 +8,7 @@
   justify-content: space-evenly;
   padding: 1rem 10rem;
   display: flex;
-  border: #7e8ec8 solid 0.2rem;
+  border: black solid 0.15rem;
   border-radius: 1rem;
   margin: 2rem;
   justify-content: center;
@@ -16,18 +16,18 @@
 }
 #menu_choice {
   border-radius: 1rem;
-  border: #7e8ec8 solid 0.15rem;
+  border: black solid 0.1rem;
   text-align: center;
   font-size: 1rem;
   background-color: transparent;
   cursor: pointer;
-  font-family: "Sedan SC", serif;
   margin-right: 2rem;
+  font-family: "Poppins";
 }
 .main_title {
   font-size: 2rem;
   text-align: center;
-  border: #7e8ec8 solid 0.15rem;
+  border: black solid 0.1rem;
   padding: 0.4rem 8rem;
   border-radius: 1rem;
 }
@@ -40,17 +40,18 @@ option {
   box-shadow: 0rem 0.8rem 1rem 0rem rgba(0, 0, 0, 0.2);
   background-color: #ecebea;
   text-align: center;
+  font-family: "Poppins";
 }
 
 #classement_choice {
   border-radius: 1rem;
-  border: #7e8ec8 solid 0.15rem;
+  border: black solid 0.1rem;
   text-align: center;
   font-size: 1rem;
   padding: 0rem 1rem;
   background-color: transparent;
   cursor: pointer;
-  font-family: "Sedan SC", serif;
+  font-family: "Poppins";
   margin-left: 2rem;
 }
 
@@ -63,7 +64,7 @@ option {
   display: inline-flex;
   flex-direction: row;
   width: 60vw;
-  border: #7e8ec8 solid 0.2rem;
+  border: black solid 0.15rem;
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
@@ -74,7 +75,7 @@ option {
   flex-direction: column;
   margin: 1rem;
   padding: 1rem;
-  border: #7e8ec8 solid 0.2rem;
+  border: black solid 0.1rem;
   border-radius: 1rem;
   width: 20%;
   justify-content: center;
@@ -83,10 +84,40 @@ option {
 .city-details-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   width: 100%;
   border: none;
   padding: 1rem;
+}
+
+.edit-visit {
+  position: relative;
+  left: 100%;
+}
+
+.edit-visit_button {
+  border: none;
+  background: transparent;
+}
+
+.edit-visit_button:hover {
+  cursor: pointer;
+}
+
+.fa-pen {
+  font-size: 1.2rem;
+}
+
+.location-visit_button {
+  border: none;
+  background: transparent;
+}
+
+.location-visit_button:hover {
+  cursor: pointer;
+}
+
+.fa-location-dot {
+  font-size: 1.1rem;
 }
 
 .visit-photo {
@@ -149,4 +180,9 @@ option {
 .carte {
   justify-content: right;
   text-align: right;
+}
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Popins";
 }
