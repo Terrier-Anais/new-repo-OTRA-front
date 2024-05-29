@@ -1,7 +1,7 @@
 const getToken = () => {
   return localStorage.getItem('token');
     };
-
+// fonction pour récupérer l'ID de l'utilisateur à partir du token
 function getUserIdFromToken() {
   const token = localStorage.getItem('token');
   if (!token) return null;
@@ -18,7 +18,6 @@ function getUserIdFromToken() {
 async function fetchAndDisplayTrips() {
 try {
   const trips = await getTrips();
-  console.log(trips);
 
   if (!trips) {
     return;
@@ -50,27 +49,8 @@ addTripForm.reset();
 }});}
 listenToSubmitOnAddTripForm()
 
-function listenToSubmitOnUpdateTripForm(tripId) {
-const updateTripForm = document.querySelector('#update-trip_form');
-updateTripForm.addEventListener('submit', async function(event) {
-  event.preventDefault();
 
-  const tripData = Object.fromEntries(new FormData(updateTripForm));
-  console.log(tripData);
-
-  // Appelle la fonction de mise à jour du voyage avec l'ID du voyage et les données du voyage
-  const updatedTrip = await updateTrip(tripId, tripData);
-  if (!updatedTrip) {
-    return;
-  } else {
-    addTripToTripsContainer(updatedTrip);
-    updateTripForm.reset();
-  }
-});
-}
-
-listenToSubmitOnUpdateTripForm()
-
+// On récupère tous les voyages de l'utilisateur connecté en utilisant l'API
 async function getTrips() {
   try {
     const response = await fetch('http://localhost:3000/api/me/trips', {
@@ -88,7 +68,7 @@ async function getTrips() {
     console.error('Error:', error);
   }
 }
-
+// On affiche les voyages de l'utilisateur connecté 
 function addTripToTripsContainer(trip) {
   const TripTemplate = document.querySelector('#trip-card-template');
   if (TripTemplate) {
@@ -100,17 +80,23 @@ function addTripToTripsContainer(trip) {
     tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
     tripClone.querySelector('.trip_note').textContent = trip.note;
 
+    // On  affecte l'ID du voyage à l'élément au clone du voyage
     const tripCardContent = tripClone.querySelector('.trip-card_content');
     tripCardContent.dataset.tripId = trip.id;
-    console.log('tripId:', trip.id);
+    // console.log('tripId:', trip.id);
 
+    // On affecte l'ID du voyage au bouton de suppression de voyage
+    const deleteTripButton = tripClone.querySelector('.delete-trip_button');
+    deleteTripButton.dataset.tripId = trip.id;
+   
+// On insère le clone du voyage dans la section roadbook_container
     const roadbookSection = document.querySelector('.roadbook_container');
     roadbookSection.appendChild(tripClone);
   } else {
     console.error('Trip template not found');
   }
 }
-
+// On créé un nouveau voyage pour l'utilisateur connecté en utilisant l'API
 async function createTrip(tripData) {
 const user_id = getUserIdFromToken();
    if (!user_id) {
@@ -129,66 +115,93 @@ const user_id = getUserIdFromToken();
      .then(response => response.json())
      .then(function(response){
            localStorage.setItem('token', response.token);
-       console.log('token', response.token);
+      //  console.log('token', response.token);
          });
   }
   
-  
-  document.querySelector('.roadbook_container').addEventListener('click', function(event) {
-    const button = event.target.closest('.delete-trip_button');
-    if (button) {
-      const tripCard = button.closest('.trip-card_content');
-      const tripId = tripCard.dataset.tripId; // Récupère l'ID du voyage
-      console.log('tripId:', tripId);
-  
-      // Appelle la fonction d'écoute sur le formulaire de mise à jour avec l'ID du voyage
-      listenToSubmitOnUpdateTripForm(tripId);
-    }
-  });
-  
-  async function updateTrip(tripId, updatedTripData) {
-    try {
-      const response = await fetch(`http://localhost:3000/api/me/trips`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(updatedTripData)
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const trip = await response.json();
-      console.log('Success:', trip);
-      return trip;
-    } catch (error) {
-      console.error('Error:', error);
-    }
+ // Sélectionner le clone qui contient le voyage à modifier
+function listenToSubmitOnUpdateTripForm() {
+  const updateTripForm = document.querySelector('#update-trip_form');
+  updateTripForm.addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+ // Sélectionner l'élément qui contient l'ID du voyage
+const tripCardContent = document.querySelector('[data-trip-id]');
+  console.log(tripCardContent);
+
+// Récupérer la valeur de l'attribut data-trip-id
+const tripId = tripCardContent.getAttribute('data-trip-id');
+// console.log(tripId); 
+
+// Récupérer les données du formulaire de modification de voyage
+const updatedTripData = Object.fromEntries(new FormData(updateTripForm));
+
+// Envoyer les données du formulaire de modification de voyage à l'API
+const updatedTrip = await updateTrip(tripId, updatedTripData);
+  // console.log (updatedTrip);
+  if (!updatedTrip) {
+    return;
   }
+  updateTripForm.reset();
+  });
+}
+listenToSubmitOnUpdateTripForm();
 
+// Envoyer les données du formulaire de modification du voyage à l'API en utilisant l'ID du voyage et les données du formulaire
+async function updateTrip(tripId, updatedTripData) { 
+  try {
+    const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, { 
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${getToken()}`
+      },
+      body: JSON.stringify(updatedTripData) 
+    });
 
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
-// async function deleteTrip(tripId) {
-//       try {
-//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-//           method: 'DELETE',
-//           headers: {
-//             Authorization: `Bearer ${getToken()}`
-//           }
-//         });
-
-//         if (response.status === 204) {
-//           console.log('Success: Trip deleted');
-//         } else {
-//           const errorData = await response.json();
-//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
-//         }
-//       } catch (error) {
-//         console.error('Error:', error);
-//       }
-//     }
-//   }
-// });
+    const trip = await response.json();
+    console.log('Success:', trip);
+    return trip;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 fetchAndDisplayTrips();
+
+// function listenToDeleteTripButton(){ 
+// }
+// // On sélectionne le bouton de suppression de voyage et on écoute l'événement click pour afficher la modale de confirmation de suppression
+
+// const deleteTripButton = document.querySelector('[data-trip-id]');
+// console.log(deleteTripButton);
+ 
+
+
+
+async function deleteTrip(tripId) {
+      try {
+        const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${getToken()}`
+          }
+        });
+
+        if (response.status === 204) {
+          console.log('Success: Trip deleted');
+        } else {
+          const errorData = await response.json();
+          throw new Error(`Error: ${response.status} - ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    // besoin de rafraichir la page pour voir les changements
+  
