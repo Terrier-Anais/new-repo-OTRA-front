@@ -30,7 +30,7 @@ form.addEventListener('submit', async function(event) {
     };
     console.log(formData);
 
-    const response = await fetch('/api/api/signup', {
+    const response = await fetch('/api/signup', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
