@@ -12,8 +12,6 @@
     margin: 2rem;
     justify-content: center;
     align-items: center;
-    
-
 }
 
 .trip-page_menu {
@@ -121,10 +119,6 @@ h3 {
   font-size: 1.2rem;
 }
 
-.trip-card_update:hover {
-  cursor: pointer;
-}
-
 .update-trip_button {
   background-color: transparent;
   border: none;
@@ -137,10 +131,38 @@ h3 {
 .fa-pen {
   font-size: 1.2rem;
 }
+.delete-trip_button {
+  background-color: transparent;
+  border: none;
+}
+
+.delete-trip_button:hover {
+  cursor: pointer;
+}
+
+.fa-trash {
+  font-size: 1.2rem;
+}
 
 .trip_photo {
   height: 80%;
   width: 100%;
+}
+
+.trip-visits {
+  display: flex;
+  padding: 1rem 0.5rem;
+  justify-content: center;
+}
+
+.trip-visits-details {
+  font-size: 1rem;
+  text-align: center;
+  border: #8b9ca6 solid 0.1rem;
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  color: black;
 }
 
 .modal_new-trip {
