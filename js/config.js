@@ -1,1 +1,1 @@
-export const apiBaseUrl = "http://localhost:3000/api";
+export const apiBaseUrl = "http://mathieu-blanc-server.eddi.cloud/api";
