@@ -1,6 +1,8 @@
 const getToken = () => {
   return localStorage.getItem('token');
     };
+console.log(getToken());
+
 // fonction pour récupérer l'ID de l'utilisateur à partir du token
 function getUserIdFromToken() {
   const token = localStorage.getItem('token');
@@ -14,6 +16,7 @@ function getUserIdFromToken() {
       return null;
   }
 }
+
 
 async function fetchAndDisplayTrips() {
 try {
@@ -32,22 +35,22 @@ try {
 }
 
 function listenToSubmitOnAddTripForm() {
-const addTripForm = document.querySelector('#new-trip_form');
-addTripForm.addEventListener('submit', async function(event) {
-  event.preventDefault();
+  const addTripForm = document.querySelector('#new-trip_form');
+  addTripForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+  
+    const tripData = Object.fromEntries(new FormData(addTripForm));
+    console.log(tripData);
+  
+    const createdTrip = await createTrip(tripData);
+  if (!createdTrip) {
+  return;
+  }else{
+  addTripToTripsContainer(createdTrip);
+  addTripForm.reset();
+ 
+  }});}
 
-  const tripData = Object.fromEntries(new FormData(addTripForm));
-  console.log(tripData);
-
-  const createdTrip = await createTrip(tripData);
-if (!createdTrip) {
-return;
-}else{
-addTripToTripsContainer(createdTrip);
-addTripForm.reset();
-
-}});}
-listenToSubmitOnAddTripForm()
 
 
 // On récupère tous les voyages de l'utilisateur connecté en utilisant l'API
@@ -97,6 +100,7 @@ function addTripToTripsContainer(trip) {
   }
 }
 
+
 // Converti un fichier blob en string base64
 function convertFileToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -123,6 +127,9 @@ async function uploadImage(data) {
   }
 }
 
+listenToSubmitOnAddTripForm();
+
+
 // On créé un nouveau voyage pour l'utilisateur connecté en utilisant l'API
 async function createTrip(tripData) {
   // CHECK PHOTO
@@ -145,6 +152,8 @@ const user_id = getUserIdFromToken();
      console.error('User ID not found');
      return null;}
    tripData.user_id = user_id;
+   
+ 
 
      const response = await fetch('http://localhost:3000/api/me/trips', {
        method: 'POST',
@@ -181,7 +190,9 @@ const updatedTripData = Object.fromEntries(new FormData(updateTripForm));
 // Envoyer les données du formulaire de modification de voyage à l'API
 const updatedTrip = await updateTrip(tripId, updatedTripData);
   // console.log (updatedTrip);
-  if (!updatedTrip) {
+    if (updatedTrip) {
+      location.reload(); // Refresh the page to reflect changes
+    } else {
     return;
   }
   updateTripForm.reset();
@@ -225,25 +236,25 @@ fetchAndDisplayTrips();
 
 
 
-async function deleteTrip(tripId) {
-      try {
-        const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
-        });
+// async function deleteTrip(tripId) {
+//       try {
+//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+//           method: 'DELETE',
+//           headers: {
+//             Authorization: `Bearer ${getToken()}`
+//           }
+//         });
 
-        if (response.status === 204) {
-          console.log('Success: Trip deleted');
-        } else {
-          const errorData = await response.json();
-          throw new Error(`Error: ${response.status} - ${errorData.message}`);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
+//         if (response.status === 204) {
+//           console.log('Success: Trip deleted');
+//         } else {
+//           const errorData = await response.json();
+//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
+//         }
+//       } catch (error) {
+//         console.error('Error:', error);
+//       }
+//     }
 
     // besoin de rafraichir la page pour voir les changements
   

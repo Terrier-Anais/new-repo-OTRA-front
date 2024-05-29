@@ -60,27 +60,28 @@ function handleFormSubmission(event) {
   // console.log(newTripDuration);   
 
 
-  // Sélectionner l'élément input de type file pour l'image
-  const newTripPhotoInput = document.getElementById('new-trip_photo');
+//   // Sélectionner l'élément input de type file pour l'image
+//   const newTripPhotoInput = document.getElementById('new-trip_photo');
 
-  // Vérifier s'il y a un fichier sélectionné
-  if (newTripPhotoInput.files) {
-    // Créer un objet FileReader
-    const reader = new FileReader(); 
-    // Écouter lorsque la lecture du fichier est terminée
-    reader.onload = function(event) {
-      // Récupérer l'URL de données (data URL) de l'image
-      const imageUrl = event.target.result;
-      // Créer une nouvelle carte de voyage avec les données du formulaire et l'URL de l'image
-      const newCard = createCard(newTripTitle, imageUrl, newTripDescription, newTripDateStart, newTripDateEnd, newTripDuration, newTripNote);
-      // Ajouter la nouvelle carte à la section de Roadbook
-      const roadbookSection = document.querySelector('.roadbook_container');
-      roadbookSection.appendChild(newCard);
-      console.log(newCard)
-    };
-    // Lire le contenu du fichier en tant qu'URL de données (data URL)
-    reader.readAsDataURL(newTripPhotoInput.files[0]);
-}}
+//   // Vérifier s'il y a un fichier sélectionné
+//   if (newTripPhotoInput.files) {
+//     // Créer un objet FileReader
+//     const reader = new FileReader(); 
+//     // Écouter lorsque la lecture du fichier est terminée
+//     reader.onload = function(event) {
+//       // Récupérer l'URL de données (data URL) de l'image
+//       const imageUrl = event.target.result;
+//       // Créer une nouvelle carte de voyage avec les données du formulaire et l'URL de l'image
+//       const newCard = createCard(newTripTitle, imageUrl, newTripDescription, newTripDateStart, newTripDateEnd, newTripDuration, newTripNote);
+//       // Ajouter la nouvelle carte à la section de Roadbook
+//       const roadbookSection = document.querySelector('.roadbook_container');
+//       roadbookSection.appendChild(newCard);
+//       console.log(newCard)
+//     };
+//     // Lire le contenu du fichier en tant qu'URL de données (data URL)
+//     reader.readAsDataURL(newTripPhotoInput.files[0]);
+// }
+}
 
 // Sélectionner le formulaire d'ajout de carte
 const newTripForm = document.querySelector("#new-trip_form");

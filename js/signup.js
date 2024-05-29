@@ -1,3 +1,9 @@
+// script span connection
+
+const connect = document.getElementById('connection');
+connect.addEventListener('click', () => {
+    window.location.href = 'login.html';
+});
 
 const form = document.getElementById('signinForm');
 
