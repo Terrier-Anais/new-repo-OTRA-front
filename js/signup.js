@@ -17,6 +17,7 @@ form.addEventListener('submit', async function(event) {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const confirmation = document.getElementById('confirmation').value;
+    console.log(email, lastname, firstname, username, password);
 
     // Crée un objet de données pour la requête
     const formData = {
@@ -27,29 +28,21 @@ form.addEventListener('submit', async function(event) {
         password: password,
         confirmation: confirmation
     };
+    console.log(formData);
 
-    try {
-        const response = await fetch('/signup', {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-
-        if (!response.ok) {
-            throw new Error('Erreur lors de la requête');
-        }
-
-        const responseData = await response.json();
-        localStorage.setItem('token', responseData.token);
-        console.log('token', responseData.token);
+    const response = await fetch('/api/signup', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(function(response){
+        localStorage.setItem('token', response.token);
+        console.log('token', response.token);
         alert('Inscription réussie !');
         window.location.href = "login.html";
-    } catch (error) {
-        console.error('Erreur:', error);
-        alert('Une erreur est survenue lors de l\'inscription.');
-    }
+    });
 });
-
 
