@@ -96,8 +96,50 @@ function addTripToTripsContainer(trip) {
     console.error('Trip template not found');
   }
 }
+
+// Converti un fichier blob en string base64
+function convertFileToBase64(file) {
+  return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
+  });
+}
+
+async function uploadImage(data) {
+  try {
+      const response = await fetch('http://localhost:3000/api/upload', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      console.log(result);
+  } catch (error) {
+      console.error(error);
+  }
+}
+
 // On créé un nouveau voyage pour l'utilisateur connecté en utilisant l'API
 async function createTrip(tripData) {
+  // CHECK PHOTO
+  console.log('Youpi', tripData);
+  if (tripData.photo) {
+
+    const file = tripData.photo;
+    if (file instanceof Blob) {
+        const base64String = await convertFileToBase64(file);
+        tripData.photo = base64String;
+        await uploadImage(tripData);
+    } else {
+        console.error('The selected file is not valid.');
+    }
+}
+// END CHECK PHOTO
+
 const user_id = getUserIdFromToken();
    if (!user_id) {
      console.error('User ID not found');
