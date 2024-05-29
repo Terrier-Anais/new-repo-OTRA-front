@@ -1,6 +1,8 @@
 const getToken = () => {
   return localStorage.getItem('token');
     };
+console.log(getToken());
+
 // fonction pour récupérer l'ID de l'utilisateur à partir du token
 function getUserIdFromToken() {
   const token = localStorage.getItem('token');
@@ -14,6 +16,7 @@ function getUserIdFromToken() {
       return null;
   }
 }
+
 
 async function fetchAndDisplayTrips() {
 try {
@@ -183,25 +186,25 @@ fetchAndDisplayTrips();
 
 
 
-async function deleteTrip(tripId) {
-      try {
-        const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
-        });
+// async function deleteTrip(tripId) {
+//       try {
+//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+//           method: 'DELETE',
+//           headers: {
+//             Authorization: `Bearer ${getToken()}`
+//           }
+//         });
 
-        if (response.status === 204) {
-          console.log('Success: Trip deleted');
-        } else {
-          const errorData = await response.json();
-          throw new Error(`Error: ${response.status} - ${errorData.message}`);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
+//         if (response.status === 204) {
+//           console.log('Success: Trip deleted');
+//         } else {
+//           const errorData = await response.json();
+//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
+//         }
+//       } catch (error) {
+//         console.error('Error:', error);
+//       }
+//     }
 
     // besoin de rafraichir la page pour voir les changements
   
