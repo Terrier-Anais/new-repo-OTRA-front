@@ -35,22 +35,22 @@ try {
 }
 
 function listenToSubmitOnAddTripForm() {
-const addTripForm = document.querySelector('#new-trip_form');
-addTripForm.addEventListener('submit', async function(event) {
-  event.preventDefault();
+  const addTripForm = document.querySelector('#new-trip_form');
+  addTripForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+  
+    const tripData = Object.fromEntries(new FormData(addTripForm));
+    console.log(tripData);
+  
+    const createdTrip = await createTrip(tripData);
+  if (!createdTrip) {
+  return;
+  }else{
+  addTripToTripsContainer(createdTrip);
+  addTripForm.reset();
+ 
+  }});}
 
-  const tripData = Object.fromEntries(new FormData(addTripForm));
-  console.log(tripData);
-
-  const createdTrip = await createTrip(tripData);
-if (!createdTrip) {
-return;
-}else{
-addTripToTripsContainer(createdTrip);
-addTripForm.reset();
-
-}});}
-listenToSubmitOnAddTripForm()
 
 
 // On récupère tous les voyages de l'utilisateur connecté en utilisant l'API
@@ -99,6 +99,8 @@ function addTripToTripsContainer(trip) {
     console.error('Trip template not found');
   }
 }
+listenToSubmitOnAddTripForm();
+
 // On créé un nouveau voyage pour l'utilisateur connecté en utilisant l'API
 async function createTrip(tripData) {
 const user_id = getUserIdFromToken();
@@ -106,6 +108,8 @@ const user_id = getUserIdFromToken();
      console.error('User ID not found');
      return null;}
    tripData.user_id = user_id;
+   
+ 
 
      const response = await fetch('http://localhost:3000/api/me/trips', {
        method: 'POST',
@@ -142,7 +146,9 @@ const updatedTripData = Object.fromEntries(new FormData(updateTripForm));
 // Envoyer les données du formulaire de modification de voyage à l'API
 const updatedTrip = await updateTrip(tripId, updatedTripData);
   // console.log (updatedTrip);
-  if (!updatedTrip) {
+    if (updatedTrip) {
+      location.reload(); // Refresh the page to reflect changes
+    } else {
     return;
   }
   updateTripForm.reset();
