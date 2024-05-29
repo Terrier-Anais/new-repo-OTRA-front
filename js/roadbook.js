@@ -139,30 +139,31 @@ function handleUpdateFormSubmission(event) {
   const updatedDateStart = new Date(updatedTripDateStart);
   const updatedDateEnd = new Date(updatedTripDateEnd);
   const updatedTripDuration = (Math.ceil((Math.abs(updatedDateEnd) - (updatedDateStart))) / (1000 * 60 * 60 * 24)) + 1;
-  console.log(updatedTripDuration);   
+  // console.log(updatedTripDuration);   
 
   // Sélectionner l'élément input de type file pour l'image
-  const updatedTripPhotoInput = document.getElementById('update-trip_photo');
+//   const updatedTripPhotoInput = document.getElementById('update-trip_photo');
 
-  // Vérifier s'il y a un fichier sélectionné
-  if (updatedTripPhotoInput.files.length > 0) {
-    // Créer un objet FileReader
-    const reader = new FileReader();
-    // Écouter lorsque la lecture du fichier est terminée
-    reader.onload = function(event) {
-      // Récupérer l'URL de données (data URL) de l'image
-      const updatedImageUrl = event.target.result;
-      // Modifier le contenu de la carte de voyage avec les nouvelles données
-      updateCardContent(currentTripCard, updatedTripTitle, updatedImageUrl, updatedTripDescription, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
-    };
-    // Lire le contenu du fichier en tant qu'URL de données (data URL)
-    reader.readAsDataURL(updatedTripPhotoInput.files[0]);
-  }else {
-    // Si pas de nouvelle image, utiliser l'image existante
-    const existingImageUrl = currentTripCard.querySelector('.trip_photo').src;
-    updateCardContent(currentTripCard, updatedTripTitle, existingImageUrl, updatedTripDescription, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
-  }
+//   // Vérifier s'il y a un fichier sélectionné
+//   if (updatedTripPhotoInput.files.length > 0) {
+//     // Créer un objet FileReader
+//     const reader = new FileReader();
+//     // Écouter lorsque la lecture du fichier est terminée
+//     reader.onload = function(event) {
+//       // Récupérer l'URL de données (data URL) de l'image
+//       const updatedImageUrl = event.target.result;
+//       // Modifier le contenu de la carte de voyage avec les nouvelles données
+//       updateCardContent(currentTripCard, updatedTripTitle, updatedImageUrl, updatedTripDescription, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
+//     };
+//     // Lire le contenu du fichier en tant qu'URL de données (data URL)
+//     reader.readAsDataURL(updatedTripPhotoInput.files[0]);
+//   }else {
+//     // Si pas de nouvelle image, utiliser l'image existante
+//     const existingImageUrl = currentTripCard.querySelector('.trip_photo').src;
+//     updateCardContent(currentTripCard, updatedTripTitle, existingImageUrl, updatedTripDescription, updatedTripDateStart, updatedTripDateEnd, updatedTripDuration, updatedTripNote);
+//   }
 }
+
 
 // Sélectionner le formulaire de modification de carte
 const updateTripForm = document.querySelector("#update-trip_form");
