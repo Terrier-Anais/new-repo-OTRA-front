@@ -53,7 +53,7 @@ listenToSubmitOnAddTripForm()
 // On récupère tous les voyages de l'utilisateur connecté en utilisant l'API
 async function getTrips() {
   try {
-    const response = await fetch('http://localhost:3000/api/me/trips', {
+    const response = await fetch('/api/me/trips', {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }

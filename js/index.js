@@ -2,7 +2,7 @@ getMyTrips();
 async function getMyTrips() {
   try {
       // Assurez-vous que l'URL est correcte et que le serveur est en cours d'exécution
-      const httpResponse = await fetch('http://localhost:3000/api/me/trips', {
+      const httpResponse = await fetch('/api/me/trips', {
           method: 'GET', // Méthode HTTP
           headers: {
               'Content-Type': 'application/json' // Type de contenu

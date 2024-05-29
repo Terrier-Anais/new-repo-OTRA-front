@@ -23,7 +23,7 @@ const newTripData = {
 
 console.log(newTripData);
 
-const response = await fetch('http://localhost:3000/api/me/trips', {
+const response = await fetch('/api/me/trips', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

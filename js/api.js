@@ -39,7 +39,7 @@
   // besoin de récupérer l'id du trip depuis le front
 async function apiGetOneTrip() {
   const tripId = 1; 
-  await fetch(`http://localhost:3000/api/me/trips/${tripId}`, { 
+  await fetch(`/api/me/trips/${tripId}`, { 
       headers: {
           Authorization: `Bearer ${getToken()}`
       }
