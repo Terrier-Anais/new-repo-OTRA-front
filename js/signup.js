@@ -30,7 +30,7 @@ form.addEventListener('submit', async function(event) {
     };
     console.log(formData);
 
-    const response = await fetch('http://mathieu-blanc-server.eddi.cloud/api/signin', {
+    const response = await fetch('/api/signin', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
