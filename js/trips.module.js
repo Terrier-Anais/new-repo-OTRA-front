@@ -77,7 +77,7 @@ function addTripToTripsContainer(trip) {
   if (TripTemplate) {
     const tripClone = document.importNode(TripTemplate.content, true);
     tripClone.querySelector('.trip_title').textContent = trip.title;
-    // tripClone.querySelector('.trip_photo').src = trip.photo;
+    tripClone.querySelector('.trip_photo').src = trip.photo;
     tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
     tripClone.querySelector('.trip_dateStart').textContent = `Date de début: ${trip.dateStart}`;
     tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
@@ -91,6 +91,7 @@ function addTripToTripsContainer(trip) {
     // On affecte l'ID du voyage au bouton de suppression de voyage
     const deleteTripButton = tripClone.querySelector('.delete-trip_button');
     deleteTripButton.dataset.tripId = trip.id;
+
    
 // On insère le clone du voyage dans la section roadbook_container
     const roadbookSection = document.querySelector('.roadbook_container');
@@ -99,7 +100,6 @@ function addTripToTripsContainer(trip) {
     console.error('Trip template not found');
   }
 }
-
 
 // Converti un fichier blob en string base64
 function convertFileToBase64(file) {
@@ -202,6 +202,18 @@ listenToSubmitOnUpdateTripForm();
 
 // Envoyer les données du formulaire de modification du voyage à l'API en utilisant l'ID du voyage et les données du formulaire
 async function updateTrip(tripId, updatedTripData) { 
+  console.log('Youpi', updatedTripData);
+  if (updatedTripData.photo) {
+
+    const file = updatedTripData.photo;
+    if (file instanceof Blob) {
+        const base64String = await convertFileToBase64(file);
+        updatedTripData.photo = base64String;
+        await uploadImage(updatedTripData);
+    } else {
+        console.error('The selected file is not valid.');
+    }
+}
   try {
     const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, { 
       method: 'PATCH',
