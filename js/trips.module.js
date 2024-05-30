@@ -81,7 +81,7 @@ function addTripToTripsContainer(trip) {
     tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
     tripClone.querySelector('.trip_dateStart').textContent = `Date de début: ${trip.dateStart}`;
     tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
-    tripClone.querySelector('.trip_note').textContent = trip.note;
+    tripClone.querySelector('.trip_note').textContent = `Note du voyage: ${trip.note}/5`;
 
     // On  affecte l'ID du voyage à l'élément au clone du voyage
     const tripCardContent = tripClone.querySelector('.trip-card_content');
@@ -238,35 +238,36 @@ async function updateTrip(tripId, updatedTripData) {
 
 fetchAndDisplayTrips();
 
-// function listenToDeleteTripButton(){ 
-// }
-// // On sélectionne le bouton de suppression de voyage et on écoute l'événement click pour afficher la modale de confirmation de suppression
+function listenToDeleteTripButton(trip){ 
+  // On sélectionne le bouton de suppression de voyage et on écoute l'événement click pour afficher la modale de confirmation de suppression
+  const TripTemplate = document.querySelector('#trip-card-template');
+  const tripClone = document.importNode(TripTemplate.content, true);
+    // On affecte l'ID du voyage au bouton de suppression de voyage
+    const deleteTripButton = tripClone.querySelector('.delete-trip_button');
+    deleteTripButton.dataset.tripId = trip.id;
+    console.log(deleteTripButton);
+}
+listenToDeleteTripButton();
 
-// const deleteTripButton = document.querySelector('[data-trip-id]');
-// console.log(deleteTripButton);
- 
+async function deleteTrip(tripId) {
+      try {
+        const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${getToken()}`
+          }
+        });
 
-
-
-// async function deleteTrip(tripId) {
-//       try {
-//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-//           method: 'DELETE',
-//           headers: {
-//             Authorization: `Bearer ${getToken()}`
-//           }
-//         });
-
-//         if (response.status === 204) {
-//           console.log('Success: Trip deleted');
-//         } else {
-//           const errorData = await response.json();
-//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
-//         }
-//       } catch (error) {
-//         console.error('Error:', error);
-//       }
-//     }
+        if (response.status === 204) {
+          console.log('Success: Trip deleted');
+        } else {
+          const errorData = await response.json();
+          throw new Error(`Error: ${response.status} - ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
 
     // besoin de rafraichir la page pour voir les changements
   
