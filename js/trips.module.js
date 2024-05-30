@@ -1,7 +1,8 @@
 const getToken = () => {
   return localStorage.getItem('token');
     };
-console.log(getToken());
+    getToken();
+    
 
 // fonction pour récupérer l'ID de l'utilisateur à partir du token
 function getUserIdFromToken() {
@@ -17,10 +18,10 @@ function getUserIdFromToken() {
   }
 }
 
-
 async function fetchAndDisplayTrips() {
 try {
   const trips = await getTrips();
+  console.log(trips);
 
   if (!trips) {
     return;
@@ -51,8 +52,6 @@ function listenToSubmitOnAddTripForm() {
  
   }});}
 
-
-
 // On récupère tous les voyages de l'utilisateur connecté en utilisant l'API
 async function getTrips() {
   try {
@@ -81,6 +80,7 @@ function addTripToTripsContainer(trip) {
     tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
     tripClone.querySelector('.trip_dateStart').textContent = `Date de début: ${trip.dateStart}`;
     tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
+    tripClone.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${trip.duration} jour(s)`;
     tripClone.querySelector('.trip_note').textContent = `Note du voyage: ${trip.note}/5`;
 
     // On  affecte l'ID du voyage à l'élément au clone du voyage
@@ -128,7 +128,6 @@ async function uploadImage(data) {
 }
 
 listenToSubmitOnAddTripForm();
-
 
 // On créé un nouveau voyage pour l'utilisateur connecté en utilisant l'API
 async function createTrip(tripData) {
@@ -238,36 +237,36 @@ async function updateTrip(tripId, updatedTripData) {
 
 fetchAndDisplayTrips();
 
-function listenToDeleteTripButton(trip){ 
-  // On sélectionne le bouton de suppression de voyage et on écoute l'événement click pour afficher la modale de confirmation de suppression
-  const TripTemplate = document.querySelector('#trip-card-template');
-  const tripClone = document.importNode(TripTemplate.content, true);
-    // On affecte l'ID du voyage au bouton de suppression de voyage
-    const deleteTripButton = tripClone.querySelector('.delete-trip_button');
-    deleteTripButton.dataset.tripId = trip.id;
-    console.log(deleteTripButton);
-}
-listenToDeleteTripButton();
+// function listenToDeleteTripButton(trip){ 
+//   // On sélectionne le bouton de suppression de voyage et on écoute l'événement click pour afficher la modale de confirmation de suppression
+//   const TripTemplate = document.querySelector('#trip-card-template');
+//   const tripClone = document.importNode(TripTemplate.content, true);
+//     // On affecte l'ID du voyage au bouton de suppression de voyage
+//     const deleteTripButton = tripClone.querySelector('.delete-trip_button');
+//     deleteTripButton.dataset.tripId = trip.id;
+//     console.log(deleteTripButton);
+// }
+// listenToDeleteTripButton();
 
-async function deleteTrip(tripId) {
-      try {
-        const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${getToken()}`
-          }
-        });
+// async function deleteTrip(tripId) {
+//       try {
+//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+//           method: 'DELETE',
+//           headers: {
+//             Authorization: `Bearer ${getToken()}`
+//           }
+//         });
 
-        if (response.status === 204) {
-          console.log('Success: Trip deleted');
-        } else {
-          const errorData = await response.json();
-          throw new Error(`Error: ${response.status} - ${errorData.message}`);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
+//         if (response.status === 204) {
+//           console.log('Success: Trip deleted');
+//         } else {
+//           const errorData = await response.json();
+//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
+//         }
+//       } catch (error) {
+//         console.error('Error:', error);
+//       }
+//     }
 
     // besoin de rafraichir la page pour voir les changements
   
