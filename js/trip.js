@@ -1,7 +1,8 @@
-const userProfile = document.getElementById('user');
-userProfile.addEventListener('click', function() {
-    window.location.href = 'profil.html';
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const pseudoButton = document.querySelector(".right");
+    pseudoButton.addEventListener("click", function() {
+    window.location.href = "profil.html"; 
+  });});
 
 function addVisitToContainer (visit) {
     

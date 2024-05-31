@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const pseudoButton = document.querySelector(".right");
+  pseudoButton.addEventListener("click", function() {
+  window.location.href = "profil.html"; 
+});});
+
 // script pour la modale d'ajout d'un voyage :
 
 const modalNewTrip = document.querySelector('.modal_new-trip'); // Sélectionner la modale d'ajout de voyage

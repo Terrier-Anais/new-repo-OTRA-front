@@ -1,3 +1,7 @@
+.right:hover {
+  cursor: pointer;
+}
+
 .return-anchor {
   display: flex;
   padding-left: 1rem;
