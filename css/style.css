@@ -4,9 +4,10 @@
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
-  background: url(..//pictures/1.webp);
+  background: url(..//pictures/dalle-11.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   min-height: 100%;
 }
 
