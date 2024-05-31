@@ -1,74 +1,7 @@
-const getToken = () => {
-    return localStorage.getItem('token');
-      };
-  // fonction pour récupérer l'ID de l'utilisateur à partir du token
-  function getUserIdFromToken() {
-    const token = localStorage.getItem('token');
-    if (!token) return null;
-    try {
-        const payload = JSON.parse(atob(token.split('.')[1]));
-        console.log(payload);
-        return payload.id;
-    } catch (e) {
-        console.error('Failed to decode token', e);
-        return null;
-    }
-  }
-
 const userProfile = document.getElementById('user');
 userProfile.addEventListener('click', function() {
     window.location.href = 'profil.html';
 });
-
-// Script pour afficher la modale d'ajout d'un voyage
-const modalNewVisit = document.querySelector('.modal_new-visit'); // Sélectionner la modale d'ajout de voyage
-const modalNewVisitBtn = document.querySelector('#add-new-visit'); // Sélectionner le bouton d'ajout de voyage
-const modalNewVisitCloseBtn = document.querySelector('.modal_new-visit-close');// Sélectionner le bouton de fermeture de la modale
-const modalOverlayConnection = document.querySelector('.overlay_modal_trigger');// Sélectionner l'overlay de la modale
-    
-modalNewVisitBtn.addEventListener('click', toggleNewVisitModal);// Ajouter un écouteur d'événements pour le bouton d'ajout de voyage
-modalNewVisitCloseBtn.addEventListener('click', toggleNewVisitModal);// Ajouter un écouteur d'événements pour le bouton de fermeture de la modale
-modalOverlayConnection.addEventListener('click', toggleNewVisitModal);// Ajouter un écouteur d'événements pour l'overlay de la modale
-    
-    // Fonction pour afficher ou masquer la modale d'ajout de voyage
-function toggleNewVisitModal() {
-        modalNewVisit.classList.toggle('active');
-};
-
-async function fetchAndDisplayVisits() {
-    try {
-      const visits = await getVisits();
-    
-      if (!visits) {
-        return;
-      }
-    
-      visits.forEach(visit => {
-        addVisitToContainer(visit);
-      });
-    } catch (error) {
-      console.error('Failed to fetch and display trips:', error);
-    }
-    }
-
-    // On récupère toutes les visites de l'utilisateur connecté en utilisant l'API
-async function getVisits() {
-    try {
-      const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
-        headers: {
-          Authorization: `Bearer ${getToken()}`
-        }
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const visits = await response.json();
-      console.log('Success:', visits);
-      return visits;
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
 
 function addVisitToContainer (visit) {
     
@@ -82,18 +15,18 @@ function addVisitToContainer (visit) {
     visitClone.querySelector('[slot="visit-photo"]').src = photo;
     
     // Ajout d'un listener sur le bouton 🖍️ d'une visite
-    const updateVisitBtn = cardClone.querySelector('[slot="edit-button"]');
+    const editVisitBtn = cardClone.querySelector('[slot="edit-button"]');
     const modalUpdateVisitCloseBtn = document.querySelector('.modal_update-visit-close');
-    const modalUpdateTrip = document.querySelector("#modal_update-visit");
     
     modalUpdateVisitCloseBtn.addEventListener('click', toggleUpdateVisitModal);
     modalOverlayConnection.addEventListener('click', toggleUpdateVisitModal);
-    updateVisitBtn.addEventListener("click", toggleUpdateVisitModal);
-
-    function toggleUpdateVisitModal() {
+    function toggleUpdatevisitModal() {
         modalUpdateTrip.classList.toggle('active');
     }
-    
+    editVisitBtn.addEventListener("click", () => {
+        const editVisitModal = document.querySelector("#modal_update-visit");
+        toggleUpdatevisitModal();
+    })
     
     // Ajout d'un listener sur le bouton 🗑️ d'une visite
     const deleteVisitBtn= cardClone.querySelector('[slot="delete-button"]');
@@ -107,7 +40,19 @@ function addVisitToContainer (visit) {
         visitContainer.prepend(visitClone)
 };
     
-
+const modalNewVisit = document.querySelector('.modal_new-visit'); // Sélectionner la modale d'ajout de voyage
+const modalNewVisitBtn = document.querySelector('#add-new-visit'); // Sélectionner le bouton d'ajout de voyage
+const modalNewVisitCloseBtn = document.querySelector('.modal_new-visit-close');// Sélectionner le bouton de fermeture de la modale
+const modalOverlayConnection = document.querySelector('.overlay_modal_trigger');// Sélectionner l'overlay de la modale
+    
+modalNewVisitBtn.addEventListener('click', toggleNewVisitModal);// Ajouter un écouteur d'événements pour le bouton d'ajout de voyage
+modalNewVisitCloseBtn.addEventListener('click', toggleNewVisitModal);// Ajouter un écouteur d'événements pour le bouton de fermeture de la modale
+modalOverlayConnection.addEventListener('click', toggleNewVisitModal);// Ajouter un écouteur d'événements pour l'overlay de la modale
+    
+    // Fonction pour afficher ou masquer la modale d'ajout de voyage
+function toggleNewVisitModal() {
+        modalNewVisit.classList.toggle('active');
+};
     
 function listenToSubmitOnAddVisitForm() {
         
@@ -119,20 +64,18 @@ function listenToSubmitOnAddVisitForm() {
     addVisitForm.addEventListener("submit", async (event) => {
         event.preventDefault(); // preventDefault
             
-        // Récupérer le contenu du formulaire
+        // Récupérer le contenu du formulaire { content, color }
         const visitData = Object.fromEntries(new FormData(addVisitForm));
-        
-        const createdVisit = createVisit(visitData);
-        if (!createdVisit) {
-            return;
-            }else{
-            addVisitToContainer(createdVisit);
-            addVisitForm.reset();
-            toggleNewVisitModal()
-        
-        }})
-};
-listenToSubmitOnAddVisitForm();
+        // Récupérer l'ID de la liste pour créer la carte : dans les dataset
+        const visitId = parseInt(modalNewVisit.dataset.visitId);
+            
+        // POSTS /cards   avec BODY = { content, color, list_id }
+        const body = { content: visitData.content, visit_id: visitId };
+        const createdVisit = createVisit(body);
+            
+        addVisitForm.reset();
+        toggleNewVisitModal()
+        })}
         
         
         
@@ -174,5 +117,4 @@ function showSlides(n) {
         slides[currentIndex].style.display = "block";
         }
 }
-        
         
