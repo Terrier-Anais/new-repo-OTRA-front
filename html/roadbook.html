@@ -16,13 +16,13 @@
     ></script>
     <!--Ajout du JS-->
 
-    
-    <script type="module" src ="../js/trips.module.js"></script>
-    <script type="module" src="../js/roadbook.js"></script>
-    <script type="module" src="../js/picture.js"></script>
+    <script type="module" src ="../js/api.js" defer></script>
+    <script type="module" src ="../js/trips.module.js" defer></script>
+    <script type="module" src="../js/roadbook.js" defer></script>
+    <script type="module" src="../js/picture.js" defer></script>
 
-    
-    
+
+        
 </head>
 <body>
     <!--Header de la page web-->
@@ -106,20 +106,20 @@
                         <label for="note">Note</label>
                         
                         <div id="new-trip_note">
-                            <label for="note-5"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="new-note" id="note-5" value="5">
+                            <label for="note-1">1</label>
+                            <input type="radio" name="note" id="note-1" value="1">
                             
-                            <label for="note-4"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="new-note" id="note-4" value="4">
+                            <label for="note-2">2</label>
+                            <input type="radio" name="note" id="note-2" value="2">
                             
-                            <label for="note-3"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="new-note" id="note-3" value="3">
+                            <label for="note-3">3</label>
+                            <input type="radio" name="note" id="note-3" value="3">
                             
-                            <label for="note-2"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="new-note" id="note-2" value="2">
+                            <label for="note-4">4</label>
+                            <input type="radio" name="note" id="note-4" value="4">
                             
-                            <label for="note-1"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="new-note" id="note-1" value="1">
+                            <label for="note-5">5</label>
+                            <input type="radio" name="note" id="note-5" value="5">
                         </div>
                         <input type="submit" value="Ajouter" id="add-trip_button">
                     </form>
@@ -153,20 +153,20 @@
                         <label for="note">Note</label>
                         
                         <div id="update-trip_note">
-                            <label for="note-5"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-5" value="5">
+                            <label for="note-1">1</label>
+                            <input type="radio" name="note" id="note-1" value="1">
                             
-                            <label for="note-4"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-4" value="4">
-                            
-                            <label for="note-3"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-3" value="3">
-                            
-                            <label for="note-2"><i class="fa-solid fa-star"></i></label>
+                            <label for="note-2">2</label>
                             <input type="radio" name="note" id="note-2" value="2">
                             
-                            <label for="note-1"><i class="fa-solid fa-star"></i></label>
-                            <input type="radio" name="note" id="note-1" value="1">
+                            <label for="note-3">3</label>
+                            <input type="radio" name="note" id="note-3" value="3">
+                            
+                            <label for="note-4">4</label>
+                            <input type="radio" name="note" id="note-4" value="4">
+                            
+                            <label for="note-5">5</label>
+                            <input type="radio" name="note" id="note-5" value="5">
                         </div>
                         <input type="submit" value="Modifier">
                     </form>
@@ -182,8 +182,8 @@
                                 <h3 class="trip_title"></h3>
                             </div>
                             <div class="trip-card_button">
-                                <button class="update-trip_button" type="button"><i class="fa-solid fa-pen"></i></button>
-                                <button class="delete-trip_button" type="button"><i class="fa-solid fa-trash"></i></button>
+                                <button class="update-trip_button" slot="update-trip-id" type="button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="delete-trip_button" slot="delete-trip-id" type="button"><i class="fa-solid fa-trash"></i></button>
                             </div>                                
                         </header>
                         <div class="trip-card_photo" id="preview">
@@ -222,4 +222,3 @@
     </html>
     
     
-
