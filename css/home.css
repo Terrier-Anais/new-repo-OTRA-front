@@ -1,3 +1,8 @@
+body, html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
 .home_container {
     
     display: flex;
@@ -6,6 +11,8 @@
     padding-left: 4rem;
     padding-right: 4rem;
     padding-top: 4rem;
+    height: 100vh;
+    scroll-snap-align: start;
     
 }
 
@@ -26,7 +33,7 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.6);
+    /* background-color: rgba(255, 255, 255, 0.6); */
     
     
 }
@@ -59,10 +66,17 @@ img {
 
 @media (max-width: 768px) { 
 
+    body, html {
+        scroll-snap-type: none;
+        scroll-behavior: none;
+    }
+
     .home_container {
-        margin-top: 4rem;
+        
         flex-direction: column;
         padding: 1rem;
+        height: auto;
+        padding-top: 2rem;
     }
 
     .home_slideshow {
