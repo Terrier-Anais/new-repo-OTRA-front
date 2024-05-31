@@ -1,4 +1,4 @@
-import { getTrips, createTrip, updateTrip } from './api.js';
+import { getTrips, createTrip, updateTrip, deleteTrip } from './api.js';
 
 
 
@@ -40,6 +40,7 @@ function listenToSubmitOnAddTripForm() {
     const modalNewTrip = document.querySelector('.modal_new-trip')
     console.log(modalNewTrip);
      modalNewTrip.classList.remove('active');
+     location.reload();
   });
 }
 
@@ -48,14 +49,19 @@ function listenToSubmitOnAddTripForm() {
 function addTripToTripsContainer(trip) {
   const TripTemplate = document.querySelector('#trip-card-template');
   if (TripTemplate) {
-    const tripClone = document.importNode(TripTemplate.content, true);
+    const tripClone =document.importNode(TripTemplate.content, true);
     tripClone.querySelector('.trip_title').textContent = trip.title;
     tripClone.querySelector('.trip_photo').src = trip.photo;
     tripClone.querySelector('.trip_description').textContent = `Description : ${trip.description}`;
+    const dateStart = new Date(trip.dateStart); // Convertir la date de début en objet Date
+    const dateEnd = new Date(trip.dateEnd); // Convertir la date de fin en objet Date
+    const tripDuration = (Math.ceil((Math.abs(dateEnd) - (dateStart))) / (1000 * 60 * 60 * 24)) + 1;// Calculer la durée du voyage en jours
     tripClone.querySelector('.trip_dateStart').textContent = `Date de début: ${trip.dateStart}`;
     tripClone.querySelector('.trip_dateEnd').textContent = `Date de fin: ${trip.dateEnd}`;
-    tripClone.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${trip.duration} jour(s)`;
+    tripClone.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${tripDuration} jour(s)`;
     tripClone.querySelector('.trip_note').textContent = `Note du voyage: ${trip.note}/5`;
+
+   console.log(trip.note)
 
     // On  affecte l'ID du voyage à l'élément au clone du voyage
     const tripCardContent = tripClone.querySelector('.trip-card_content');
@@ -108,36 +114,16 @@ listenToSubmitOnUpdateTripForm();
 
 fetchAndDisplayTrips();
 
-// function listenToDeleteTripButton(trip){ 
-//   // On sélectionne le bouton de suppression de voyage et on écoute l'événement click pour afficher la modale de confirmation de suppression
-//   const TripTemplate = document.querySelector('#trip-card-template');
-//   const tripClone = document.importNode(TripTemplate.content, true);
-//     // On affecte l'ID du voyage au bouton de suppression de voyage
-//     const deleteTripButton = tripClone.querySelector('.delete-trip_button');
-//     deleteTripButton.dataset.tripId = trip.id;
-//     console.log(deleteTripButton);
-// }
-// listenToDeleteTripButton();
-
-// async function deleteTrip(tripId) {
-//       try {
-//         const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
-//           method: 'DELETE',
-//           headers: {
-//             Authorization: `Bearer ${getToken()}`
-//           }
-//         });
-
-//         if (response.status === 204) {
-//           console.log('Success: Trip deleted');
-//         } else {
-//           const errorData = await response.json();
-//           throw new Error(`Error: ${response.status} - ${errorData.message}`);
-//         }
-//       } catch (error) {
-//         console.error('Error:', error);
-//       }
-//     }
-
-    // besoin de rafraichir la page pour voir les changements
-  
+function listenToDeleteTripButton(){
+  document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+    const button = event.target.closest('.delete-trip_button');
+    if (button) {
+      const tripId = button.getAttribute('data-trip-id');
+  console.log(tripId);
+    deleteTrip(tripId);
+    location.reload();
+    }
+  }
+  );
+}
+listenToDeleteTripButton();

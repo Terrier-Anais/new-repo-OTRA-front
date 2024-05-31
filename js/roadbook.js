@@ -1,5 +1,4 @@
 // script pour la modale d'ajout d'un voyage :
-
 const modalNewTrip = document.querySelector('.modal_new-trip'); // Sélectionner la modale d'ajout de voyage
 const modalNewTripBtn = document.querySelector('#add-new-trip'); // Sélectionner le bouton d'ajout de voyage
 const modalNewTripCloseBtn = document.querySelector('.modal_new-trip_close');// Sélectionner le bouton de fermeture de la modale
@@ -14,7 +13,6 @@ function toggleNewTripModal() {
   modalNewTrip.classList.toggle('active');
 };
 
-
 // script pour la modale de modification d'un voyage :
 const modalUpdateTrip = document.querySelector('.modal_update-trip');
 const modalUpdateTripCloseBtn = document.querySelector('.modal_update-trip_close');
@@ -24,7 +22,6 @@ modalOverlayConnection.addEventListener('click', toggleUpdateTripModal);
 function toggleUpdateTripModal() {
   modalUpdateTrip.classList.toggle('active');
 }
-
 
 // Ajout de l'écouteur d'événements pour le bouton update-trip_button
 document.querySelector('.roadbook_container').addEventListener('click', function(event) {
@@ -36,3 +33,16 @@ document.querySelector('.roadbook_container').addEventListener('click', function
 });
 
 let currentTripCard = null;
+
+// Ajout de l'écouteur d'événements pour le bouton delete-trip_button
+document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+  const button = event.target.closest('.delete-trip_button');
+  if (button) {
+    const tripId = button.getAttribute('data-trip-id');
+console.log(tripId);
+  currentTripCard = button.closest('.trip-card_content');
+  }
+}
+);
+
+    
