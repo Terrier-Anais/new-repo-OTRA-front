@@ -89,8 +89,8 @@
             <h2>Ajouter une visite</h2>
 
             <form id="new-visit_form" method="post">
-              <label for="title">Nom de la visite</label>
-              <input type="text" name="title" id="new-visit_title" required />
+              <!-- <label for="title">Nom de la visite</label>
+              <input type="text" name="title" id="new-visit_title" required /> -->
 
               <label for="dateStart">Date de début du séjour</label>
               <input type="date" name="dateStart" id="new-visit_dateStart" />
@@ -98,21 +98,39 @@
               <label for="dateEnd">Date de fin du séjour</label>
               <input type="date" name="dateEnd" id="new-visit_dateEnd" />
 
-              <label for="description">Ajouter une description</label>
+              <label for="comment">Ajouter un commentaire</label>
               <input
                 type="text"
-                name="description"
-                id="new-visit_description"
+                name="comment"
+                id="new-visit_comment"
               />
+              <label for="note">Note</label>
+                        
+              <div id="new-trip_note">
+                  <label for="note-1">1</label>
+                  <input type="radio" name="note" id="note-1" value="1">
+                  
+                  <label for="note-2">2</label>
+                  <input type="radio" name="note" id="note-2" value="2">
+                  
+                  <label for="note-3">3</label>
+                  <input type="radio" name="note" id="note-3" value="3">
+                  
+                  <label for="note-4">4</label>
+                  <input type="radio" name="note" id="note-4" value="4">
+                  
+                  <label for="note-5">5</label>
+                  <input type="radio" name="note" id="note-5" value="5">
+              </div>
 
-              <label for="photo">Ajouter des photos</label>
+              <!-- <label for="photo">Ajouter des photos</label>
               <input
                 type="file"
                 name="photo"
                 id="new-visit_photo"
                 required
                 multiple
-              />
+              /> -->
               <input type="submit" value="Ajouter" id="add-visit-button" />
             </form>
           </div>
@@ -206,9 +224,9 @@
                 <div class="visit-note">
                   <p class="note" slot="note-content">Note</p>
                 </div>
-                <div class="visit-description">
-                  <p class="description" slot="description-content">
-                    description
+                <div class="visit-comment">
+                  <p class="comment" slot="comment-content">
+                    commentaire
                   </p>
                 </div>
               </div>

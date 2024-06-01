@@ -1,56 +1,86 @@
-import { getVisits } from "./api.js";
+import { getVisits, createVisit } from "./api.js";
 
-
-// // Récupérer le conteneur des visites
-// const tripCardContent = document.querySelector('.trip-card_content');
-// console.log(tripCardContent);
-// // récupérer l'id du voyage sur le conteneur de voyage
-// const tripId = tripCardContent.querySelector('.trip-visits-details').dataset.tripId;
-// console.log(tripId);
-
-
+const tripId = 2; // Identifiant du voyage 1
 
 // Fonction pour récupérer et afficher les visites d'un voyage
 async function fetchAndDisplayVisits(tripId) {
-    try {
-        const visits = await getVisits(tripId);
-        console.log(visits);
-    
-        if (!visits) {
+try {
+    const visits= await getVisits(tripId);
+    console.log(visits);
+
+    if (!visits) {
+    return;
+    }
+    if (!Array.isArray(visits)) {
+        console.error('Visits is not an array');
         return;
-        }
+    }
     
-        visits.forEach(visit => {
-        addVisitToVisitsContainer(visit);
-        });
-    } catch (error) {
-        console.error('Failed to fetch and display visits:', error);
+    if (visits.length === 0) {
+    console.log('No visits to display');
+    return;
     }
+
+    for (const visit of visits) {
+    addVisitToVisitsContainer(visit);
     }
+} catch (error) {
+    console.error('Failed to fetch and display visits:', error);
+}
+}
+
+function listenToSubmitOnAddVisitForm() {
+const addVisitForm = document.querySelector('#new-visit_form');
+addVisitForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const visitData = Object.fromEntries(new FormData(addVisitForm));
+    console.log(visitData);
+
+    const createdVisit = await createVisit(visitData);
+
+    if (createdVisit) {
+    return;
+    }
+    addVisitToVisitsContainer(createdVisit);
+    addVisitForm.reset();
+});
+}
 
 export function addVisitToVisitsContainer (visit) {
     const visitTemplate = document.querySelector("#visit-details_template");
-    const visitClone = visitTemplate.textContent.cloneNode(true);
+    if (visitTemplate) {  
+    const visitClone =document.importNode(visitTemplate.content, true);
     
-    visitClone.querySelector('[slot="title-content"]').textContent = title;
-    visitClone.querySelector('[slot="dateStart-content"]').textContent = `Date de début: ${dateStart}`;
-    visitClone.querySelector('[slot="dateEnd-content"]').textContent = `Date de fin: ${dateEnd}`;
-    visitClone.querySelector('[slot="description-content"]').textContent = `Description : ${visit.description}`;
-    visitClone.querySelector('[slot="visit-photo"]').src = photo;
-    
-    // Ajout d'un listener sur le bouton 🖍️ d'une visite
-    const editVisitBtn = cardClone.querySelector('[slot="edit-button"]');
-    const modalUpdateVisitCloseBtn = document.querySelector('.modal_update-visit-close');
-    
-    modalUpdateVisitCloseBtn.addEventListener('click', toggleUpdateVisitModal);
-    modalOverlayConnection.addEventListener('click', toggleUpdateVisitModal);
-    function toggleUpdatevisitModal() {
-        modalUpdateTrip.classList.toggle('active');
-    }
-    editVisitBtn.addEventListener("click", () => {
-        const editVisitModal = document.querySelector("#modal_update-visit");
-        toggleUpdatevisitModal();
-    })
+    // visitClone.querySelector('[slot="title-content"]').textContent = title;
+    visitClone.querySelector('[slot="dateStart-content"]').textContent = `Date de début: ${visit.dateStart}`;
+    visitClone.querySelector('[slot="dateEnd-content"]').textContent = `Date de fin: ${visit.dateEnd}`;
+    visitClone.querySelector('[slot="comment-content"]').textContent = `Commentaire : ${visit.comment}`;
+    // visitClone.querySelector('[slot="visit-photo"]').src = photo;
+    visitClone.querySelector('[slot="note-content"]').textContent = `Note de la visite: ${visit.note}/5`;
+
+    // // on affecte l'ID de la visite à l'élément au clone de la visite
+    // const visitCardContent = visitClone.querySelector('.visit-card-content');
+    // visitCardContent.dataset.visitId = visit.id;
+    // console.log('visitId:', visit.id);
+
+    // // On affecte l'id du voyage au bouton de suppression de visite
+    // const deleteVisitButton = visitClone.querySelector('.delete-visit_button');
+    // deleteVisitButton.dataset.visitId = visit.id;
+
+    // // On affecte l'id de la visite au bouton de modification de visite
+    // const editVisitButton = visitClone.querySelector('.edit-visit_button');
+    // editVisitButton.dataset.visitId = visit.id;
+
+    // on insère le clone la visite dans le conteneur des visites
+    const visitsContainer = document.querySelector('.visit-container');
+    console.log(visitsContainer);
+    visitsContainer.appendChild(visitClone);
+} else {
+    console.error('Visit template not found');
+}
 }
 
-fetchAndDisplayVisits(1); // Appel de la fonction fetchAndDisplayVisits avec l'identifiant du voyage 1
+listenToSubmitOnAddVisitForm() ;
+
+fetchAndDisplayVisits(tripId); // Appel de la fonction fetchAndDisplayVisits avec l'identifiant du voyage 1

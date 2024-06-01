@@ -145,9 +145,15 @@ headers: {
 if (!response.ok) {
   throw new Error('Network response was not ok');
 }
-const visits = await response.json();
-console.log('Success:', visits);
-return visits;
+const tripData = await response.json();
+console.log('Success:', tripData);
+if (Array.isArray(tripData.visits)) {
+  console.log('Visits:', tripData.visits);
+  return tripData.visits;
+} else {
+  console.error('Visits is not an array');
+  return [];
+}
 } catch (error) {
 console.error('Error:', error);
 }
@@ -156,7 +162,7 @@ console.error('Error:', error);
 // fonction pour créer des nouvelles visites d'un voyage
 export async function createVisit(tripId, visitData) {
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
+const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
 method: 'POST',
 headers: {
   'Content-Type': 'application/json',
