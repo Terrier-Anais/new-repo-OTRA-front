@@ -30,9 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addVisitForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const formData = new FormData(addVisitForm);
-        const visitData = Object.fromEntries(formData.entries());
+    
+        // Récupérer les valeurs des champs du formulaire
+        const dateStart = document.getElementById('dateStart').value;
+        const dateEnd = document.getElementById('dateEnd').value;
+        const comment = document.getElementById('comment').value;
+        // const note = document.getElementById('note').value;
+        // const place_id = document.getElementById('place_id').value;
+        // const trip_id = document.getElementById('trip_id').value;
 
+        // Créer l'objet visitData avec les valeurs récupérées
+        const visitData = {
+            dateStart: dateStart,
+            dateEnd: dateEnd,
+            comment: comment,
+            // note: parseInt(note), 
+            place_id: 2, 
+            trip_id: 10
+        };
         try {
             const newVisit = await addVisit(visitData);
             console.log('Nouvelle visite ajoutée avec succès:', newVisit);
