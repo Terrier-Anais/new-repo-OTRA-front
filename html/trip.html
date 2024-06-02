@@ -228,52 +228,33 @@
                   <p class="comment" slot="comment-content">
                     commentaire
                   </p>
-
                 </div>
+
               </div>
             </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <div class="visit-photos_container">
+                <!-- je dois insérer mon template de photos ici -->
+              </div>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+        </template>
+
+        
 
             <!-- template d'ajout de photos -->
             <template id="visit-photo_template">
-              <div class="visit-photo">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+               <div class="visit-photo">
                 <img
                   class="photo"
                   slot="visit-photo"
                    src=""
                   alt="photo de  la visite"
                 />
-                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-              </div>
             </template>
 
-            <!-- <div class="visit-photo">
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <img
-                class="photo"
-                slot="visit-photo"
-                id="photo1"
-                src="../pictures/pexels-josh-willink-11499-701016.jpg"
-                alt="photo de Paris"
-              />
-              <img
-                class="photo"
-                slot="visit-photo"
-                id="photo2"
-                src="../pictures/pexels-david-bartus-43782-1166209.jpg"
-                alt=""
-              />
-              <img
-                class="photo"
-                slot="visit-photo"
-                id="photo3"
-                src="../pictures/pexels-jplenio-1133505.jpg"
-                alt=""
-              />
-              <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-            </div>
-          </div>
-        </template>
+
+       
       </section>
     </main>
   </body>

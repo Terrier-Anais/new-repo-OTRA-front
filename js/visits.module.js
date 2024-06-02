@@ -108,10 +108,6 @@ export function addVisitToVisitsContainer (visit) {
     const editVisitButton = visitClone.querySelector('.edit-visit_button');
     editVisitButton.dataset.visitId = visit.id;
 
-    // on affecte l'id de la visite au container des photos
-    const visitPhotosContainer = visitClone.querySelector('.visit-details');
-    visitPhotosContainer.dataset.visitId = visit.id;
-
     // on insère le clone la visite dans le conteneur des visites
     const visitsContainer = document.querySelector('.visit-container');
     console.log(visitsContainer);
@@ -125,17 +121,42 @@ function addPhotoToVisitContainer(visitId, photo) {
     const photoTemplate = document.querySelector("#visit-photo_template");
     if (photoTemplate) {
         const photoClone = document.importNode(photoTemplate.content, true);
-        photoClone.querySelector('[slot="visit-photo"]').src = photo;
+
+        // Find the first empty image slot in the cloned template and set the photo URL
+        const photoSlot = photoClone.querySelector('[slot="visit-photo"]');
+        if (photoSlot) {
+            photoSlot.src = photo;
+        } else {
+            console.error('Photo slot not found');
+            return;
+        }
+
+        // Set the visitId in the photo container
         const visitPhotoContent = photoClone.querySelector('.visit-photo');
-        visitPhotoContent.dataset.visitId = visitId;
-        console.log('visitId:', visitId);
-        const visitPhotosContainer = document.querySelector(`.visit-details[data-visit-id='${visitId}']`);
-        visitPhotosContainer.appendChild(photoClone);
+        if (visitPhotoContent) {
+            visitPhotoContent.dataset.visitId = visitId;
+        } else {
+            console.error('Visit photo container not found in the template');
+            return;
+        }
+
+        // Find the container for the visit using visitId
+        const visitPhotosContainer = document.querySelector(`.visit-details[data-visit-id='${visitId}'] .visit-photos_container`);
+        if (visitPhotosContainer) {
+            visitPhotosContainer.insertBefore(photoClone, visitPhotosContainer.querySelector('.next'));
+            console.log('Photo added for visitId:', visitId);
+        } else {
+            console.error(`Visit details container for visitId ${visitId} not found`);
+        }
     } else {
         console.error('Photo template not found');
     }
 }
 
+
+
 listenToSubmitOnAddVisitForm() ;
 
 fetchAndDisplayVisitsWithPhotos(tripId); 
+
+
