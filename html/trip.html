@@ -228,9 +228,25 @@
                   <p class="comment" slot="comment-content">
                     commentaire
                   </p>
+
                 </div>
               </div>
             </div>
+
+            <!-- template d'ajout de photos -->
+            <template id="visit-photo_template">
+              <div class="visit-photo">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <img
+                  class="photo"
+                  slot="visit-photo"
+                   src=""
+                  alt="photo de  la visite"
+                />
+                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              </div>
+            </template>
+
             <!-- <div class="visit-photo">
               <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
               <img
