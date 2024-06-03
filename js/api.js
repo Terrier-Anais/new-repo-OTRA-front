@@ -165,6 +165,7 @@ console.error('Error:', error);
 export async function createVisit(tripId, visitData, place_Id) {
   visitData.place_id = place_Id=1;
   visitData.trip_id = parseInt(tripId);
+  visitData.note= parseInt(visitData.note);
   console.log('Youpi', visitData);
 try {
 const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
