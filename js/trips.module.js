@@ -1,7 +1,5 @@
 import { getTrips, createTrip, updateTrip, deleteTrip } from './api.js';
 
-
-
 async function fetchAndDisplayTrips() {
 try {
   const trips = await getTrips();
@@ -61,8 +59,6 @@ function addTripToTripsContainer(trip) {
     tripClone.querySelector('.trip-card_duration').textContent = `Durée du voyage : ${tripDuration} jour(s)`;
     tripClone.querySelector('.trip_note').textContent = `Note du voyage: ${trip.note}/5`;
 
-   console.log(trip.note)
-
     // On  affecte l'ID du voyage à l'élément au clone du voyage
     const tripCardContent = tripClone.querySelector('.trip-card_content');
     tripCardContent.dataset.tripId = trip.id;
@@ -72,7 +68,10 @@ function addTripToTripsContainer(trip) {
     const deleteTripButton = tripClone.querySelector('.delete-trip_button');
     deleteTripButton.dataset.tripId = trip.id;
 
-   
+    // On affecte l'id du voyage au bouton de selection du voyage
+    const selectTripButton = tripClone.querySelector('.trip-visits-details');
+    selectTripButton.dataset.tripId = trip.id;
+
 // On insère le clone du voyage dans la section roadbook_container
     const roadbookSection = document.querySelector('.roadbook_container');
     roadbookSection.appendChild(tripClone);
@@ -127,3 +126,17 @@ function listenToDeleteTripButton(){
   );
 }
 listenToDeleteTripButton();
+
+
+function listenToSelectTripButton(){
+  document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+    const button = event.target.closest('.trip-visits-details');
+    if (button) {
+      const tripId = button.getAttribute('data-trip-id');
+      console.log(tripId);
+      localStorage.setItem('tripId', tripId);
+      window.location.href = 'visits.html';
+    }
+  });
+}
+listenToSelectTripButton();
