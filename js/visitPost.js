@@ -1,52 +1,60 @@
 import { apiBaseUrl } from "./config.js";
 
 const getToken = () => {
-        return localStorage.getItem('token');
-      };
 
-    //   fonction pour créer des nouvelles visites
-async function handleNewVisitFormSubmit(event) {
-    event.preventDefault();  
-    // empeche le comportmement par defaut 
-    const form = event.target;
-    const formData = new FormData(form);
-    const visitData = {
-        // title: formData.get('title'),
-        dateStart: formData.get('dateStart'),
-        dateEnd: formData.get('dateEnd'),
-        description: formData.get('description'),
-    };
-
+    return localStorage.getItem('token');
+};
+async function addVisit(visitData) {
     try {
-        const response = await fetch(`${apiBaseUrl}/api/me/trips/10/visit`, {
+        const response = await fetch(`${apiBaseUrl}/me/trips/10/visit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${getToken()}`
-            },
+                Authorization: `Bearer ${getToken()}`
+              },
             body: JSON.stringify(visitData)
         });
-        if (!response.ok) throw new Error('Failed to add visit');
-        const newVisit = await response.json();
-        addVisitToContainer(newVisit);
-        form.reset();
-        closeModal();
+
+        if (!response.ok) {
+            throw new Error(`La requête POST a échoué avec le code ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        return responseData; 
     } catch (error) {
-        console.error('Failed to add visit:', error);
+        console.error('Erreur lors de l\'ajout de la visite:', error);
+        throw error; 
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const addVisitForm = document.getElementById('new-visit_form');
 
+    addVisitForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        // Récupérer les valeurs des champs du formulaire
+        const dateStart = document.getElementById('dateStart').value;
+        const dateEnd = document.getElementById('dateEnd').value;
+        const comment = document.getElementById('comment').value;
+        // const note = document.getElementById('note').value;
+        // const place_id = document.getElementById('place_id').value;
+        // const trip_id = document.getElementById('trip_id').value;
 
-// document.getElementById('add-visit-button').addEventListener('submit', handleNewVisitFormSubmit);
-
-// function addVisitToContainer(visit) {
-//     const template = document.getElementById('visit-details_template');
-//     const visitContainer = document.querySelector('.visit-container');
-//     const visitClone = document.importNode(template.content, true);
-//     visitClone.querySelector('.dateStart').textContent = `Date de debut: ${visit.dateStart}`;
-//     visitClone.querySelector('.dateEnd').textContent = `Date de fin: ${visit.dateEnd}`;
-//     visitClone.querySelector('.description').textContent = visit.description;
-
-//     visitContainer.appendChild(visitClone);
-// }
+        // Créer l'objet visitData avec les valeurs récupérées
+        const visitData = {
+            dateStart: dateStart,
+            dateEnd: dateEnd,
+            comment: comment,
+            // note: parseInt(note), 
+            place_id: 2, 
+            trip_id: 10
+        };
+        try {
+            const newVisit = await addVisit(visitData);
+            console.log('Nouvelle visite ajoutée avec succès:', newVisit);
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de la visite:', error);
+        }
+    });
+});
 

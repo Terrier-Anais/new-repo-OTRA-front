@@ -84,7 +84,7 @@ function listenToSubmitOnAddVisitForm() {
 let slideIndex = 0;
         
 // Affiche la diapositive initiale
-showSlides(slideIndex);
+// showSlides(slideIndex);
         
 // Fonction pour changer de diapositive en ajoutant n à l'index actuel
 function plusSlides(n) {
