@@ -9,7 +9,7 @@ const getToken = () => {
 async function loadVisit() {
     try {
         let tripId = localStorage.getItem('tripId');
-        const response = await fetch(`${apiBaseUrl}/me/trips/${tripId}`, {
+        const response = await fetch(`${apiBaseUrl}/me/trips/10`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${getToken()}`
