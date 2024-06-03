@@ -56,7 +56,7 @@ addVisitForm.addEventListener('submit', async function(event) {
 
     const visitData = Object.fromEntries(new FormData(addVisitForm));
     const place_id=1;
-   visitData.place_id = place_id;
+    visitData.place_id = place_id;
     visitData.trip_id = parseInt(tripId);
     console.log('tripId:', tripId);
     visitData.note=parseInt(visitData.note);
@@ -76,7 +76,7 @@ addVisitForm.addEventListener('submit', async function(event) {
     const modalNewVisit = document.querySelector('.modal_new-visit')
     console.log(modalNewVisit);
     modalNewVisit.classList.remove('active');
-     location.reload();
+    //  location.reload();
   });
 
 
@@ -88,11 +88,12 @@ export function addVisitToVisitsContainer (visit) {
     if (visitTemplate) {  
     const visitClone =document.importNode(visitTemplate.content, true);
     
-    // visitClone.querySelector('[slot="title-content"]').textContent = title;
+    visitClone.querySelector('[slot="title-content"]').textContent = title;
     visitClone.querySelector('[slot="dateStart-content"]').textContent = `Date de début: ${visit.dateStart}`;
     visitClone.querySelector('[slot="dateEnd-content"]').textContent = `Date de fin: ${visit.dateEnd}`;
     visitClone.querySelector('[slot="comment-content"]').textContent = `Commentaire : ${visit.comment}`;
-    // visitClone.querySelector('[slot="visit-photo"]').src = photo;
+    visitClone.querySelector('[slot="geo-content"]').textContent = `Lieu: ${visit.geo}`;
+    visitClone.querySelector('[slot="visit-photo"]').src = photo;
     visitClone.querySelector('[slot="note-content"]').textContent = `Note de la visite: ${visit.note}/5`;
     
 

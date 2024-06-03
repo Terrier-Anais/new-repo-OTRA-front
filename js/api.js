@@ -163,8 +163,22 @@ console.error('Error:', error);
 
 // fonction pour créer des nouvelles visites d'un voyage
 export async function createVisit(visitData, tripId) {
- tripId = localStorage.getItem('tripId');
-  console.log('Youpi', visitData);
+    // CHECK PHOTO
+    console.log('Youpi', visitData);
+    if (visitData.photo) {
+  
+      const file = visitData.photo;
+      if (file instanceof Blob) {
+          const base64String = await convertFileToBase64(file);
+          visitData.photo = base64String;
+          await uploadImage(visitData);
+      } else {
+          console.error('The selected file is not valid.');
+      }
+  }
+  // END CHECK PHOTO
+tripId = localStorage.getItem('tripId');
+console.log('Youpi', visitData);
 try {
 const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
 method: 'POST',

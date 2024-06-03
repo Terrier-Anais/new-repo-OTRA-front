@@ -92,9 +92,8 @@
 
             <form id="new-visit_form" method="post">
 
-              <!-- <label for="title">Nom de la visite</label>
-              <input type="text" name="title" id="new-visit_title" required /> -->
-
+              <label for="title">Nom de la visite</label>
+              <input type="text" name="title" id="new-visit_title" required />
 
               <label for="dateStart">Date de début du séjour</label>
               <input type="date" name="dateStart" id="dateStart"required>
@@ -102,6 +101,11 @@
               <label for="dateEnd">Date de fin du séjour</label>
               <input type="date" name="dateEnd" id="dateEnd"required/>
 
+              <label for="photo">Ajouter des photos</label>
+              <input type="file" name="photo" id="new-trip_photo" required> 
+
+              <label for="geo">Lieu du séjour</label>
+              <input type="text" name="geo" id="geo"/>
 
               <label for="comment">Ajouter un commentaire</label>
               <input
@@ -226,6 +230,9 @@
                 </div>
                 <div class="visit-end-date">
                   <p class="dateEnd" slot="dateEnd-content">Date de fin:</p>
+                </div>
+                <div class="visit-place">
+                  <p class="place" slot="place-content">Durée</p>
                 </div>
                 <div class="visit-note">
                   <p class="note" slot="note-content">Note</p>
