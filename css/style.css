@@ -4,7 +4,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
-  background: url(..//pictures/dalle-11.jpg);
+  background: url("../pictures/ciel2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -18,7 +18,7 @@
   padding: 1rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  background: #add1cf;
+  background: #78baeb;
 }
 
 #connection {

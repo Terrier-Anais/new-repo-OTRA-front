@@ -18,6 +18,7 @@
     
     <script defer src ="../js/trips.module.js"></script>
     <script defer src="../js/roadbook.js"></script>
+    <script defer src="../js/getUsername.js"></script>
     
     
 </head>
@@ -51,7 +52,7 @@
                     <option value="" hidden>Menu</option>
                     <option value="roadbook.html">Carnet de voyage</option>
                     <option value="stats.html">Statistiques</option>
-                    <option value="home.html">Déconnexion</option>
+                    <option value="homealter.html">Déconnexion</option>
                 </select>
             </div>
             <!--Titre -->
@@ -91,8 +92,8 @@
                         <label for="title">Titre du voyage</label>
                         <input type="text" name="title" id="new-trip_title" required>
            
-                        <!-- <label for="photo">Ajouter une photo</label>
-                        <input type="file" name="photo" id="new-trip_photo" required>  -->
+                        <label for="photo">Ajouter une photo</label>
+                        <input type="file" name="photo" id="new-trip_photo" required> 
                         
                         <label for="description">Ajouter une description</label>
                         <input type="text" name="description" id="new-trip_description">
@@ -138,8 +139,8 @@
                         <label for="title">Titre</label>
                         <input type="text" name="title" id="update-trip_title" required>
                         
-                         <!-- <label for="photo">Photo</label>
-                        <input type="file" name="photo" id="update-trip_photo">  -->
+                         <label for="photo">Photo</label>
+                        <input type="file" name="photo" id="update-trip_photo"> 
                         
                         <label for="description">Description</label>
                         <input type="text" name="description" id="update-trip_description">
@@ -186,9 +187,9 @@
                                 <button class="delete-trip_button" type="button"><i class="fa-solid fa-trash"></i></button>
                             </div>                                
                         </header>
-                        <!-- <div class="trip-card_photo" id="preview">
+                        <div class="trip-card_photo" id="preview">
                             <img class="trip_photo" src="" alt="Photo du voyage">
-                        </div>   -->
+                        </div>  
                         <div class="trip-card_description">
                             <p class="trip_description"></p>
                         </div>
