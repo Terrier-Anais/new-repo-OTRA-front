@@ -100,7 +100,7 @@ option {
   padding: 1rem;
 }
 
-.city {
+.city-details {
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -108,22 +108,22 @@ option {
   border: black solid 0.1rem;
   border-radius: 1rem;
   width: 20%;
-  justify-content: center;
-  align-items: center;
 }
 
 .city-details-header {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  flex-direction: column;
   border: none;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
-.visit-button {
-  position: relative;
-  left: 70%;
-  padding: 0;
+.edit-delete-button {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: right;
+  padding: 0rem;
 }
 
 .edit-visit_button {
@@ -150,6 +150,14 @@ option {
 
 .fa-trash {
   font-size: 1rem;
+}
+
+.city {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.8rem
 }
 
 .location-visit_button {
