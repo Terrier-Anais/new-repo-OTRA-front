@@ -55,9 +55,14 @@ addVisitForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const visitData = Object.fromEntries(new FormData(addVisitForm));
+    const place_id=1;
+   visitData.place_id = place_id;
+    visitData.trip_id = parseInt(tripId);
+    console.log('tripId:', tripId);
+    visitData.note=parseInt(visitData.note);
     console.log(visitData);
 
-    const createdVisit = await createVisit(tripId, visitData);
+    const createdVisit = await createVisit(visitData);
 
     if (!createdVisit) {
     return;
@@ -65,6 +70,15 @@ addVisitForm.addEventListener('submit', async function(event) {
     addVisitToVisitsContainer(createdVisit);
     addVisitForm.reset();
 });
+
+  // on ferme la modale de création de voyage  lors de la soumission du formulaire
+  addVisitForm.addEventListener('submit', async function(event) {
+    const modalNewVisit = document.querySelector('.modal_new-visit')
+    console.log(modalNewVisit);
+    modalNewVisit.classList.remove('active');
+     location.reload();
+  });
+
 
 }
 

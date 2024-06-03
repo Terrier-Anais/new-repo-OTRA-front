@@ -162,31 +162,29 @@ console.error('Error:', error);
 
 
 // fonction pour créer des nouvelles visites d'un voyage
-export async function createVisit(tripId, visitData, place_Id) {
-  visitData.place_id = place_Id=1;
-  visitData.trip_id = parseInt(tripId);
-  visitData.note= parseInt(visitData.note);
+export async function createVisit(visitData, tripId) {
+ tripId = localStorage.getItem('tripId');
   console.log('Youpi', visitData);
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
 method: 'POST',
 headers: {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${getToken()}`
 },
 body: JSON.stringify(visitData)
+})
+.then(response => response.json())
+.then(function(response){
+localStorage.setItem('token', response.token);
+//  console.log('token', response.token);
 });
-if (!response.ok) {
-  throw new Error('Failed to add visit');
 }
-const newVisit = await response.json();
-console.log('Success:', newVisit);
-return newVisit;
-}
-catch (error) {
-console.error('Failed to add visit:', error);
+catch (error) { 
+console.error('Failed to create visit:', error);
 }
 }
+
 
 // fonction pour modifier une visite
 export async function updateVisit(tripId, visitId, updatedVisitData) {
