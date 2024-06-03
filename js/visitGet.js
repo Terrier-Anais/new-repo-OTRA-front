@@ -1,5 +1,6 @@
 import { apiBaseUrl } from "./config.js";
 
+
 const getToken = () => {
     return localStorage.getItem('token');
 };
@@ -64,5 +65,6 @@ export function insertVisit(visitData){
 }
 
 document.addEventListener('DOMContentLoaded', loadVisit);
+
 
 

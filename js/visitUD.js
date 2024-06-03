@@ -33,6 +33,7 @@ async function deleteVisit(visitId, tripId) {
     }
 }
 
+
 // ecouteur d'évenement
 
 import { apiBaseUrl } from "./config.js";
@@ -94,3 +95,4 @@ export function insertVisit(visitData){
 }
 
 document.addEventListener('DOMContentLoaded', loadVisit);
+
