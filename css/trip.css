@@ -87,14 +87,17 @@ option {
 }
 
 .visit-container {
+  
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .visit-details {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
-  width: 60vw;
+  align-items: center;
+  box-sizing: border-box;
+  width: 70%;
   border: black solid 0.15rem;
   border-radius: 1rem;
   margin: 1.5rem 1rem;
@@ -193,16 +196,16 @@ option {
 
 .prev,
 .next {
-  cursor: pointer;
-  position: relative;
-  top: 50%;
-  width: auto;
-  color: black;
-  font-weight: bold;
-  font-size: 1.5rem;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+display: flex;
+align-items: center;
+cursor: pointer;
+width: auto;
+color: black;
+font-weight: bold;
+font-size: 1.5rem;
+transition: 0.6s ease;
+border-radius: 0 3px 3px 0;
+user-select: none;
 }
 
 .next {
@@ -360,3 +363,42 @@ h3 {
   background-color: #ff365e;
   color: white;
 }
+
+.photo {
+  flex: 1;
+  border: black solid 0.15rem;
+width: 33%; /* Show up to three photos */
+  display: none;
+}
+.visit-photos_container {
+  border: black solid 0.15rem;
+  width: 90%;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5%;
+  overflow: hidden; /* Hide overflow content */
+}
+
+.visit-photo {
+  flex: 0 0 33.33%; /* Each photo takes up one-third of the container */
+  box-sizing: border-box;
+  padding: 1px; /* Optional: Add some spacing around photos */
+}
+/* 
+.visit-photos_container .photo {
+  display: none;
+}
+.visit-photos_container .photo.active {
+  display: block;
+} */
+
+.slide-photos_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+}
+
