@@ -12,9 +12,11 @@
       crossorigin="anonymous"
     ></script>
 
+
     <script defer type="module" src="../js/api.js"></script>
     <script defer type="module" src="../js/visits.module.js"></script>
     <script defer type="module" src="../js/trip.js"></script>
+
   </head>
   <body>
     <header class="website_header">
@@ -89,14 +91,17 @@
             <h2>Ajouter une visite</h2>
 
             <form id="new-visit_form" method="post">
+
               <!-- <label for="title">Nom de la visite</label>
               <input type="text" name="title" id="new-visit_title" required /> -->
 
+
               <label for="dateStart">Date de début du séjour</label>
-              <input type="date" name="dateStart" id="new-visit_dateStart" />
+              <input type="date" name="dateStart" id="dateStart"required>
 
               <label for="dateEnd">Date de fin du séjour</label>
-              <input type="date" name="dateEnd" id="new-visit_dateEnd" />
+              <input type="date" name="dateEnd" id="dateEnd"required/>
+
 
               <label for="comment">Ajouter un commentaire</label>
               <input
@@ -122,6 +127,7 @@
                   <label for="note-5">5</label>
                   <input type="radio" name="note" id="note-5" value="5">
               </div>
+
 
               <!-- <label for="photo">Ajouter des photos</label>
               <input
@@ -224,9 +230,11 @@
                 <div class="visit-note">
                   <p class="note" slot="note-content">Note</p>
                 </div>
+
                 <div class="visit-comment">
                   <p class="comment" slot="comment-content">
                     commentaire
+
                   </p>
                 </div>
 

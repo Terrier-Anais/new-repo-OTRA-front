@@ -78,7 +78,7 @@ function listenToSubmitOnAddVisitForm() {
         })}
         
         
-        
+
         let slideIndex = 0;
 
 function plusSlides(n) {
