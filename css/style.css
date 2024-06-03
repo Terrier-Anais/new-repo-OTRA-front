@@ -18,6 +18,10 @@
   padding-left: 4rem;
   padding-right: 4rem;
   background: #add1cf;
+  position: fixed;
+  width: 95%;
+  z-index: 1000;
+  top: 0;
 }
 
 #connection {
@@ -75,9 +79,13 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  
   .website_header {
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    width: auto;
+    
   }
 
   .website_header .left,
