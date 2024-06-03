@@ -2,6 +2,7 @@ import { apiBaseUrl } from "./config.js";
 
 async function loadProfile(userId) {
     try {
+        
         const response = await fetch(`${apiBaseUrl}/profil/${userId}`);
         if (!response.ok) {
             console.error('Failed to fetch profile:', response);

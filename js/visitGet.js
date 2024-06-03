@@ -4,9 +4,12 @@ const getToken = () => {
     return localStorage.getItem('token');
 };
 
+
+
 async function loadVisit() {
     try {
-        const response = await fetch(`${apiBaseUrl}/me/trips/10/visits`, {
+        let tripId = localStorage.getItem('tripId');
+        const response = await fetch(`${apiBaseUrl}/me/trips/${tripId}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${getToken()}`
@@ -19,7 +22,7 @@ async function loadVisit() {
         const allVisits = await response.json();
         console.log(allVisits, "Toute les visites okay😂");
 
-        allVisits.forEach(visit => {
+        allVisits.visits.forEach(visit => {
             insertVisit(visit);
         })
         return allVisits;
