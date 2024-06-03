@@ -13,6 +13,7 @@ async function loadProfile(userId) {
         document.getElementById('firstname').value = profile.firstname;
         document.getElementById('username').value = profile.pseudo;
         document.getElementById('email').value = profile.email;
+        document.getElementById('user-name').textContent = profile.pseudo;
     } catch (error) {
         console.error('Error fetching profile:', error);
     }

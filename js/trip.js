@@ -1,7 +1,8 @@
-const userProfile = document.getElementById('user');
-userProfile.addEventListener('click', function() {
-    window.location.href = 'profil.html';
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const pseudoButton = document.querySelector(".right");
+    pseudoButton.addEventListener("click", function() {
+    window.location.href = "profil.html"; 
+  });});
 
 function addVisitToContainer (visit) {
     
@@ -77,7 +78,6 @@ function listenToSubmitOnAddVisitForm() {
         toggleNewVisitModal()
         })}
         
-        
 
 //         let slideIndex = 0;
 
@@ -100,3 +100,4 @@ function listenToSubmitOnAddVisitForm() {
 
 // // Initially show the first three photos
 // document.addEventListener('DOMContentLoaded', () => showSlides(slideIndex));
+
