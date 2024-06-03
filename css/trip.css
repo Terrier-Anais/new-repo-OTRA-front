@@ -91,8 +91,9 @@ option {
 .visit-details {
   display: flex;
   flex-direction: row;
+  align-items: center;
   box-sizing: border-box;
-  width: 60%;
+  width: 70%;
   border: black solid 0.15rem;
   border-radius: 1rem;
   margin: 1.5rem 1rem;
@@ -191,7 +192,7 @@ option {
 
 .prev,
 .next {
- display: flex;
+display: flex;
 align-items: center;
 cursor: pointer;
 width: auto;
@@ -361,24 +362,39 @@ h3 {
 
 .photo {
   flex: 1;
-  max-width: 33%; /* Show up to three photos */
+  border: black solid 0.15rem;
+width: 33%; /* Show up to three photos */
   display: none;
 }
 .visit-photos_container {
-  width: 70%;
+  border: black solid 0.15rem;
+  width: 90%;
   display: flex;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
+  padding-left: 5%;
   overflow: hidden; /* Hide overflow content */
 }
 
 .visit-photo {
   flex: 0 0 33.33%; /* Each photo takes up one-third of the container */
   box-sizing: border-box;
-  padding: 5px; /* Optional: Add some spacing around photos */
+  padding: 1px; /* Optional: Add some spacing around photos */
 }
+/* 
+.visit-photos_container .photo {
+  display: none;
+}
+.visit-photos_container .photo.active {
+  display: block;
+} */
 
-
-
+.slide-photos_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+}
 

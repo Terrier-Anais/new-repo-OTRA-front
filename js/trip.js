@@ -81,25 +81,22 @@ function listenToSubmitOnAddVisitForm() {
         
         let slideIndex = 0;
 
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
-        }
-        
-        function showSlides(n) {
-          let i;
-          let slides = document.querySelectorAll('.visit-photo-container .photo');
-          if (n >= slides.length) { slideIndex = 0 }
-          if (n < 0) { slideIndex = slides.length - 1 }
-          for (i = 0; i < slides.length; i++) {
-            slides[i].classList.remove('active');
-          }
-          for (i = 0; i < 3; i++) {
-            if (slides[slideIndex + i]) {
-              slides[slideIndex + i].classList.add('active');
-            }
-          }
-        }
-        
-        // Initially show the first three photos
-        document.addEventListener('DOMContentLoaded', () => showSlides(slideIndex));
-        
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.querySelectorAll('.visit-photos_container .photo');
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+    }
+    slides[slideIndex].classList.add('active');
+    slides[(slideIndex + 1) % slides.length].classList.add('active');
+    slides[(slideIndex + 2) % slides.length].classList.add('active');
+}
+
+// Initially show the first three photos
+document.addEventListener('DOMContentLoaded', () => showSlides(slideIndex));

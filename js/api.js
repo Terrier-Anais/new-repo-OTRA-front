@@ -159,8 +159,13 @@ console.error('Error:', error);
 }
 }
 
+
+
 // fonction pour créer des nouvelles visites d'un voyage
-export async function createVisit(tripId, visitData) {
+export async function createVisit(tripId, visitData, place_Id) {
+  visitData.place_id = place_Id=1;
+  visitData.trip_id = parseInt(tripId);
+  console.log('Youpi', visitData);
 try {
 const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
 method: 'POST',

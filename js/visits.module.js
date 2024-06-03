@@ -1,25 +1,12 @@
 import { getVisits, createVisit } from "./api.js";
 
-// function getTripId() {
-//     const tripCardContent = document.querySelector('[data-trip-id]');
-//   console.log(tripCardContent);
-//     const tripId = tripCardContent.getAttribute('data-trip-id');
-//     console.log(tripId);
-// }
-// getTripId();
-
-// document.querySelectorAll('.view-visits').forEach(button => {
-//     button.addEventListener('click', function() {
-//         const voyageId = this.closest('.trip-card_content').getAttribute('select-trip-id');
-//         // Rediriger vers la page des visites
-//         window.location.href = `/visites?voyageId=${voyageId}`;
-//     });
-//     console.log(voyageId);
-// });
-
-
-const tripId = 1; // Identifiant du voyage 1
-
+// Fonction pour récupérer l'id du voyage depuis le local storage
+function getTripIdFromLocalStorage() {
+    return localStorage.getItem('tripId');
+}
+// On récupère l'id du voyage depuis le local storage
+const tripId = getTripIdFromLocalStorage();
+console.log('tripId:', tripId);
 
 // Fonction pour récupérer et afficher les visites d'un voyage et ses photos
 async function fetchAndDisplayVisitsWithPhotos(tripId) {
@@ -61,8 +48,7 @@ try {
 }
 }
 
-
-
+// On écoute le submit sur le formulaire d'ajout de visite
 function listenToSubmitOnAddVisitForm() {
 const addVisitForm = document.querySelector('#new-visit_form');
 addVisitForm.addEventListener('submit', async function(event) {
@@ -71,17 +57,18 @@ addVisitForm.addEventListener('submit', async function(event) {
     const visitData = Object.fromEntries(new FormData(addVisitForm));
     console.log(visitData);
 
-    const createdVisit = await createVisit(visitData);
+    const createdVisit = await createVisit(tripId, visitData);
 
-    if (createdVisit) {
+    if (!createdVisit) {
     return;
     }
     addVisitToVisitsContainer(createdVisit);
     addVisitForm.reset();
 });
+
 }
 
-// je dois ajouter le tripId dans la fonction addVisitToVisitsContainer pour pouvoir créer une visite pour un voyage spécifique.
+// Ajouter des visites au conteneur du voyage
 export function addVisitToVisitsContainer (visit) {
     const visitTemplate = document.querySelector("#visit-details_template");
     if (visitTemplate) {  
@@ -116,7 +103,7 @@ export function addVisitToVisitsContainer (visit) {
     console.error('Visit template not found');
 }
 }
-
+// Ajouter des photos au containeur de visite
 function addPhotoToVisitContainer(visitId, photo) {
     const photoTemplate = document.querySelector("#visit-photo_template");
     if (photoTemplate) {
@@ -152,11 +139,10 @@ function addPhotoToVisitContainer(visitId, photo) {
         console.error('Photo template not found');
     }
 }
-
-
-
+// On écoute le submit sur le formulaire d'ajout de visite
 listenToSubmitOnAddVisitForm() ;
 
+// On récupère et affiche les visites avec photos
 fetchAndDisplayVisitsWithPhotos(tripId); 
 
 

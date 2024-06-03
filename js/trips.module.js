@@ -72,7 +72,6 @@ function addTripToTripsContainer(trip) {
     const selectTripButton = tripClone.querySelector('.trip-visits-details');
     selectTripButton.dataset.tripId = trip.id;
 
-   
 // On insère le clone du voyage dans la section roadbook_container
     const roadbookSection = document.querySelector('.roadbook_container');
     roadbookSection.appendChild(tripClone);
@@ -127,3 +126,17 @@ function listenToDeleteTripButton(){
   );
 }
 listenToDeleteTripButton();
+
+
+function listenToSelectTripButton(){
+  document.querySelector('.roadbook_container').addEventListener('click', function(event) {
+    const button = event.target.closest('.trip-visits-details');
+    if (button) {
+      const tripId = button.getAttribute('data-trip-id');
+      console.log(tripId);
+      localStorage.setItem('tripId', tripId);
+      window.location.href = 'visits.html';
+    }
+  });
+}
+listenToSelectTripButton();
