@@ -203,6 +203,7 @@ option {
   height: 80%;
   width: 80%;
   margin: 1rem;
+  border-radius: 1rem;
 }
 
 .photo:nth-child(-n + 2) {
@@ -401,11 +402,11 @@ h3 {
   color: white;
 }
 
-.photo {
+/* .photo {
   flex: 1;
   border: black solid 0.15rem;
 width: 33%; /* Show up to three photos */
-  display: none;
+  /* display: none;
 }
 .visit-photos_container {
   border: black solid 0.15rem;
@@ -416,13 +417,13 @@ width: 33%; /* Show up to three photos */
   align-items: center;
   padding-left: 5%;
   overflow: hidden; /* Hide overflow content */
-}
+/* } */
 
-.visit-photo {
+/* .visit-photo {
   flex: 0 0 33.33%; /* Each photo takes up one-third of the container */
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   padding: 1px; /* Optional: Add some spacing around photos */
-}
+/* } */ 
 /* 
 .visit-photos_container .photo {
   display: none;
