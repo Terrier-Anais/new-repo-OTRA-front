@@ -20,12 +20,12 @@ try {
 function listenToSubmitOnAddTripForm() {
   const addTripForm = document.querySelector('#new-trip_form');
   addTripForm.addEventListener('submit', async function(event) {
-    event.preventDefault();
-  
+      
     const tripData = Object.fromEntries(new FormData(addTripForm));
     console.log(tripData);
   
     const createdTrip = await createTrip(tripData);
+    console.log('createdTrip:', createdTrip);
   if (!createdTrip) {
   return
   }

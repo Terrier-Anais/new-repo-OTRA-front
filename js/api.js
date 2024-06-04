@@ -39,7 +39,6 @@ export async function getTrips() {
 // On créé un nouveau voyage pour l'utilisateur connecté en utilisant l'API
 export async function createTrip(tripData) {
   // CHECK PHOTO
-  console.log('Youpi', tripData);
   if (tripData.photo) {
 
     const file = tripData.photo;
@@ -78,7 +77,6 @@ localStorage.setItem('token', response.token);
 
 // Envoyer les données du formulaire de modification du voyage à l'API en utilisant l'ID du voyage et les données du formulaire
 export async function updateTrip(tripId, updatedTripData) { 
-console.log('Youpi', updatedTripData);
 if (updatedTripData.photo) {
 
   const file = updatedTripData.photo;
@@ -139,9 +137,11 @@ export async function getVisits(tripId) {
 try {
 const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
 headers: {
+  'Content-Type': 'application/json',
   Authorization: `Bearer ${getToken()}`
 }
 });
+console.log(response);
 if (!response.ok) {
   throw new Error('Network response was not ok');
 }
@@ -163,8 +163,21 @@ console.error('Error:', error);
 
 // fonction pour créer des nouvelles visites d'un voyage
 export async function createVisit(visitData, tripId) {
- tripId = localStorage.getItem('tripId');
-  console.log('Youpi', visitData);
+    // CHECK PHOTO
+       if (visitData.photo) {
+  
+      const file = visitData.photo;
+      if (file instanceof Blob) {
+          const base64String = await convertFileToBase64(file);
+          visitData.photo = base64String;
+          await uploadImage(visitData);
+      } else {
+          console.error('The selected file is not valid.');
+      }
+  }
+  // END CHECK PHOTO
+tripId = localStorage.getItem('tripId');
+console.log('Youpi', visitData);
 try {
 const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
 method: 'POST',
@@ -177,7 +190,6 @@ body: JSON.stringify(visitData)
 .then(response => response.json())
 .then(function(response){
 localStorage.setItem('token', response.token);
-//  console.log('token', response.token);
 });
 }
 catch (error) { 
