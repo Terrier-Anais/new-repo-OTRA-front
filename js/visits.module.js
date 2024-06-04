@@ -77,7 +77,7 @@ addVisitForm.addEventListener('submit', async function(event) {
     const modalNewVisit = document.querySelector('.modal_new-visit')
     console.log(modalNewVisit);
     modalNewVisit.classList.remove('active');
-     location.reload();
+    //  location.reload();
   });
 
 
