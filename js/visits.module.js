@@ -1,4 +1,5 @@
 import { getVisits, createVisit } from "./api.js";
+import { plusSlides } from "./trip.js";
 
 // Fonction pour récupérer l'id du voyage depuis le local storage
 function getTripIdFromLocalStorage() {
@@ -89,6 +90,9 @@ export function addVisitToVisitsContainer (visit) {
     if (visitTemplate) {  
     const visitClone =document.importNode(visitTemplate.content, true);
     
+    // visits.forEach(visit => {
+    //     visitClone.querySelector('[slot="visit-photo"]').src = visit.photo;});
+    
     visitClone.querySelector('[slot="title-content"]').textContent = `Titre: ${visit.title}`;
     visitClone.querySelector('[slot="dateStart-content"]').textContent = `Date de début: ${visit.dateStart}`;
     visitClone.querySelector('[slot="dateEnd-content"]').textContent = `Date de fin: ${visit.dateEnd}`;
@@ -97,7 +101,8 @@ export function addVisitToVisitsContainer (visit) {
     visitClone.querySelector('[slot="visit-photo"]').src = visit.photo;
     visitClone.querySelector('[slot="note-content"]').textContent = `Note de la visite: ${visit.note}/5`;
     
-
+    // plusSlides(n);
+    // showSlides(n);
     // on affecte l'ID de la visite à l'élément au clone de la visite
     const visitCardContent = visitClone.querySelector('.visit-details');
     visitCardContent.dataset.visitId = visit.id;
@@ -125,7 +130,7 @@ export function addVisitToVisitsContainer (visit) {
       visitsContainer.appendChild(visitClone);
 
     });
-
+   
 } else {
     console.error('Visit template not found');
 }
