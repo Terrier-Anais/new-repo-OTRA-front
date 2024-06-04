@@ -98,11 +98,11 @@ option {
   display: flex;
   flex-direction: column;
   width: 20%;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 1rem 0rem;
   border: #8b9ca6 solid 0.2rem;
   border-radius: 1rem;
-  background-color: rgba(0255, 255, 255, 0.5);
+  background-color: rgba(0255, 255, 255, 0.8);
 }
 
 .trip-card_header {
@@ -113,7 +113,7 @@ option {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .update-trip_button {
@@ -126,7 +126,7 @@ h3 {
 }
 
 .fa-pen {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .delete-trip_button {
   background-color: transparent;
@@ -138,12 +138,37 @@ h3 {
 }
 
 .fa-trash {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .trip_photo {
-  height: 80%;
+  height: 100%;
   width: 100%;
+  border-radius: 1rem;
+}
+
+.trip_description {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.trip_dateStart  {
+  font-size: 0.8rem;
+}
+
+.trip_dateEnd {
+  font-size: 0.8rem;
+}
+
+#trip_duration {
+  font-size: 0.8rem;
+} 
+
+.trip_note {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 .trip-visits {
