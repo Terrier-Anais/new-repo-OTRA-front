@@ -79,8 +79,6 @@ addVisitForm.addEventListener('submit', async function(event) {
     modalNewVisit.classList.remove('active');
      location.reload();
   });
-
-
 }
 
 // Ajouter des visites au conteneur du voyage
@@ -97,7 +95,6 @@ export function addVisitToVisitsContainer (visit) {
     visitClone.querySelector('[slot="visit-photo"]').src = visit.photo;
     visitClone.querySelector('[slot="note-content"]').textContent = `Note de la visite: ${visit.note}/5`;
     
-
     // on affecte l'ID de la visite à l'élément au clone de la visite
     const visitCardContent = visitClone.querySelector('.visit-details');
     visitCardContent.dataset.visitId = visit.id;
@@ -122,6 +119,7 @@ export function addVisitToVisitsContainer (visit) {
 
     // on insère le clone la visite dans le conteneur des visites
     const visitsContainer = document.querySelector('.visit-container');
+    console.log('visitsContainer:', visitsContainer);
       visitsContainer.appendChild(visitClone);
 
     });
@@ -139,10 +137,10 @@ function addPhotosToPhotosContainer(visitId) {
     console.log('photoTemplate:', photoTemplate);
     if(photoTemplate) {
     const photoClone = document.importNode(photoTemplate.content, true);
+    photoClone.querySelector('[slot="visit-photo"]').src = visit.photo;
     console.log('photoClone:', photoClone);
     photoClone.querySelector('.photo').dataset.visitId = visitId;
-    console.log('visitId:', visitId);
-    const photosContainer = document.querySelector('.visit-photo');
+    const photosContainer = document.querySelector('.visit-photos_container');
     console.log('photosContainer:', photosContainer);
     photosContainer.appendChild(photoClone);
     console.log('Photo added:', visitId);
