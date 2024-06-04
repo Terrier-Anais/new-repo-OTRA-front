@@ -117,30 +117,33 @@ export function addVisitToVisitsContainer (visit) {
 
     // On affecte l'id de la visite à chaque photo de la visite
     const visitPhotos = visitClone.querySelectorAll('.photo');
-    console.log(visitPhotos);
     visitPhotos.forEach(photo => {
         photo.dataset.visitId = visit.id;
 
     // on insère le clone la visite dans le conteneur des visites
     const visitsContainer = document.querySelector('.visit-container');
-    console.log(visitsContainer);
-    visitsContainer.appendChild(visitClone);
+      visitsContainer.appendChild(visitClone);
 
     });
-    console.log('Visit added:', visit.id);
 
 } else {
     console.error('Visit template not found');
 }
 }
 
+// const photosContainer = document.querySelector('.visit-photos_container');
+// console.log('photosContainer:', photosContainer);
+
 function addPhotosToPhotosContainer(visitId) {
     const photoTemplate = document.querySelector('#visit-photo_template');
+    console.log('photoTemplate:', photoTemplate);
     if(photoTemplate) {
     const photoClone = document.importNode(photoTemplate.content, true);
+    console.log('photoClone:', photoClone);
     photoClone.querySelector('.photo').dataset.visitId = visitId;
     console.log('visitId:', visitId);
-    const photosContainer = document.querySelector('.photos-container');
+    const photosContainer = document.querySelector('.visit-photo');
+    console.log('photosContainer:', photosContainer);
     photosContainer.appendChild(photoClone);
     console.log('Photo added:', visitId);
     }
@@ -148,6 +151,8 @@ function addPhotosToPhotosContainer(visitId) {
         console.error('Photo template not found');
     }
 }
+
+// addPhotosToPhotosContainer(10);
 
 // ajouter des photos au containeur de photos de la visite
 function listenToSubmitOnAddButtonPhotos() {
