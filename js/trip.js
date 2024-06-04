@@ -21,12 +21,12 @@ function addVisitToContainer (visit) {
     
     modalUpdateVisitCloseBtn.addEventListener('click', toggleUpdateVisitModal);
     modalOverlayConnection.addEventListener('click', toggleUpdateVisitModal);
-    function toggleUpdatevisitModal() {
+    function toggleUpdateVisitModal() {
         modalUpdateTrip.classList.toggle('active');
     }
     editVisitBtn.addEventListener("click", () => {
         const editVisitModal = document.querySelector("#modal_update-visit");
-        toggleUpdatevisitModal();
+        toggleUpdateVisitModal();
     })
     
     // Ajout d'un listener sur le bouton 🗑️ d'une visite
@@ -54,6 +54,27 @@ modalOverlayConnection.addEventListener('click', toggleNewVisitModal);// Ajouter
 function toggleNewVisitModal() {
         modalNewVisit.classList.toggle('active');
 };
+
+
+  const modalAddPhotos = document.querySelector('#modal_add-photos'); // Sélectionner la modale d'ajout de photos
+  const modalAddPhotosBtn = document.querySelector('#add-photos_button'); // Sélectionner le bouton d'ajout de photos
+  const modalAddPhotosCloseBtn = document.querySelector('.modal_add-photos-close'); // Sélectionner le bouton de fermeture de la modale
+  const modalOverlayPhotos = document.querySelector('.overlay_modal_trigger');// Sélectionner l'overlay de la modale
+  // Fonction pour basculer la visibilité de la modale
+  function toggleAddPhotosModal() {
+    modalAddPhotos.classList.toggle('active');
+  }
+
+  // Ajouter des écouteurs d'événements
+  modalAddPhotosBtn.addEventListener('click', (event) => {
+  console.log('click')
+    event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+    toggleAddPhotosModal();
+  });
+
+  modalAddPhotosCloseBtn.addEventListener('click', toggleAddPhotosModal); // Ajouter un écouteur d'événements pour le bouton de fermeture de la modale
+  modalOverlayPhotos.addEventListener('click', toggleAddPhotosModal); // Ajouter un écouteur d'événements pour l'overlay de la modale
+
     
 function listenToSubmitOnAddVisitForm() {
         
@@ -78,6 +99,8 @@ function listenToSubmitOnAddVisitForm() {
         toggleNewVisitModal()
         })}
         
+
+
 
 //         let slideIndex = 0;
 

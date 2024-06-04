@@ -177,6 +177,27 @@
               </div>
             </div>
             
+              <!--Création de la modale d'ajout de photos-->
+            <div id="modal_add-photos">
+              <div class="overlay_modal_trigger"></div>
+              <div class="modal_content_add-photos">
+                <span class="modal_add-photos-close">X</span>
+                <h2>Ajouter des photos</h2>
+                
+                <form id="add-photos_form" method="post">
+                  <label for="photo">Ajouter des photos</label>
+                  <input
+                    type="file"
+                    name="photo"
+                    id="add-photos_photo"
+                    required
+                    multiple
+                  />
+                  <input type="submit" value="Ajouter" id="add-photos_button" />
+                </form>
+              </div>
+            </div>
+
             <!--Template d'une visite-->
             <template id="visit-details_template">
               <div class="visit-details" slot="visit">
@@ -205,19 +226,18 @@
                     <div class=" photos-container">
                       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                       <div class="visit-photos_container">
+                        <!-- ajout du template de photos ici -->
                         <img class="photo" src="" alt="Photo du voyage" slot="visit-photo"/>
                       </div>
-                      <!-- id="visit-preview"
-                        alt="Photo du voyage" -->
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a> 
+                       <a class="next" onclick="plusSlides(1)">&#10095;</a> 
                       </div>
                       <div class="visit-photos_button">
                         <button id="add-photos_button" type="button">+ Ajouter des photos</button>
                         <button id="delete-photos_button" type="button"><i class="fa-solid fa-trash"></i> Supprimer des photos</button>
                       </div>
-                    </div>
                   </div>
-                </template>
+              </div>
+            </template>
                 
                 <!-- <img
                   class="photo"
@@ -249,15 +269,9 @@
                   
                   
                   <!-- template d'ajout de photos -->
-                  <!-- <template id="visit-photo_template">
-                    <div class="visit-photo">
-                      <img
-                      class="photo"
-                      slot="visit-photo"
-                      src=""
-                      alt="photo de  la visite"
-                      />
-                    </template> --> 
+                  <template id="visit-photo_template">
+                    <div class="visit-photo"><img class="photo"slot="visit-photo" src="" alt="photo de  la visite" />
+                    </template> 
                     
                     
                     
