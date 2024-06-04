@@ -1,17 +1,24 @@
 .trip-page {
+  padding-top: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
   margin: 0.5rem;
 }
 
 .trip-page_header {
 
-    justify-content: space-evenly;
-    padding: 1rem 10rem;
-    display: flex;
-    border: #8b9ca6 solid 0.2rem;
-    border-radius: 1rem;
-    margin: 2rem;
-    justify-content: center;
-    align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  border: #8b9ca6 solid 0.2rem;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: calc(100% - 8rem);
+  margin-top: 2rem;
+  padding: 1rem 0rem;
+
+    
 }
 
 .trip-page_menu {
@@ -22,22 +29,21 @@
 
 #menu_choice {
 
-    border-radius: 1rem;
-    border: #8b9ca6 solid 0.1rem;
-    text-align: center;
-    font-size: 1rem;
-    background-color: transparent;
-    cursor: pointer;
-    font-family: "Sedan SC", serif;
-    margin-right: 2rem;
+  border-radius: 1rem;
+  border: #8b9ca6 solid 0.1rem;
+  text-align: center;
+  font-size: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 2rem;
 }
 
 .main_title{
-    font-size: 2rem;
-    text-align: center;
-    border: #8b9ca6 solid 0.1rem;
-    padding: 0.4rem 8rem;
-    border-radius: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  border: #8b9ca6 solid 0.1rem;
+  padding: 0.4rem 8rem;
+  border-radius: 1rem;
 
 }
 
@@ -49,15 +55,14 @@
 
 #classement_choice {
 
-    border-radius: 1rem;
-    border: #8b9ca6 solid 0.1rem;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0rem 1rem;
-    background-color: transparent;
-    cursor: pointer;
-    font-family: "Sedan SC", serif;
-    margin-left: 2rem;
+  border-radius: 1rem;
+  border: #8b9ca6 solid 0.1rem;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0rem 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 2rem;
 
 }
 
@@ -73,6 +78,7 @@ option {
   justify-content: space-evenly;
   padding: 1rem 1rem;
   align-items: stretch;
+  padding-top: 8rem;
 }
 
 .trip_add {
@@ -113,6 +119,8 @@ option {
   flex-direction: row;
   padding: 1rem 0.5rem;
   justify-content: space-between;
+  text-transform: uppercase;
+  
 }
 
 h3 {
@@ -485,3 +493,4 @@ h3 {
     }
     
 }
+
