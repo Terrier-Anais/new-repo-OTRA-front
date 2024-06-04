@@ -60,20 +60,31 @@ function toggleNewVisitModal() {
   const modalAddPhotosBtn = document.querySelector('#add-photos_button'); // Sélectionner le bouton d'ajout de photos
   const modalAddPhotosCloseBtn = document.querySelector('.modal_add-photos-close'); // Sélectionner le bouton de fermeture de la modale
   const modalOverlayPhotos = document.querySelector('.overlay_modal_trigger');// Sélectionner l'overlay de la modale
-  // Fonction pour basculer la visibilité de la modale
+   // Fonction pour basculer la visibilité de la modale
+   modalAddPhotosCloseBtn.addEventListener('click', toggleAddPhotosModal);
+  modalOverlayPhotos.addEventListener('click', toggleAddPhotosModal);
   function toggleAddPhotosModal() {
     modalAddPhotos.classList.toggle('active');
   }
 
   // Ajouter des écouteurs d'événements
-  modalAddPhotosBtn.addEventListener('click', (event) => {
-  console.log('click')
-    event.preventDefault(); // Empêcher la soumission du formulaire par défaut
-    toggleAddPhotosModal();
+  document.querySelector('.visit-container').addEventListener('click', function(event) {
+    const button = event.target.closest('#add-photos_button');
+     if (button) {
+      currentPhotosCard = button.closest('.visit-details');
+      toggleAddPhotosModal();
+    }
   });
+  
+  let currentPhotosCard = null;
+  // modalAddPhotosBtn.addEventListener('click', (event) => {
+  // console.log('click')
+  //   event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+  //   toggleAddPhotosModal();
+  // });
 
-  modalAddPhotosCloseBtn.addEventListener('click', toggleAddPhotosModal); // Ajouter un écouteur d'événements pour le bouton de fermeture de la modale
-  modalOverlayPhotos.addEventListener('click', toggleAddPhotosModal); // Ajouter un écouteur d'événements pour l'overlay de la modale
+  // modalAddPhotosCloseBtn.addEventListener('click', toggleAddPhotosModal); // Ajouter un écouteur d'événements pour le bouton de fermeture de la modale
+  // modalOverlayPhotos.addEventListener('click', toggleAddPhotosModal); // Ajouter un écouteur d'événements pour l'overlay de la modale
 
     
 function listenToSubmitOnAddVisitForm() {
