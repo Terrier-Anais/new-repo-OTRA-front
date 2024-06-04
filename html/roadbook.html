@@ -18,6 +18,7 @@
 
     <script type="module" src ="../js/api.js" defer></script>
     <script type="module" src ="../js/trips.module.js" defer></script>
+    <script type="module" src ="../js/visits.module.js" defer></script>
     <script type="module" src="../js/roadbook.js" defer></script>
     <script type="module" src="../js/picture.js" defer></script>
 
@@ -35,7 +36,7 @@
             <h1>On the road again</h1>
         </div>
         <div class="right">
-            <span id="pseudo">Bienvenue (pseudo)<i class="fa-solid fa-user"></i></span>
+            <span id="pseudo">Bienvenue<span id="user-name"></span>(pseudo)</span> <i class="fa-solid fa-user"></i>
         </div>
     </header>
     
@@ -208,7 +209,7 @@
                             <p class="trip_note"></p>
                         </div> 
                         <div class="trip-visits">
-                            <a class="trip-visits-details" href="trip.html">
+                            <a class="trip-visits-details" slot="select-trip-id"  href="trip.html">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 Détails du voyage
                             </a>

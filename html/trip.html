@@ -12,10 +12,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <script type="module" src="../js/api.js"></script>
-    <script type="module" src="../js/trip.js"></script>
-    <script type="module" src="../js/visitPost.js"></script>
-    <script type="module" src="../js/visitGet.js"></script>
+    <script defer type="module" src="../js/api.js"></script>
+    <script defer type="module" src="../js/visits.module.js"></script>
+    <script defer type="module" src="../js/trip.js"></script>
+
+
   </head>
   <body>
     <header class="website_header">
@@ -70,17 +71,6 @@
       </div>
 
       <section class="visit-container">
-        <div class="visit-map">
-          <p class="carte">CARTE</p>
-          <!--<iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.573013292073!2d2.352221315674781!3d48.85661407928769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1629783660004!5m2!1sfr!2sfr"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              ></iframe>-->
-        </div>
 
         <!--Création de la modale d'ajout d'une nouvelle visite-->
         <div class="modal_new-visit">
@@ -90,8 +80,10 @@
             <h2>Ajouter une visite</h2>
 
             <form id="new-visit_form" method="post">
-              <label for="title">Nom de la visite</label>
-              <input type="text" name="title" id="new-visit_title" />
+
+              <!-- <label for="title">Nom de la visite</label>
+              <input type="text" name="title" id="new-visit_title" required /> -->
+
 
               <label for="dateStart">Date de début du séjour</label>
               <input type="date" name="dateStart" id="dateStart"required>
@@ -99,15 +91,41 @@
               <label for="dateEnd">Date de fin du séjour</label>
               <input type="date" name="dateEnd" id="dateEnd"required/>
 
-              <label for="comment">Ajouter une description</label>
-              <input type="text" name="description" id="comment" required/>
 
-              <label for="photo">Ajouter des photos</label>
+              <label for="comment">Ajouter un commentaire</label>
+              <input
+                type="text"
+                name="comment"
+                id="new-visit_comment"
+              />
+              <label for="note">Note</label>
+                        
+              <div id="new-trip_note">
+                  <label for="note-1">1</label>
+                  <input type="radio" name="note" id="note-1" value="1">
+                  
+                  <label for="note-2">2</label>
+                  <input type="radio" name="note" id="note-2" value="2">
+                  
+                  <label for="note-3">3</label>
+                  <input type="radio" name="note" id="note-3" value="3">
+                  
+                  <label for="note-4">4</label>
+                  <input type="radio" name="note" id="note-4" value="4">
+                  
+                  <label for="note-5">5</label>
+                  <input type="radio" name="note" id="note-5" value="5">
+              </div>
+
+
+              <!-- <label for="photo">Ajouter des photos</label>
               <input
                 type="file"
                 name="photo"
                 id="new-visit_photo"
-              />
+                required
+                multiple
+              /> -->
               <input type="submit" value="Ajouter" id="add-visit-button" />
             </form>
           </div>
@@ -201,40 +219,41 @@
                 <div class="visit-note">
                   <p class="note" slot="note-content">Note</p>
                 </div>
-                <div class="visit-description">
-                  <p class="comment" slot="description-content">
-                    description
+
+                <div class="visit-comment">
+                  <p class="comment" slot="comment-content">
+                    commentaire
+
                   </p>
                 </div>
+
               </div>
             </div>
-            <div class="visit-photo">
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <img
-                class="photo"
-                slot="visit-photo"
-                id="photo1"
-                src="../pictures/pexels-josh-willink-11499-701016.jpg"
-                alt="photo de Paris"
-              />
-              <img
-                class="photo"
-                slot="visit-photo"
-                id="photo2"
-                src="../pictures/pexels-david-bartus-43782-1166209.jpg"
-                alt=""
-              />
-              <img
-                class="photo"
-                slot="visit-photo"
-                id="photo3"
-                src="../pictures/pexels-jplenio-1133505.jpg"
-                alt=""
-              />
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-          </div>
+                  <div class="slide-photos_container">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                      <div class="visit-photos_container">
+                          <!-- je dois insérer mon template de photos ici -->
+                      </div>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+               
+                </div>
         </template>
+
+        
+
+            <!-- template d'ajout de photos -->
+            <template id="visit-photo_template">
+               <div class="visit-photo">
+                <img
+                  class="photo"
+                  slot="visit-photo"
+                   src=""
+                  alt="photo de  la visite"
+                />
+            </template>
+
+
+       
       </section>
     </main>
   </body>
