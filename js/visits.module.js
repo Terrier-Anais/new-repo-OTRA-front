@@ -77,7 +77,7 @@ addVisitForm.addEventListener('submit', async function(event) {
     const modalNewVisit = document.querySelector('.modal_new-visit')
     console.log(modalNewVisit);
     modalNewVisit.classList.remove('active');
-    //  location.reload();
+     location.reload();
   });
 
 
@@ -111,14 +111,47 @@ export function addVisitToVisitsContainer (visit) {
     const editVisitButton = visitClone.querySelector('.edit-visit_button');
     editVisitButton.dataset.visitId = visit.id;
 
+    // On affecte l'id de la visite au bouton d'ajout de photos
+    const addPhotoButton = visitClone.querySelector('#add-photos_button');
+    addPhotoButton.dataset.visitId = visit.id;
+
+    // On affecte l'id de la visite à chaque photo de la visite
+    const visitPhotos = visitClone.querySelectorAll('.photo');
+    console.log(visitPhotos);
+    visitPhotos.forEach(photo => {
+        photo.dataset.visitId = visit.id;
+
     // on insère le clone la visite dans le conteneur des visites
     const visitsContainer = document.querySelector('.visit-container');
     console.log(visitsContainer);
     visitsContainer.appendChild(visitClone);
+
+    });
+    console.log('Visit added:', visit.id);
+
 } else {
     console.error('Visit template not found');
 }
 }
+
+
+// ajouter des photos au containeur de photos de la visite
+function listenToSubmitOnAddButtonPhotos() {
+    const addPhotoButton = document.querySelector('#add-photos_button');
+    console.log(addPhotoButton);
+    addPhotoButton.addEventListener('click', function(event) {
+        const visitId = event.target.closest('.visit-details').dataset.visitId;
+        console.log('visitId:', visitId);
+        const visitPhotoInput = document.querySelector(`.visit-details[data-visit-id='${visitId}'] .visit-photo_input`);
+        if (visitPhotoInput) {
+            visitPhotoInput.click();
+        } else {
+            console.error('Visit photo input not found');
+        }
+    });
+}
+
+
 // Ajouter des photos au containeur de visite
 // function addPhotoToVisitContainer(visitId, photo) {
 //     const photoTemplate = document.querySelector("#visit-photo_template");
