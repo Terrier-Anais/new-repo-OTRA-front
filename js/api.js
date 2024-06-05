@@ -1,3 +1,5 @@
+import { apiBaseUrl } from './config.js';
+
 // On récupère tous les voyages de l'utilisateur connecté en utilisant l'API
 const getToken = () => {
   return localStorage.getItem('token');

@@ -1,3 +1,5 @@
+import { apiBaseUrl } from './config.js';
+
 const form = document.getElementById('signinForm');
 
 form.addEventListener('submit', async function(event) {
