@@ -77,7 +77,7 @@ addVisitForm.addEventListener('submit', async function(event) {
     const modalNewVisit = document.querySelector('.modal_new-visit')
     console.log(modalNewVisit);
     modalNewVisit.classList.remove('active');
-    //  location.reload();
+    location.reload();
   });
 
 
@@ -89,7 +89,7 @@ export function addVisitToVisitsContainer (visit) {
     if (visitTemplate) {  
     const visitClone =document.importNode(visitTemplate.content, true);
     
-    visitClone.querySelector('[slot="title-content"]').textContent = `Titre: ${visit.title}`;
+    visitClone.querySelector('[slot="title-content"]').textContent = `${visit.title}`;
     visitClone.querySelector('[slot="dateStart-content"]').textContent = `Date de début: ${visit.dateStart}`;
     visitClone.querySelector('[slot="dateEnd-content"]').textContent = `Date de fin: ${visit.dateEnd}`;
     visitClone.querySelector('[slot="comment-content"]').textContent = `Commentaire : ${visit.comment}`;
