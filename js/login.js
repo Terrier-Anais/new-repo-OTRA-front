@@ -18,7 +18,7 @@ form.addEventListener('submit', async function(event) {
     };
     console.log(formData);
 
-    const response = await fetch(`${apiBaseUrl}/login`, {
+    const response = await fetch(`/api/login`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
