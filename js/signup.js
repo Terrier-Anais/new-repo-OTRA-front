@@ -42,7 +42,7 @@ form.addEventListener('submit', async function(event) {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/signup', {
+        const response = await fetch(`${apiBaseUrl}/api/signup`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
