@@ -1,53 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>On the road again</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/signin.css">
-
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/signin.css" />
+    <script defer src="../js/app.js"></script>
     <script defer src="../js/signup.js"></script>
-    
-</head>
-<header class="website_header">
-    <div class="left"><img src="../pictures/logo-OTRA-2.jpg" alt="logo de On the road again">
-        <H1>On the road again</H1>
+  </head>
+  <header class="website_header">
+    <div class="left">
+      <img src="../pictures/logo-OTRA-2.jpg" alt="logo de On the road again" />
+      <h1>On the road again</h1>
     </div>
     <div class="right">
-        <span id="connection">Se connecter</span>
-        <span id="registration">S'inscrire</span>
-    </div>    
-</header>
-<body>
+      <span id="connection">Se connecter</span>
+      <span id="registration">S'inscrire</span>
+    </div>
+  </header>
+  <body>
     <div class="container_signin_box">
-        <div class="signin_box">
-            <div class="signin_picture">
-                <img src="../pictures/pexels-vanessa-garcia-6324232.jpg" alt="une photo d'un couple qui se prend en selfie">
+      <div class="signin_box">
+        <div class="signin_picture">
+          <img
+            src="../pictures/hotesse.webp"
+            alt="une photo d'une hotesse de l'air et de passager dans un avion"
+          />
         </div>
         <div class="signin_form">
-            <h2>Inscription</h2>
-
-            <form id="signinForm" action="" method="POST">
-
-                <label for="email">Adresse mail</label>
-                <input type="email" name="email" placeholder="Votre adresse mail" id="email" required>
-                <label for="surname">Nom</label>
-                <input type="text" name="lastname" placeholder="Votre nom" id="surname" required>
-                <label for="name">Prénom</label>
-                <input type="text" name="firstname" placeholder="Votre prénom" id="name" required>
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" name="pseudo" placeholder="Votre nom d'utilisateur" id="username" required>
-                <label for="password">Mot de passe</label>
-                <p>min: 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial</p>
-                <input type="password" name="password" placeholder="Choisissez votre mot de passe" id="password" required>
-                <label for="confirmation">Confirmation du mot de passe</label>
-                <input type="password" name="confirmation" placeholder="Ressaisissez votre mot de passe" id="confirmation" required>
-                <input type="submit" value="S'inscrire">
-            </form>
-        </div>    
+          <h2>Inscription</h2>
+          <form id="signinForm" action="" method="POST">
+            <label for="email">Adresse mail</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre adresse mail"
+              id="email"
+              required
+            />
+            <label for="surname">Nom</label>
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Votre nom"
+              id="surname"
+              required
+            />
+            <label for="name">Prénom</label>
+            <input
+              type="text"
+              name="firstname"
+              placeholder="Votre prénom"
+              id="name"
+              required
+            />
+            <label for="username">Nom d'utilisateur</label>
+            <input
+              type="text"
+              name="pseudo"
+              placeholder="Votre nom d'utilisateur"
+              id="username"
+              required
+            />
+            <label for="password">Mot de passe</label>
+            <p>
+              min: 8 caractères, une majuscule, une minuscule, un chiffre et un
+              caractère spécial
+            </p>
+            <input
+              type="password"
+              name="password"
+              placeholder="Choisissez votre mot de passe"
+              id="password"
+              required
+            />
+            <label for="confirmation">Confirmation du mot de passe</label>
+            <input
+              type="password"
+              name="confirmation"
+              placeholder="Ressaisissez votre mot de passe"
+              id="confirmation"
+              required
+            />
+            <input type="submit" value="S'inscrire" />
+          </form>
+        </div>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>

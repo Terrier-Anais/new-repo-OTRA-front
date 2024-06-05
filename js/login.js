@@ -30,11 +30,12 @@ form.addEventListener('submit', async function(event) {
         },
         body: JSON.stringify(formData)
     })
-    .then(response => response.json())
-    .then(function(response){
-        localStorage.setItem('token', response.token);
-        console.log('token', response.token);
+    const result = await response.json();
+    if (response.ok) {
+        localStorage.setItem('token', result.token);
         alert('Connexion réussie !');
         window.location.href = "roadbook.html";
-    });
+    } else {
+        alert('Email ou mot de passe incorrect');
+    }
   });
