@@ -20,7 +20,7 @@ try {
 
 export async function getTrips() {
   try {
-    const response = await fetch('http://localhost:3000/api/me/trips', {
+    const response = await fetch(`${apiBaseUrl}/api/me/trips`, {
       headers: {
         Authorization: `Bearer ${getToken()}`
       }
@@ -60,7 +60,7 @@ tripData.user_id = user_id;
    
  
 
-const response = await fetch('http://localhost:3000/api/me/trips', {
+const response = await fetch(`${apiBaseUrl}/api/me/trips`, {
 method: 'POST',
 headers: {
   'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ if (updatedTripData.photo) {
   }
 }
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, { 
+const response = await fetch(`${apiBaseUrl}/api/me/trips/${tripId}`, { 
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ console.error('Error:', error);
 export async function deleteTrip(tripId) {
   
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+const response = await fetch(`${apiBaseUrl}api/me/trips/${tripId}`, {
   method: 'DELETE',
   headers: {
   Authorization: `Bearer ${getToken()}`
@@ -135,7 +135,7 @@ console.error('Error:', error);
 // fonction pour récupérer les visites d'un voyage
 export async function getVisits(tripId) {
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}`, {
+const response = await fetch(`${apiBaseUrl}api/me/trips/${tripId}`, {
 headers: {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${getToken()}`
@@ -179,7 +179,7 @@ export async function createVisit(visitData, tripId) {
 tripId = localStorage.getItem('tripId');
 console.log('Youpi', visitData);
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
+const response = await fetch(`${apiBaseUrl}/api/me/trips/${tripId}/visit`, {
 method: 'POST',
 headers: {
   'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ console.error('Failed to create visit:', error);
 // fonction pour modifier une visite
 export async function updateVisit(tripId, visitId, updatedVisitData) {
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit/${visitId}`, {
+const response = await fetch(`${apiBaseUrl}/api/me/trips/${tripId}/visit/${visitId}`, {
 method: 'PATCH',
 headers: {
   'Content-Type': 'application/json',
@@ -224,7 +224,7 @@ console.error('Failed to update visit:', error);
 // fonction pour supprimer une visite
 export async function deleteVisit(tripId, visitId) {
 try {
-const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit/${visitId}`, {
+const response = await fetch(`${apiBaseUrl}/api/me/trips/${tripId}/visit/${visitId}`, {
 method: 'DELETE',
 headers: {
   Authorization: `Bearer ${getToken()}`
@@ -256,7 +256,7 @@ reader.readAsDataURL(file);
 
 async function uploadImage(data) {
 try {
-const response = await fetch('http://localhost:3000/api/upload', {
+const response = await fetch(`${apiBaseUrl}/api/upload`, {
 headers: {
 'Content-Type': 'application/json',
 },
