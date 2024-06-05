@@ -1,8 +1,3 @@
-const connect = document.getElementById('connection');
-connect.addEventListener('click', () => {
-    window.location.href = 'login.html';
-});
-
 const form = document.getElementById('signinForm');
 
 form.addEventListener('submit', async function(event) {

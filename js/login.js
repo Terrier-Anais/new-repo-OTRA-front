@@ -1,10 +1,3 @@
-//script span registration
-
-const register = document.getElementById('registration');
-register.addEventListener('click', () => {
-    window.location.href = 'signin.html';
-});
-
 const form = document.getElementById('loginForm');
 
 form.addEventListener('submit', async function(event) {
