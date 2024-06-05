@@ -3,9 +3,9 @@
 }
 
 .trip-page {
-  padding-top: 4rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin: 0.5rem;
 }
 
@@ -18,7 +18,7 @@
   align-items: center;
   position: fixed;
   width: calc(100% - 8rem);
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 1rem 0rem;
   background-color: rgba(255, 255, 255, 0.8);
 }
@@ -77,7 +77,6 @@ option {
   padding: 1rem 1rem;
   align-items: stretch;
   padding-top: 8rem;
-  gap: 4rem;
 }
 
 .trip_add {
@@ -522,6 +521,57 @@ h3 {
 } */
 
 @media screen and (max-width: 768px) {
+
+  .trip-page_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+    border: none;
+    size: auto;
+    position:fixed;
+    top: 8rem;
+    width: 90%;
+  }
+  
+  .trip-page_header :nth-child(1) {
+    order: 2;
+  }
+  .trip-page_header :nth-child(3) {
+    order: 3;
+  }
+  
+  .trip-page_menu {
+    padding-top: 0.5rem;
+  }
+  
+  .trip-page_classement {
+    padding-top: 0.5rem;
+  }
+  
+  #menu_choice {
+    margin-right: 0rem;
+  }
+  
+  .main_title {
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    padding: 0.4rem 8rem;
+  }
+  
+  #classement_choice {
+    margin-left: 0rem;
+    padding: 0rem 2rem;
+  }
+
+  .roadbook_container {
+    display: flex;
+    width: 100%;
+    padding: 12rem 0rem 1rem 0rem;
+  }
+
   .trip-card_content {
       width: 100%;
       display: flex;
@@ -534,6 +584,58 @@ h3 {
 }
 
 @media screen and (max-width: 500px) {
+ 
+  .trip-page_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+    border: none;
+    size: auto;
+    position:fixed;
+    top: 8rem;
+    width: 80%;
+  }
+  
+  .trip-page_header :nth-child(1) {
+    order: 2;
+  }
+  .trip-page_header :nth-child(3) {
+    order: 3;
+  }
+  
+  .trip-page_menu {
+    padding-top: 0.5rem;
+  }
+  
+  .trip-page_classement {
+    padding-top: 0.5rem;
+  }
+  
+  #menu_choice {
+    margin-right: 0rem;
+  }
+  
+  .main_title {
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    padding: 0.4rem 8rem;
+  }
+  
+  #classement_choice {
+    margin-left: 0rem;
+    padding: 0rem 2rem;
+  }
+
+  .roadbook_container {
+    display: flex;
+    padding-top: 8rem;
+    width: 90%;
+    padding: 12rem 0rem;
+  }
+
   .trip-card_content {
       width: 100%;
       display: flex;

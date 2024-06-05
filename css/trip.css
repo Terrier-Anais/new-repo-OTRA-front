@@ -5,7 +5,6 @@
 .return-anchor {
   display: flex;
   padding-left: 1rem;
-  padding-top: 2rem;
 }
 
 .return {
@@ -16,6 +15,13 @@
   padding-right: 1rem;
 }
 
+.trip-details {
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0.5rem;
+}
+
 .trip-page_menu {
   display: flex;
   flex-direction: column;
@@ -24,15 +30,18 @@
 
 .trip-page_header {
   justify-content: space-evenly;
-  padding: 1rem 10rem;
   display: flex;
-  border: black solid 0.15rem;
+  border: #8b9ca6 solid 0.2rem;
   border-radius: 1rem;
-  margin: 1.5rem;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0255, 255, 255, 0.8);
+  position: fixed;
+  width: calc(100% - 8rem);
+  margin-top: 1rem;
+  padding: 1rem 0rem;
+  background-color: rgba(255, 255, 255, 0.8);
 }
+
 #menu_choice {
   border-radius: 1rem;
   border: black solid 0.1rem;
@@ -78,6 +87,7 @@ option {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 9rem;
 }
 
 #add-new-visit {
@@ -557,6 +567,7 @@ h3 {
         gap: 0.5rem;
         border: none;
         size: auto;
+        position: fixed;
       }
       
       .trip-page_header :nth-child(1) {
@@ -588,6 +599,10 @@ h3 {
       #classement_choice {
         margin-left: 0rem;
         padding: 0rem 2rem;
+      }
+
+      .visit-add {
+        padding-top: 12rem;
       }
       
       .visit-details{
@@ -709,6 +724,10 @@ h3 {
       #classement_choice {
         margin-left: 0rem;
         padding: 0rem 2rem;
+      }
+
+      .visit-add {
+        padding-top: 12rem;
       }
       
       .visit-details{
