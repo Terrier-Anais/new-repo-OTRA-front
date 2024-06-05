@@ -336,7 +336,7 @@ h3 {
   color: white;
 }
 
-@media screen and (width <= 768px) {
+/* @media screen and (width <= 768px) {
   .trip-page {
     width: 100vw;
     height: 100vw;
@@ -349,6 +349,7 @@ h3 {
     gap: 0.5rem;
     border: none;
     size: auto;
+    
   }
 
   .trip-page_header :nth-child(1) {
@@ -517,5 +518,29 @@ h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+} */
+
+@media screen and (max-width: 768px) {
+  .trip-card_content {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+  }
+
+  .trip-card_content > * {
+      flex: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .trip-card_content {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+  }
+
+  .trip-card_content > * {
+      flex: 1;
   }
 }
