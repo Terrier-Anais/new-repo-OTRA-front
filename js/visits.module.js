@@ -2,11 +2,16 @@ import { getVisits, createVisit } from "./api.js";
 
 // Fonction pour récupérer l'id du voyage depuis le local storage
 function getTripIdFromLocalStorage() {
-    return localStorage.getItem('tripId');
+    const tripId = localStorage.getItem('tripId');
+    console.log('Trip ID from local storage:', tripId);
+    return tripId;
 }
+
 // On récupère l'id du voyage depuis le local storage
+console.log('Checking tripId in local storage before retrieval...');
 const tripId = getTripIdFromLocalStorage();
 console.log('tripId:', tripId);
+
 
 // Fonction pour récupérer et afficher les visites d'un voyage et ses photos
 async function fetchAndDisplayVisits(tripId) {
