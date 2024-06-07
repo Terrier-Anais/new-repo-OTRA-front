@@ -1,79 +1,122 @@
-/* This file contains the styling for the login page */
-.login-form {
-  width: 400px;
-  height: 400px;
-  margin: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 1.5px solid #7e8ec8;
-  border-radius: 1rem;
-  text-align: center;
-  padding-top: 30px;
-  background: rgba(255, 255, 255, 0.6);
+.container_login_box {
+  display: flex;
+  padding: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem; 
+  padding-top: 4rem;
+  max-width: 70%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-/* This file contains the styling for the login page */
-h2 {
+
+.login_box {
+  display: flex;
+  width: 100%;
+  flex: row;
+
+}
+
+.login_picture {    
+  flex: 1;
+}
+
+.login_picture img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.login_form {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;  
+  background-color: rgba(255, 255, 255, 0.6);
+
+}
+
+.login_form h2 {
+  text-align: center;
   font-size: 30px;
   font-weight: bold;
-  margin: 20px;
-}
-/* This file contains the styling for the login page */
-.form-group {
-  margin: 40px;
+  margin-bottom: 2rem;
+};
+
+.login_form label {
+  font-size: 1rem;
   font-weight: bold;
+  margin-bottom: 0.5; /* Espace entre le label et le champ */
+  
 }
-/* This file contains the styling for the login page */
-a {
-  text-decoration: underline;
-  color: black;
-  padding-bottom: 10px;
+
+.login_form input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 1rem; /* Espace entre les champs */
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
 }
-/* This file contains the styling for the login page */
-input {
-  width: 300px;
-  height: 25px;
-  font-size: 20px;
-  margin: 10px;
-}
-/* This file contains the styling for the login page */
-button {
-  width: 150px;
-  height: 40px;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 10px;
-  background-color: #7eb3c8;
-  color: black;
-  border-radius: 1rem;
-  border: 3px solid black;
+
+.login_form button {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #7EB3C8;
+  border: 2px solid black;
+  border-radius: 1.5rem;
+  color: white;
   cursor: pointer;
+  color: black;
+  font-weight: bold;
+  width: 100%;
 }
-/* This file contains the styling for the login page */
-.form-group input[type="submit"]:hover {
-  background-color: #7e8ec8;
+
+.login_form button:hover {
+  transition-duration: 1s;
+  background-color: #7E8EC8;
 }
-/* This file contains the styling for the login page */
-.main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding-top: 5rem;
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
+
+.login_form a {
+  display: block;
+  margin-bottom: 1rem; /* Espace avant le bouton */
+  text-align: center; /* Centrer le lien */
 }
-/* This file contains the styling for the login page */
-.form-container {
-  display: flex;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  padding-left: 3rem;
-}
-/* This file contains the styling for the login page */
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-right: 3px solid #7e8ec8;
+
+@media (max-width: 768px) {
+  .website_header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .website_header .left, .website_header .right {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .website_header .left img {
+    max-width: 10%;
+  }
+
+  .website_header h1 {
+    font-size: 2rem;
+  }
+
+  .container_login_box {
+    margin-top: 2rem;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: flex-start;      
+
+  }
+
+  .login_picture {
+    display: none;
+  }
+
+  .login_form {
+    max-width: 100%;
+    margin: 0;
+  }
 }

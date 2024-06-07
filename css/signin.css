@@ -6,6 +6,9 @@
     padding-top: 4rem;
     max-width: 70%;
     margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .signin_box {
@@ -44,6 +47,9 @@
 
 .signin_form h2 {
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .signin_form form {
@@ -65,7 +71,8 @@
     color: white;
     cursor: pointer;
     color: black;
-    font-family: "Sedan SC", serif;
+    font-weight: bold;
+    
 
 }
 
@@ -99,8 +106,9 @@
         margin-top: 2rem;
         flex-direction: column;
         padding: 2rem;
-        max-width: 100%;
-        margin-top: 6rem;
+        justify-content: flex-start;
+        
+        
     }
 
     .signin_picture {
@@ -112,4 +120,3 @@
         margin: 0;
     }
 }
-
