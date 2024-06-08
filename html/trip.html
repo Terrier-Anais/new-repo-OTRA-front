@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,15 +21,14 @@
 <body>
   <header class="website_header">
     <div class="left">
-      <img
-      src="../pictures/logo-OTRA-2.jpg"
-      alt="logo de On the road again"
-      />
+      <img src="../pictures/logo.png" alt="logo du site en forme d'appareil photo"/>
       <h1>On the road again</h1>
     </div>
     <div class="right">
-      <span id="pseudo">Profil</span> <i class="fa-solid fa-user"></i>
-  </div>
+      <span id="pseudo"
+      >Profil<i id="user" class="fa-solid fa-user"></i
+        ></span>
+      </div>
     </header>
     <main class="trip-details">
       <div class="return-anchor">
@@ -211,11 +210,12 @@
                         <button class="location-visit_button" type="button" slot="location-button"><i class="fa-solid fa-location-dot"></i></button>
                       </div>  
                     </header>
-                    <div class="visit-place"><p class="place" slot="geo-content"></p></div>
-                    <div class="visit-start-date"><p class="dateStart" slot="dateStart-content"> </p></div>
-                    <div class="visit-end-date"><p class="dateEnd" slot="dateEnd-content"></p></div>
-                    <div class="visit-comment"><p class="comment" slot="comment-content"></p></div>
-                    <div class="visit-note"><p class="note" slot="note-content"></p></div>
+                    <div class="visit-title"><p class="title" slot="title-content">Nom de la visite:</p></div>
+                    <div class="visit-start-date"><p class="dateStart" slot="dateStart-content"> Date de debut:</p></div>
+                    <div class="visit-end-date"><p class="dateEnd" slot="dateEnd-content">Date de fin:</p></div>
+                    <div class="visit-place"><p class="place" slot="geo-content">Durée</p></div>
+                    <div class="visit-note"><p class="note" slot="note-content">Note</p></div>
+                    <div class="visit-comment"><p class="comment" slot="comment-content">commentaire</p></div>
                   </div>
                   <!-- </div> -->
                   
@@ -223,6 +223,7 @@
                     <div class=" photos-container">
                       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                       <div class="visit-photos_container">
+                        <!-- ajout du template de photos ici -->
                         <img class="photo" src="" alt="Photo du voyage" slot="visit-photo"/>
                       </div>
                        <a class="next" onclick="plusSlides(1)">&#10095;</a> 
@@ -231,8 +232,8 @@
                         <button id="add-photos_button" type="button">+ Ajouter des photos</button>
                         <button id="delete-photos_button" type="button"><i class="fa-solid fa-trash"></i> Supprimer des photos</button>
                       </div>
-                    </div>
                   </div>
+              </div>
             </template>
                 
                 <!-- <img
@@ -273,17 +274,6 @@
                     
                   </section>
                 </main>
-                <footer class="website_footer">
-                  <div class="footer_content">
-                      <p>&copy; 2024 On the road again. Tous droits réservés.</p>
-                      <!-- <nav class="footer_nav">
-                          <a href="#firstSection">Accueil</a>
-                          <a href="#secondSection">Découvrir</a>
-                          <a href="#thirdSection">Albums</a>
-                          <a href="#contact">Contact</a>
-                      </nav> -->
-                  </div>
-              </footer>
               </body>
               </html>
               
