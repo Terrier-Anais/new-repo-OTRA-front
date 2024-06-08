@@ -6,21 +6,7 @@ body {
     min-height: 100vh;
 }
 
-.website_header {
-    width: 100%;
-    background-color:#7EB3C8;
-    padding: 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: fixed;
-    top: 0;
-}
 
-.website_header h1 {
-    margin: 0;
-    font-size: 2em;
-    background-color:#7EB3C8;
-}
 
 main {
     display: flex;
