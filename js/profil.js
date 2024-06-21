@@ -25,13 +25,13 @@ async function updateProfile(userId) {
         firstname: document.getElementById('firstname').value,
         pseudo: document.getElementById('username').value,
         email: document.getElementById('email').value,
-        password: document.getElementById('password').value
+        // password: document.getElementById('password').value
     };
 
-    if (userData.password !== document.getElementById('confirmation').value) {
-        alert('Les mots de passe ne correspondent pas.');
-        return;
-    }
+    // if (userData.password !== document.getElementById('confirmation').value) {
+    //     alert('Les mots de passe ne correspondent pas.');
+    //     return;
+    // }
 
     try {
         const response = await fetch(`${apiBaseUrl}/profil/${userId}`, {
