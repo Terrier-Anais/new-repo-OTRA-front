@@ -10,12 +10,11 @@
   justify-content: space-evenly;
   padding: 1rem 10rem;
   display: flex;
-  border: #8b9ca6 solid 0.2rem;
+  border: black solid 0.15rem;
   border-radius: 1rem;
-  margin: 1rem;
+  margin: 7rem;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0255, 255, 255, 0.8);
 }
 
 .trip-page_menu {
@@ -26,23 +25,22 @@
 
 #menu_choice {
   border-radius: 1rem;
-  border: #8b9ca6 solid 0.15rem;
+  border: black solid 0.1rem;
   text-align: center;
   font-size: 1rem;
   background-color: transparent;
   cursor: pointer;
-  font-family: "Sedan SC", serif;
   margin-right: 2rem;
+  font-family: "Poppins";
 }
 
 .main_title {
   font-size: 2rem;
   text-align: center;
-  border: #8b9ca6 solid 0.15rem;
+  border: black solid 0.1rem;
   padding: 0.4rem 8rem;
   border-radius: 1rem;
 }
-
 .trip-page_classement {
   display: flex;
   flex-direction: column;
@@ -321,6 +319,10 @@ h3 {
   cursor: pointer;
   background-color: #ff365e;
   color: white;
+}
+
+footer.website_footer{
+  position:fixed;
 }
 
 @media screen and (width <= 768px) {

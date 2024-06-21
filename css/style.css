@@ -21,7 +21,8 @@ body, html {
     font-style: normal;
     margin: 0;
     padding: 0;
-    background: url("../pictures/plage2.jpg") no-repeat center center/cover;
+    background: url("../pictures/plage2.jpg") no-repeat center center fixed;
+    background-size: cover;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     min-height: 100%;
@@ -47,10 +48,10 @@ body, html {
     align-items: center;
 }
 
-.website_header .left img {
-  max-width: var(--logo-max-width);
+.website_header .left a img {
+  max-width: 80%;
   height: auto;
-  padding-right: 1rem;
+  /* padding-right: 1rem; */
 }
 
 .website_header .right span {
@@ -74,7 +75,8 @@ h1 {
     background-color: var(--bg-color);
     padding: 1rem var(--padding-large);
     text-align: center;
-    position: fixed;
+    position:relative;
+    scroll-snap-align: end;
     width: 100%;
     bottom: 0;
 }
@@ -157,6 +159,16 @@ img {
         width: auto;
     }
 
+    .website_header a img  {
+    max-width: 100%; /* Assure que l'image ne dépasse pas la largeur du parent */
+    height: auto; /* Permet à la hauteur de l'image de s'ajuster proportionnellement */
+  }
+  .website_header .left {
+    margin-bottom: 10px;
+    text-align: right; /* Aligne le contenu au centre */
+  }
+ 
+
     .website_header .left,
     .website_header .right {
         width: 100%;
@@ -195,5 +207,10 @@ img {
 
     .website_footer {
         padding: 1.5rem;
+    }
+
+    span #pseudo{
+        position: relative;
+        text-align: right;
     }
 }
