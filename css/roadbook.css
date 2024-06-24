@@ -12,7 +12,7 @@
   display: flex;
   border: black solid 0.15rem;
   border-radius: 1rem;
-  margin: 7rem;
+  margin: 5rem;
   justify-content: center;
   align-items: center;
 }
@@ -333,11 +333,12 @@ footer.website_footer{
   .trip-page_header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: stretch;
-    gap: 0.5rem;
+    gap: 0.5rem; 
     border: none;
     size: auto;
+   padding: 1rem;
   }
 
   .trip-page_header :nth-child(1) {
