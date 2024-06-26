@@ -78,10 +78,10 @@ function getUserIdFromToken() {
 
   
 
-document.getElementById('logout').addEventListener('click', function() {
-    localStorage.removeItem('token');
-    window.location.href = 'login.html';
-});
+// document.getElementById('logout').addEventListener('click', function() {
+//     localStorage.removeItem('token');
+//     window.location.href = 'login.html';
+// });
 
 document.getElementById('profilForm').addEventListener('submit', (event) => {
     event.preventDefault();

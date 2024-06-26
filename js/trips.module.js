@@ -85,7 +85,7 @@ listenToSubmitOnAddTripForm();
 function listenToSubmitOnUpdateTripForm() {
   const updateTripForm = document.querySelector('#update-trip_form');
   updateTripForm.addEventListener('submit', async function(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
  // Sélectionner l'élément qui contient l'ID du voyage
 const tripCardContent = document.querySelector('[data-trip-id]');

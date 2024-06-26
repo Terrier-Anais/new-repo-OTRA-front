@@ -23,9 +23,9 @@ body, html {
     padding: 0;
     background: url("../pictures/plage2.jpg") no-repeat center center fixed;
     background-size: cover;
-    /* scroll-snap-type: y mandatory; */
-    /* scroll-behavior: smooth; */
-    min-height: 100%;
+    /* scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;  */
+    min-height: 100%; 
 }
 
 .website_header {
@@ -160,12 +160,12 @@ img {
     }
 
     .website_header a img  {
-    max-width: 100%; /* Assure que l'image ne dépasse pas la largeur du parent */
-    height: auto; /* Permet à la hauteur de l'image de s'ajuster proportionnellement */
+    max-width: 100%; 
+    height: auto; 
   }
   .website_header .left {
     margin-bottom: 10px;
-    text-align: right; /* Aligne le contenu au centre */
+    text-align: right; 
   }
  
 
