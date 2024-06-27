@@ -54,7 +54,7 @@ body, html {
   /* padding-right: 1rem; */
 }
 
-.website_header .right span {
+.website_header .right button {
     margin: 0 1rem;
     border: 2px solid black;
     padding: 0.5rem;
@@ -63,7 +63,7 @@ body, html {
     cursor: pointer;
 }
 
-.website_header .right span:hover {
+.website_header .right button:hover {
     background-color: var(--btn-hover-bg-color);
 }
 

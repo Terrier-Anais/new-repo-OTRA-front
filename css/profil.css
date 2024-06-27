@@ -6,8 +6,6 @@ body {
     min-height: 100vh;
 }
 
-
-
 main {
     display: flex;
     justify-content: center;
@@ -87,3 +85,4 @@ a {
     background-color: #7E8EC8;
     cursor: pointer;
 }
+

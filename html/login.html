@@ -1,78 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>On the road again</title>
+    <title>On the Road Again - Connexion</title>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/login.css" />
     <script defer src="../js/app.js"></script>
     <script defer src="../js/login.js"></script>
-  </head>
-  <body>
-  <header class="website_header">
-    <div class="left">
-      <img src="../pictures/logo.png" alt="logo du site en forme d'appareil photo"/>
-      <h1>On the road again</h1>
-    </div>
-    <div class="right">
-      <!--right est la classe qui permet de positionner les éléments à droite-->
-      <span id="connection">Se connecter</span>
-      <span id="registration">S'inscrire</span>
-    </div>
-  </header>
+</head>
+<body>
   <main>
-    <div class="container_login_box">
-      <!--main-container est la classe qui permet de positionner les éléments au centre-->
-      <div class="login_box">
-        <div class="login_picture">
-          <!--image-container est la classe qui permet de positionner les éléments à gauche-->
-          <img
-            src="../pictures/douane.webp"
-            alt="Une personne presente son passeport a un homme de loi"
-          />
+    <header class="website_header">
+        <div class="left">
+            <img src="../pictures/logo.png" alt="Logo du site en forme d'appareil photo" />
+            <h1>On the Road Again</h1>
         </div>
-        <div class="login_form">
-          <!--login-form est la classe qui permet de positionner les éléments à droite-->
-          <h2>Connexion</h2>
-          <form id="loginForm" action="" method="POST">
-            <label for="username">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Votre email"
-              required
-            />
-            <label for="password">Mot de passe</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Votre mot de passe"
-              required
-            />
-            <!--type="password" est le type de champ de saisie, id="password" est l'identifiant du champ de saisie, name="password" est le nom du champ de saisie, placeholder="Votre mot de passe" est le texte qui s'affiche dans le champ de saisie, required est un attribut qui indique que le champ de saisie est obligatoire-->
-            <a href="#Mot de passe oublié ">Mot de passe oublié ?</a>
-            <!--href="#Mot de passe oublié ?" est l'adresse à laquelle l'utilisateur sera redirigé lorsqu'il cliquera sur le lien-->
-            <button type="submit">Se connecter</button>
-            <!--type="submit" est le type de bouton qui permet d'envoyer les données du formulaire-->
-          </form>
+        <nav class="right">
+            <button id="connection" aria-label="Se connecter">Se connecter</button>
+            <button id="registration" aria-label="S'inscrire">S'inscrire</button>
+        </nav>
+    </header>
+        <div class="container_login_box">
+            <div class="login_box">
+                <div class="login_picture">
+                    <img src="../pictures/douane.webp" alt="Une personne présente son passeport à un homme de loi" />
+                </div>
+                <div class="login_form">
+                    <h2>Connexion</h2>
+                    <form id="loginForm" action="" method="POST">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required />
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" placeholder="Votre mot de passe" required />
+                        <a href="#forgot-password">Mot de passe oublié ?</a>
+                        <button type="submit">Se connecter</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
     <footer class="website_footer">
-      <div class="footer_content">
-          <p>&copy; 2024 On the road again. Tous droits réservés.</p>
-          <!-- <nav class="footer_nav">
-              <a href="#firstSection">Accueil</a>
-              <a href="#secondSection">Découvrir</a>
-              <a href="#thirdSection">Albums</a>
-              <a href="#contact">Contact</a>
-          </nav> -->
-      </div>
-  </footer>
-  </body>
+        <div class="footer_content">
+            <p>&copy; 2024 On the Road Again</p>
+        </div>
+    </footer>
+</body>
 </html>

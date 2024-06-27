@@ -172,3 +172,46 @@ listenToSubmitOnAddVisitForm() ;
 fetchAndDisplayVisits(tripId); 
 
 
+ function listenToSubmitOnUpdateVisitForm() {
+    const updateVisitForm = document.querySelector('#update-visit_form');
+    updateVisitForm.addEventListener('submit', async function(event) {
+    // event.preventDefault();
+  
+  const visitCardContent = document.querySelector('[data-visit-id]');
+    console.log(visitCardContent);
+
+  const VisitId = visitCardContent.getAttribute('data-visit-id');
+  // console.log(tripId); 
+
+  const updatedVisitData = Object.fromEntries(new FormData(updateVisitForm));
+  
+ 
+  const updatedVisit = await updateVisit(visitId, updatedVisitData);
+    // console.log (updatedTrip);
+      if (updatedVisit) {
+        location.reload(); // Refresh the page to reflect changes
+      } else {
+      return;
+    }
+    updateVisitForm.reset();
+    });
+  }
+  listenToSubmitOnUpdateVisitForm();
+  
+//   fetchAndDisplayTrips();
+  
+  function listenToDeleteVisitButton(){
+    document.querySelector('.visit-container').addEventListener('click', function(event) {
+      const button = event.target.closest('.delete-visit_button');
+      if (button) {
+        const visitId = button.getAttribute('data-visit-id');
+    console.log(visitId);
+      deleteVisit(visitId);
+      location.reload();
+      }
+    }
+    );
+  }
+  listenToDeleteVisitButton();
+  
+  
