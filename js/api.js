@@ -177,7 +177,7 @@ export async function createVisit(visitData, tripId) {
   }
   // END CHECK PHOTO
 tripId = localStorage.getItem('tripId');
-console.log('Youpi', visitData);
+console.log('check okay', visitData);
 try {
 const response = await fetch(`http://localhost:3000/api/me/trips/${tripId}/visit`, {
 method: 'POST',

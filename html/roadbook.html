@@ -4,26 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>On The Road Again</title>
-    <!--Ajout des CSS-->
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/roadbook.css" />
 
-    <!--Ajout d'icone fontawesome-->
     <script
     src="https://kit.fontawesome.com/8fabed898f.js"
     crossorigin="anonymous"
     ></script>
-    <!--Ajout du JS-->
+  
     <script type="module" src ="../js/api.js" defer></script>
     <script type="module" src ="../js/trips.module.js" defer></script>
     <script type="module" src ="../js/visits.module.js" defer></script>
     <script type="module" src="../js/roadbook.js" defer></script>
     <script type="module" src="../js/picture.js" defer></script> 
-    <!-- <script type="module" src="../js/home.js" defer></script>  -->
+
 </head>
 <body>
-    <!--Header de la page web-->
     <header class="website_header">
         <div class="left">
             <a href="roadbook.html">
@@ -35,14 +32,8 @@
             <button id="pseudo">Profil</button>
             </div>
     </header>
-    
-    <!--Contenu de la page roadbook-->
     <main class="trip-page">
-
-        
-        <!--Header du contenu-->
         <header class="trip-page_header">
-            <!--Menu déroulant-->
             <div class="trip-page_menu">
                 <select id="menu_choice" onchange="window.location.href=this.value;">
                     <option value="" hidden>Menu</option>
@@ -65,18 +56,13 @@
                 </select>
             </div>    -->
         </header>
-        
-        <!--Bloc contenant les voyages-->
         <section class="roadbook_container">
-            <!--Bouton d'ajout d'un nouveau voyage-->
             <div class="trip-card_content">
                 <div class="trip_add">
                     <h3>Ajouter un voyage</h3>
                     <button id="add-new-trip" type="button">+</button>
                 </div>
             </div>
-            
-            <!--Création de la modale d'ajout d'un nouveau voyage-->
             <div class="modal_new-trip">
                 <div class="overlay_modal_trigger"></div>
                 <div class="modal_content_new-trip">
@@ -122,8 +108,6 @@
                     </form>
                 </div>
             </div> 
-            
-            <!--Création de la modale de modification d'un voyage-->
             <div class="modal_update-trip">
                 <div class="overlay_modal_trigger"></div>
                 <div class="modal_content_update-trip">
@@ -169,8 +153,6 @@
                     </form>
                 </div>
             </div> 
-            
-            <!--Template d'une card de voyage-->
             <template id="trip-card-template">
                 <div class="trip-card_content" slot="trip-id">
                     <div class="trip-details">

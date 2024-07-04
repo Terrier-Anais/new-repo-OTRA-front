@@ -46,14 +46,14 @@
 .login_form label {
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 0.5; /* Espace entre le label et le champ */
+  margin-bottom: 0.5;
   
 }
 
 .login_form input {
   width: 100%;
   padding: 5px;
-  margin-bottom: 1rem; /* Espace entre les champs */
+  margin-bottom: 1rem; 
   border: 1px solid #ccc;
   border-radius: 0.25rem;
 }
@@ -78,8 +78,8 @@
 
 .login_form a {
   display: block;
-  margin-bottom: 1rem; /* Espace avant le bouton */
-  text-align: center; /* Centrer le lien */
+  margin-bottom: 1rem;
+  text-align: center; 
 }
 
 @media (max-width: 768px) {

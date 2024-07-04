@@ -27,7 +27,7 @@
 
   <main class="trip-details">
     <header class="trip-page_header">
-      <!-- Menu déroulant -->
+   
       <div class="trip-page_menu">
         <select id="menu_choice" onchange="window.location.href=this.value;">
           <option value="" hidden>Menu</option>
@@ -36,8 +36,6 @@
           <option value="home.html">Déconnexion</option>
         </select>
       </div>
-
-      <!-- Titre -->
       <div class="trip-page_title">
         <h2 class="main_title">Mon voyage</h2>
       </div>
@@ -106,7 +104,7 @@
         </div>
       </div>
 
-      <!-- Création de la modale de modification d'une nouvelle visite -->
+     
       <div id="modal_update-visit">
         <div class="overlay_modal_trigger"></div>
         <div class="modal_content_update-visit">
@@ -133,7 +131,7 @@
         </div>
       </div>
 
-      <!-- Création de la modale d'ajout de photos -->
+   
       <div id="modal_add-photos">
         <div class="overlay_modal_trigger"></div>
         <div class="modal_content_add-photos">
@@ -147,7 +145,7 @@
         </div>
       </div>
 
-      <!-- Template d'une visite -->
+   
       <template id="visit-details_template">
         <div class="visit-details" slot="visit">
           <div class="city-details">
@@ -184,8 +182,6 @@
           </div>
         </div>
       </template>
-
-      <!-- Template for adding photos -->
       <template id="visit-photo_template">
         <div class="visit-photo"><img class="photo" slot="visit-photo" src="" alt="photo de  la visite" /></div>
       </template> 

@@ -1,15 +1,14 @@
 const form = document.getElementById('loginForm');
 
 form.addEventListener('submit', async function(event) {
-    event.preventDefault(); // Empêche la soumission par défaut du formulaire
+    event.preventDefault(); // Stop send submission by default
 
-    // Récupère les valeurs des champs du formulaire
+    // recover information
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
   
     console.log(email, password);
 
-    // Crée un objet de données pour la requête
     const formData = {
         email: email,
         password: password,

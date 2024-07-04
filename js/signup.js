@@ -1,9 +1,8 @@
 const form = document.getElementById('signinForm');
 
 form.addEventListener('submit', async function(event) {
-    event.preventDefault(); // Empêche la soumission par défaut du formulaire
+    event.preventDefault();
 
-    // Récupère les valeurs des champs du formulaire
     const email = document.getElementById('email').value;
     const lastname = document.getElementById('surname').value;
     const firstname = document.getElementById('name').value;
@@ -11,27 +10,24 @@ form.addEventListener('submit', async function(event) {
     const password = document.getElementById('password').value;
     const confirmation = document.getElementById('confirmation').value;
 
-    // Vérification de l'email
+    // verify email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         alert('Veuillez entrer une adresse email valide.');
         return;
     }
 
-    // Vérification du mot de passe
+    // verify password
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(password)) {
         alert('Le mot de passe doit comporter au moins 8 caractères, dont une majuscule, un chiffre et un caractère spécial.');
         return;
     }
-
-    // Vérification de la confirmation du mot de passe
     if (password !== confirmation) {
         alert('Les mots de passe ne correspondent pas.');
         return;
     }
-
-    // Crée un objet de données pour la requête
+    
     const formData = {
         email: email,
         lastname: lastname,

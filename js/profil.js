@@ -29,9 +29,9 @@ async function updateProfile(userId) {
     };
 
     // if (userData.password !== document.getElementById('confirmation').value) {
-    //     alert('Les mots de passe ne correspondent pas.');
-    //     return;
-    // }
+    //      alert('Les mots de passe ne correspondent pas.');
+    //      return;
+    //  }
 
     try {
         const response = await fetch(`${apiBaseUrl}/profil/${userId}`, {
@@ -75,13 +75,6 @@ function getUserIdFromToken() {
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload.id;
 }
-
-  
-
-// document.getElementById('logout').addEventListener('click', function() {
-//     localStorage.removeItem('token');
-//     window.location.href = 'login.html';
-// });
 
 document.getElementById('profilForm').addEventListener('submit', (event) => {
     event.preventDefault();
